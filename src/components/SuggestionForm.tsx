@@ -27,12 +27,6 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
     setEssays(newEssays);
   };
 
-  const encode = (data: any) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  }
-
   if (isSubmitted) {
     return (
       <div className="max-w-2xl mx-auto">
@@ -48,25 +42,24 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
   return (
     <div className="max-w-2xl mx-auto">
       <form
+        name="suggestions"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
         onSubmit={(e) => {
           e.preventDefault();
           setIsSubmitting(true);
 
-          const formData = {
-            "form-name": "suggestions",
-            authorName,
-            submitterTwitter,
-            ...essays.reduce((acc, essay, index) => ({
-              ...acc,
-              [`essayTitle${index}`]: essay.title,
-              [`essayUrl${index}`]: essay.url,
-            }), {})
-          };
+          const formData = new FormData(e.target as HTMLFormElement);
+          formData.append("form-name", "suggestions");
+          essays.forEach((essay, index) => {
+            formData.append(`essayTitle${index}`, essay.title);
+            formData.append(`essayUrl${index}`, essay.url);
+          });
 
           fetch("/", {
             method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: encode(formData)
+            body: formData
           })
             .then(() => setIsSubmitted(true))
             .catch(error => console.error(error))
@@ -74,6 +67,9 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
         }}
         className="space-y-6"
       >
+        <input type="hidden" name="form-name" value="suggestions" />
+        <input type="hidden" name="bot-field" />
+        
         <div className="rounded-lg overflow-hidden bg-black border-2 border-white/20 p-6">
           <div className="space-y-4">
             <div>

@@ -16,6 +16,18 @@
     </script>
   </head>
   <body>
+    <!-- A hidden form that Netlify can detect -->
+    <form name="suggestions" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="bot-field" />
+      <input type="text" name="authorName" />
+      <input type="text" name="submitterTwitter" />
+      <input type="text" name="essayTitle0" />
+      <input type="url" name="essayUrl0" />
+      <input type="text" name="essayTitle1" />
+      <input type="url" name="essayUrl1" />
+      <input type="text" name="essayTitle2" />
+      <input type="url" name="essayUrl2" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
