@@ -27,6 +27,12 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
     setEssays(newEssays);
   };
 
+  const encode = (data: any) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
+
   if (isSubmitted) {
     return (
       <div className="max-w-2xl mx-auto">
@@ -42,29 +48,32 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
   return (
     <div className="max-w-2xl mx-auto">
       <form
-        name="suggestions"
-        method="POST"
-        data-netlify="true"
         onSubmit={(e) => {
           e.preventDefault();
           setIsSubmitting(true);
-          // @ts-ignore
-          const form = e.target;
+
+          const formData = {
+            "form-name": "suggestions",
+            authorName,
+            submitterTwitter,
+            ...essays.reduce((acc, essay, index) => ({
+              ...acc,
+              [`essayTitle${index}`]: essay.title,
+              [`essayUrl${index}`]: essay.url,
+            }), {})
+          };
+
           fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(new FormData(form) as any).toString(),
+            body: encode(formData)
           })
-            .then(() => {
-              setIsSubmitted(true);
-            })
-            .catch((error) => console.error(error))
+            .then(() => setIsSubmitted(true))
+            .catch(error => console.error(error))
             .finally(() => setIsSubmitting(false));
         }}
         className="space-y-6"
       >
-        <input type="hidden" name="form-name" value="suggestions" />
-        
         <div className="rounded-lg overflow-hidden bg-black border-2 border-white/20 p-6">
           <div className="space-y-4">
             <div>
