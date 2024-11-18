@@ -1,0 +1,815 @@
+export const bloggers = [
+  {
+    name: "Andy Matuschak",
+    image: "",
+    bio: "I'm an applied researcher, focused on creating user interfaces that expand what people can think and do.",
+    website: "https://andymatuschak.org/",
+    twitter: "andy_matuschak",
+    essays: [
+      {
+        title: "How Might We Work?",
+        url: "https://andymatuschak.org/hmwl"
+      },
+      {
+        title: "How Can We Develop Transformative Tools for Thought?",
+        url: "https://numinous.productions/ttft/"
+      },
+      {
+        title: "Why Books Don't Work",
+        url: "https://andymatuschak.org/books/"
+      }
+    ],
+    bgColor: "bg-slate-900/30",
+    textColor: "text-slate-100",
+    borderColor: "border-slate-700/50"
+  },
+  {
+    name: "Graham Duncan",
+    image: "",
+    bio: "Co-founder of East Rock Capital, writing about talent evaluation, investing, and personal development.",
+    website: "https://grahamduncan.blog/",
+    twitter: "GrahamDuncanNYC",
+    essays: [
+      {
+        title: "Letter to a Friend Who Just Made a Lot of Money",
+        url: "https://grahamduncan.blog/letter-to-a-friend-who-just-made-a-lot-of-money/"
+      },
+      {
+        title: "The Infinite Game I Try to Play",
+        url: "https://grahamduncan.blog/the-infinite-game-i-try-to-play/"
+      },
+      {
+        title: "Current Questions I Find Interesting",
+        url: "https://grahamduncan.blog/current-questions-i-find-interesting/"
+      }
+    ],
+    bgColor: "bg-slate-900/30",
+    textColor: "text-slate-100",
+    borderColor: "border-slate-700/50"
+  },
+  {
+    name: "Tyler Cowen",
+    image: "",
+    bio: "Economist and writer exploring markets, culture, and human progress at Marginal Revolution.",
+    website: "https://marginalrevolution.com/",
+    twitter: "tylercowen",
+    essays: [
+      {
+        title: "Do Consumers Hate Online Ads?",
+        url: "https://marginalrevolution.com/marginalrevolution/2024/08/do-consumers-hate-on-line-ads.html"
+      },
+      {
+        title: "Risers and Fallers, Mostly Fallers",
+        url: "https://marginalrevolution.com/marginalrevolution/2024/10/risers-and-fallers-mostly-fallers.html"
+      },
+      {
+        title: "Tyler Cowen's 12 Rules for Life",
+        url: "https://marginalrevolution.com/marginalrevolution/2018/01/tyler-cowens-12-rules-life.html"
+      }
+    ],
+    bgColor: "bg-indigo-900/30",
+    textColor: "text-indigo-100",
+    borderColor: "border-indigo-700/50"
+  },
+  {
+    name: "Marc Andreessen",
+    image: "",
+    bio: "Co-founder of Andreessen Horowitz, writing about technology, startups, and the future.",
+    website: "https://pmarchive.com/",
+    twitter: "pmarca",
+    essays: [
+      {
+        title: "The Psychology of Entrepreneurial Misjudgement",
+        url: "https://pmarchive.com/psychology_of_entrepreneurial_misjudgment.html"
+      },
+      {
+        title: "The Only Thing That Matters",
+        url: "https://pmarchive.com/guide_to_startups_part4.html"
+      },
+      {
+        title: "Guide to Personal Productivity",
+        url: "https://pmarchive.com/guide_to_personal_productivity.html"
+      }
+    ],
+    bgColor: "bg-violet-900/30",
+    textColor: "text-violet-100",
+    borderColor: "border-violet-700/50"
+  },
+  {
+    name: "Packy McCormick",
+    image: "",
+    bio: "Writer of Not Boring, exploring business strategy, crypto, and the future of technology.",
+    website: "https://www.notboring.co/",
+    twitter: "packyM",
+    essays: [
+      {
+        title: "The Great Online Game",
+        url: "https://www.notboring.co/p/the-great-online-game"
+      },
+      {
+        title: "Power to the Person",
+        url: "https://www.notboring.co/p/power-to-the-person"
+      },
+      {
+        title: "The Value Chain of the Open Metaverse",
+        url: "https://www.notboring.co/p/the-value-chain-of-the-open-metaverse"
+      }
+    ],
+    bgColor: "bg-rose-900/30",
+    textColor: "text-rose-100",
+    borderColor: "border-rose-700/50"
+  },
+  {
+    name: "Bret Victor",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+    bio: "Designer, engineer, and researcher exploring new ways to understand and create.",
+    website: "https://worrydream.com/",
+    essays: [
+      {
+        title: "Learnable Programming",
+        url: "https://worrydream.com/LearnableProgramming/"
+      },
+      {
+        title: "Up and Down the Ladder of Abstraction",
+        url: "https://worrydream.com/LadderOfAbstraction/"
+      },
+      {
+        title: "What Can Technologists Do About Climate Change?",
+        url: "https://worrydream.com/ClimateChange/"
+      }
+    ],
+    bgColor: "bg-amber-900/30",
+    textColor: "text-amber-100",
+    borderColor: "border-amber-700/50"
+  },
+  {
+    name: "Michael Nielsen",
+    image: "",
+    bio: "I'm a scientist. I helped pioneer quantum computing and the modern open science movement. I also have a strong side interest in artificial intelligence. All are part of a broader interest in ideas and tools that help people think and create, both individually and collectively.",
+    website: "https://michaelnielsen.org/",
+    twitter: "michael_nielsen",
+    essays: [
+      {
+        title: "Augmenting Long-term Memory",
+        url: "https://augmentingcognition.com/ltm.html"
+      },
+      {
+        title: "How the Bitcoin Protol Actually Works",
+        url: "https://michaelnielsen.org/ddi/how-the-bitcoin-protocol-actually-works/"
+      },
+      {
+        title: "Is There a Tension Between Creativity and Accuracy?",
+        url: "https://michaelnielsen.org/blog/is-there-a-tension-between-creativity-and-accuracy/"
+      }
+    ],
+    bgColor: "bg-lime-900/30",
+    textColor: "text-lime-100",
+    borderColor: "border-lime-700/50"
+  },
+  {
+    name: "Paul Graham",
+    image: "",
+    bio: "Co-founder of Y Combinator, writing about startups, programming, and life philosophy.",
+    website: "https://www.paulgraham.com/articles.html",
+    twitter: "paulg",
+    essays: [
+      {
+        title: "What You Can't Say",
+        url: "https://www.paulgraham.com/say.html"
+      },
+      {
+        title: "Founder Mode",
+        url: "https://www.paulgraham.com/foundermode.html"
+      },
+      {
+        title: "Do Things that Don't Scale",
+        url: "https://www.paulgraham.com/ds.html"
+      }
+    ],
+    bgColor: "bg-blue-900/30",
+    textColor: "text-blue-100",
+    borderColor: "border-blue-700/50"
+  },
+  {
+    name: "Kevin Kelly",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+    bio: "Founding editor of Wired, exploring technology, culture, and future trends.",
+    website: "https://kk.org/thetechnium/",
+    twitter: "kevin2kelly",
+    essays: [
+      {
+        title: "1,000 True Fans",
+        url: "https://kk.org/thetechnium/1000-true-fans/"
+      },
+      {
+        title: "You Are Not Late",
+        url: "https://kk.org/thetechnium/you-are-not-late/"
+      },
+      {
+        title: "Better Than Free",
+        url: "https://kk.org/thetechnium/better-than-fre/"
+      }
+    ],
+    bgColor: "bg-sky-900/30",
+    textColor: "text-sky-100",
+    borderColor: "border-sky-700/50"
+  },
+  {
+    name: "Patrick Collison",
+    image: "",
+    bio: "Co-founder of Stripe, writing about progress, science, and technology.",
+    website: "https://patrickcollison.com/about",
+    twitter: "patrickc",
+    essays: [
+      {
+        title: "Fast",
+        url: "https://patrickcollison.com/fast"
+      },
+      {
+        title: "Growth",
+        url: "https://patrickcollison.com/growth"
+      },
+      {
+        title: "Questions",
+        url: "https://patrickcollison.com/questions"
+      }
+    ],
+    bgColor: "bg-purple-900/30",
+    textColor: "text-purple-100",
+    borderColor: "border-purple-700/50"
+  },
+  {
+    name: "Joe Carlsmith",
+    image: "",
+    bio: "Philosopher and researcher writing about consciousness, AI safety, and ethics.",
+    website: "https://joecarlsmith.com/",
+    twitter: "joe_carlsmith",
+    essays: [
+      {
+        title: "Actually Possible: Thoughts on Utopia",
+        url: "https://joecarlsmith.com/2021/01/18/actually-possible-thoughts-on-utopia"
+      },
+      {
+        title: "On Infinite Ethics",
+        url: "https://joecarlsmith.com/2022/01/30/on-infinite-ethics"
+      },
+      {
+        title: "Against Neutrality About Creating Happy Lives",
+        url: "https://joecarlsmith.com/2021/03/14/against-neutrality-about-creating-happy-lives"
+      }
+    ],
+    bgColor: "bg-neutral-900/30",
+    textColor: "text-neutral-100",
+    borderColor: "border-neutral-700/50"
+  },
+  {
+    name: "Holden Karnofsky",
+    image: "",
+    bio: "Visiting scholar at the Carnegie Endowment for International Peace. I previously co-founded and ran Open Philanthropy and GiveWell.",
+    website: "https://www.cold-takes.com/",
+    essays: [
+      {
+        title: "The Most Important Century (series)",
+        url: "https://www.cold-takes.com/most-important-century/"
+      },
+      {
+        title: "Has Life Gotten Better",
+        url: "https://www.cold-takes.com/p/e7960cbf-baa6-4f75-a4b9-6506d99b0acd/"
+      },
+      {
+        title: "Summary of History (empowerment & well-being lens)",
+        url: "https://www.cold-takes.com/summary-of-history-empowerment-and-well-being-lens/"
+      }
+    ],
+    bgColor: "bg-neutral-900/30",
+    textColor: "text-neutral-100",
+    borderColor: "border-neutral-700/50"
+  },
+  {
+    name: "Herman Martinus",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+    bio: "I write words, ride bikes, climb mountains, and make things.",
+    website: "https://herman.bearblog.dev/",
+    essays: [
+      {
+        title: "The Frustration Loop",
+        url: "https://herman.bearblog.dev/the-frustration-loop/"
+      },
+      {
+        title: "Building Software to Last Forever",
+        url: "https://herman.bearblog.dev/building-software-to-last-forever"
+      },
+      {
+        title: "My Product is my Garden",
+        url: "https://herman.bearblog.dev/my-product-is-my-garden/"
+      }
+    ],
+    bgColor: "bg-neutral-900/30",
+    textColor: "text-neutral-100",
+    borderColor: "border-neutral-700/50"
+  },
+  // Newly added bloggers
+  {
+    name: "Grant Slatton",
+    image: "",
+    bio: "Software engineer and writer exploring mathematics, programming, and complex systems.",
+    website: "https://grantslatton.com/",
+    essays: [
+      {
+        title: "Mental Models",
+        url: "https://grantslatton.com/mental-models/"
+      },
+      {
+        title: "Software Engineering",
+        url: "https://grantslatton.com/software-engineering/"
+      },
+      {
+        title: "Mathematics",
+        url: "https://grantslatton.com/mathematics/"
+      }
+    ],
+    bgColor: "bg-slate-900/30",
+    textColor: "text-slate-100",
+    borderColor: "border-slate-700/50"
+  },
+  {
+    name: "Ben Thompson",
+    image: "",
+    bio: "Writer and researcher, creator of Evergreen notes and knowledge management systems.",
+    website: "https://stratechery.com/",
+    twitter: "benthompson",
+    essays: [
+      {
+        title: "Aggregation Theory",
+        url: "https://stratechery.com/2015/aggregation-theory/"
+      },
+      {
+        title: "The End of the Beginning",
+        url: "https://stratechery.com/2020/the-end-of-the-beginning/"
+      },
+      {
+        title: "Enterprise Philosophy and The First Wave of AI",
+        url: "https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/"
+      }
+    ],
+    bgColor: "bg-zinc-900/30",
+    textColor: "text-zinc-100",
+    borderColor: "border-zinc-700/50"
+  },
+  {
+    name: "Venkatesh Rao",
+    image: "",
+    bio: "Writer of Ribbonfarm, exploring technology, organizations, and human behavior.",
+    website: "https://www.ribbonfarm.com/",
+    twitter: "vgr",
+    essays: [
+      {
+        title: "The Gervais Principle",
+        url: "https://www.ribbonfarm.com/the-gervais-principle/"
+      },
+      {
+        title: "Breaking Smart",
+        url: "https://breakingsmart.com/"
+      },
+      {
+        title: "Tempo",
+        url: "https://www.ribbonfarm.com/tempo/"
+      }
+    ],
+    bgColor: "bg-stone-900/30",
+    textColor: "text-stone-100",
+    borderColor: "border-stone-700/50"
+  },
+  {
+    name: "Amjad Masad",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
+    bio: "CEO of Replit, writing about programming, education, and developer tools.",
+    website: "https://amasad.me/",
+    twitter: "amasad",
+    essays: [
+      {
+        title: "Learning to Fight",
+        url: "https://amasad.me/fight"
+      },
+      {
+        title: "Civilization Primitives",
+        url: "https://amasad.me/networks"
+      },
+      {
+        title: "Do What Makes the Best Story",
+        url: "https://amasad.me/story"
+      }
+    ],
+    bgColor: "bg-teal-900/30",
+    textColor: "text-teal-100",
+    borderColor: "border-teal-700/50"
+  },
+  {
+    name: "Nivi",
+    image: "",
+    bio: "Co-founder of AngelList, writing about startups, investing, and technology.",
+    website: "https://nivi.com/",
+    twitter: "nivi",
+    essays: [
+      {
+        title: "The Totalitarianism of Knowledge",
+        url: "https://nivi.com/totalitarianism"
+      },
+      {
+        title: "What is Creativity?",
+        url: "https://nivi.com/creativity"
+      },
+      {
+        title: "Is Now All There Ss?",
+        url: "https://nivi.com/now"
+      }
+    ],
+    bgColor: "bg-fuchsia-900/30",
+    textColor: "text-fuchsia-100",
+    borderColor: "border-fuchsia-700/50"
+  },
+  {
+    name: "Molson Hart",
+    image: "",
+    bio: "CEO of Viahart, writing about entrepreneurship, Amazon, and the toy industry.",
+    website: "https://www.molsonhart.com/blog",
+    twitter: "molson_hart",
+    essays: [
+      {
+        title: "Why We Shouldn't Buy the Dip",
+        url: "https://www.molsonhart.com/amazon-success"
+      },
+      {
+        title: "Richard the Great",
+        url: "https://www.molsonhart.com/blog/richard-the-great"
+      },
+      {
+        title: "Victim of Your Own Success Syndrome",
+        url: "https://www.molsonhart.com/blog/8hr41ggabv9ok0tpp94f5om7ib7epd"
+      }
+    ],
+    bgColor: "bg-emerald-900/30",
+    textColor: "text-emerald-100",
+    borderColor: "border-emerald-700/50"
+  },
+  {
+    name: "Cassidy Williams",
+    image: "",
+    bio: "Software Engineer in Chicago. Sr. Director of Dev Advocacy at Github.",
+    website: "https://cassidoo.co/",
+    twitter: "cassidoo",
+    essays: [
+      {
+        title: "Building the Micro Journal",
+        url: "https://cassidoo.co/post/micro-journal/"
+      },
+      {
+        title: "I Miss Human Curation",
+        url: "https://cassidoo.co/post/human-curation/"
+      },
+      {
+        title: "Follow Your Dreams (literally)",
+        url: "https://cassidoo.co/post/scrabble-keyboard/"
+      }
+    ],
+    bgColor: "bg-orange-900/30",
+    textColor: "text-orange-100",
+    borderColor: "border-orange-700/50"
+  },
+  {
+    name: "Matt Webb",
+    image: "",
+    bio: "Technology consultant and writer exploring interconnected systems and innovation.",
+    website: "https://interconnected.org/home/",
+    twitter: "interconnected",
+    essays: [
+      {
+        title: "New Rules for the New Normal",
+        url: "https://interconnected.org/home/2020/04/02/new_rooms"
+      },
+      {
+        title: "A General Theory of Magic",
+        url: "https://interconnected.org/home/2011/01/09/a_general_theory_of_magic"
+      },
+      {
+        title: "Thinking About the Emerging Landscape of AI Hardware Products",
+        url: "https://interconnected.org/home/2024/01/26/hardware"
+      }
+    ],
+    bgColor: "bg-cyan-900/30",
+    textColor: "text-cyan-100",
+    borderColor: "border-cyan-700/50"
+  },
+  {
+    name: "Tobi Lütke",
+    image: "", // Add your image link here
+    bio: "Shopify CEO by day, Dad in evening, hacker at night. Aspiring comprehensivist",
+    website: "https://tobi.lutke.com/",
+    twitter: "tobi",
+    essays: [
+      {
+        title: "In Support of Free Speech",
+        url: "https://tobi.lutke.com/blogs/news/in-support-of-free-speech-update"
+      },
+      {
+        title: "The Future Role of Human Excellence",
+        url: "https://tobi.lutke.com/blogs/news/the-future-role-of-human-excellence"
+      },
+      {
+        title: "Good at Making Decisions",
+        url: "https://tobi.lutke.com/blogs/news/11280225-good-at-making-decisions"
+      }
+    ],
+    bgColor: "bg-slate-900/30",
+    textColor: "text-slate-100",
+    borderColor: "border-slate-700/50"
+  },
+  {
+    name: "Benedict Evans",
+    image: "", // Add your image link here
+    bio: "Tech analyst covering trends in technology, media, and telecommunications.",
+    website: "https://www.ben-evans.com/newsletter",
+    twitter: "benedictevans",
+    essays: [
+      {
+        title: "AI and the Automation of Work",
+        url: "https://www.ben-evans.com/benedictevans/2023/7/2/working-with-ai"
+      },
+      {
+        title: "In Praise of Failure",
+        url: "https://www.ben-evans.com/benedictevans/2016/4/28/winning-and-losing"
+      },
+      {
+        title: "Not Even Wrong: ways to predict technology",
+        url: "https://www.ben-evans.com/benedictevans/2020/5/16/not-even-wrong"
+      }
+    ],
+    bgColor: "bg-teal-900/30",
+    textColor: "text-teal-100",
+    borderColor: "border-teal-700/50"
+  },
+  {
+    name: "Shane Parrish",
+    image: "", // Add your image link here
+    bio: "Mastering the best of what other people have already figured out.",
+    website: "https://fs.blog/being-alone/",
+    twitter: "ShaneAParrish",
+    essays: [
+      {
+        title: "The Art of Being Alone",
+        url: "https://fs.blog/being-alone/"
+      },
+      {
+        title: "Being Smart is Not Enough",
+        url: "https://fs.blog/being-smart-is-not-enough/"
+      },
+      {
+        title: "The Mental Models of Military and War",
+        url: "https://fs.blog/mental-models/#military_and_war"
+      }
+    ],
+    bgColor: "bg-amber-900/30",
+    textColor: "text-amber-100",
+    borderColor: "border-amber-700/50"
+  },
+  {
+    name: "Gwern",
+    image: "", // Add your image link here
+    bio: "I write about AI, psychology, & statistics. I am best known for my writings about DL scaling, poetry & anime neural networks, darknet markets & Bitcoin, blinded self-experiments, and dual n-back & spaced repetition.",
+    website: "https://gwern.net/",
+    twitter: "jessefarmer",
+    essays: [
+      {
+        title: "Bitcoin is Worse is Better",
+        url: "https://gwern.net/bitcoin-is-worse-is-better"
+      },
+      {
+        title: "Everything is Correladed",
+        url: "https://gwern.net/everything"
+      },
+      {
+        title: "On Being Sick as a Kid",
+        url: "https://gwern.net/note/note#on-being-sick-as-a-kid"
+      }
+    ],
+    bgColor: "bg-orange-900/30",
+    textColor: "text-orange-100",
+    borderColor: "border-orange-700/50"
+  },
+  {
+    name: "Lenny Rachitsky",
+    image: "", // Add your image link here
+    bio: "Product and growth expert, providing insights on scaling products and achieving product-market fit.",
+    website: "https://www.lennysnewsletter.com/",
+    twitter: "lennysan",
+    essays: [
+      {
+        title: "How the Biggest Consumer Apps Got Their First 1,000 Users",
+        url: "https://www.lennysnewsletter.com/p/how-the-biggest-consumer-apps-got"
+      },
+      {
+        title: "500,000",
+        url: "https://www.lennysnewsletter.com/p/500000"
+      },
+      {
+        title: "Raising a Seed Round 101",
+        url: "https://www.lennysnewsletter.com/p/raising-a-seed-round-101"
+      }
+    ],
+    bgColor: "bg-cyan-900/30",
+    textColor: "text-cyan-100",
+    borderColor: "border-cyan-700/50"
+  },
+  {
+    name: "Jason Fried",
+    image: "", // Add your image link here
+    bio: "Co-founder of Basecamp, exploring productivity, business, and work-life balance.",
+    website: "https://world.hey.com/jason",
+    twitter: "jasonfried",
+    essays: [
+      {
+        title: "Don't Have a Biggest Customer",
+        url: "https://world.hey.com/jason/don-t-have-a-biggest-customer-99d1cafe"
+      },
+      {
+        title: "A Company is a Language",
+        url: "https://world.hey.com/jason/a-company-is-a-language-66517a62"
+      },
+      {
+        title: "73% of What?",
+        url: "https://world.hey.com/jason/73-of-what-80e24c13"
+      }
+    ],
+    bgColor: "bg-neutral-900/30",
+    textColor: "text-neutral-100",
+    borderColor: "border-neutral-700/50"
+  },
+  {
+    name: "Ryan Hoover",
+    image: "", // Add your image link here
+    bio: "I’m the Founder of Product Hunt and Investor at Weekend Fund. I helped write Hooked and sometimes I publish essays.",
+    website: "https://www.ryanhoover.me/",
+    twitter: "rrhoover",
+    essays: [
+      {
+        title: "Everyone's a Generalist",
+        url: "https://www.ryanhoover.me/post/everyones-a-generalist"
+      },
+      {
+        title: "Do Scary Things",
+        url: "https://www.ryanhoover.me/post/do-scary-things"
+      },
+      {
+        title: "How We Made our First Dollar at Product Hunt",
+        url: "https://www.ryanhoover.me/post/how-we-made-our-first-dollar-at-product-hunt"
+      }
+    ],
+    bgColor: "bg-purple-900/30",
+    textColor: "text-purple-100",
+    borderColor: "border-purple-700/50"
+  },
+{
+    name: "Scott Alexander",
+    image: "", // Add your image link here
+    bio: "Psychiatrist and writer exploring a range of topics from science and technology to philosophy and culture.",
+    website: "https://astralcodexten.substack.com/",
+    twitter: "slatestarcodex",
+    essays: [
+      {
+        title: "Considerations on Cost Disease",
+        url: "https://slatestarcodex.com/2017/02/09/considerations-on-cost-disease/"
+      },
+      {
+        title: "Meditations on Moloch",
+        url: "https://slatestarcodex.com/2014/07/30/meditations-on-moloch/"
+      },
+      {
+        title: "Tuesday Shouldn't Change the Narrative",
+        url: "https://slatestarcodex.com/2016/11/07/tuesday-shouldnt-change-the-narrative/"
+      }
+    ],
+    bgColor: "bg-indigo-900/30",
+    textColor: "text-indigo-100",
+    borderColor: "border-indigo-700/50"
+  },
+  {
+    name: "Tim Urban",
+    image: "", // Add your image link here
+    bio: "Founder of Wait But Why, writing in-depth posts about science, technology, and human behavior.",
+    website: "https://waitbutwhy.com/",
+    twitter: "waitbutwhy",
+    essays: [
+      {
+        title: "The AI Revolution: The Road to Superintelligence",
+        url: "https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-1.html"
+      },
+      {
+        title: "The Fermi Paradox",
+        url: "https://waitbutwhy.com/2014/05/fermi-paradox.html"
+      },
+      {
+        title: "How to Pick a Career (That Actually Fits You)",
+        url: "https://waitbutwhy.com/2018/04/picking-career.html"
+      }
+    ],
+    bgColor: "bg-rose-900/30",
+    textColor: "text-rose-100",
+    borderColor: "border-rose-700/50"
+  },
+  {
+    name: "Sahil Lavingia",
+    image: "", // Add your image link here
+    bio: "Founder of Gumroad, writing about minimalism, entrepreneurship, and the creator economy.",
+    website: "https://sahillavingia.com/",
+    twitter: "shl",
+    essays: [
+      {
+        title: "God Mode",
+        url: "https://sahillavingia.com/god"
+      },
+      {
+        title: "The Minimalist Entreprenuer",
+        url: "https://www.amazon.com/Minimalist-Entrepreneur-Great-Founders-More/dp/0593192397"
+      },
+      {
+        title: "From Bubble to Bubble",
+        url: "https://sahillavingia.com/bubble"
+      }
+    ],
+    bgColor: "bg-teal-900/30",
+    textColor: "text-teal-100",
+    borderColor: "border-teal-700/50"
+  },
+  {
+    name: "Morgan Housel",
+    image: "", // Add your image link here
+    bio: "Partner at Collaborative Fund, writing about finance, investing, and human behavior.",
+    website: "https://www.collaborativefund.com/blog/",
+    twitter: "morganhousel",
+    essays: [
+      {
+        title: "The Psychology of Money",
+        url: "https://www.collaborativefund.com/blog/the-psychology-of-money/"
+      },
+      {
+        title: "Do it Your Way",
+        url: "https://collabfund.com/blog/your-way-is-the-only-way/"
+      },
+      {
+        title: "A Few Rules",
+        url: "https://www.collaborativefund.com/blog/a-few-rules/"
+      }
+    ],
+    bgColor: "bg-orange-900/30",
+    textColor: "text-orange-100",
+    borderColor: "border-orange-700/50"
+  },
+  {
+    name: "Nat Eliason",
+    image: "", // Add your image link here
+    bio: "I’m the author of Crypto Confidential, and have been publishing articles, essays, and guides online for over a decade.",
+    website: "https://blog.nateliason.com/",
+    twitter: "nateliason",
+    essays: [
+      {
+        title: "Proof You Can Do Hard Things",
+        url: "https://blog.nateliason.com/p/proof-you-can-do-hard-things"
+      },
+      {
+        title: "De-Atomizatino is the Secret to Happieness",
+        url: "https://blog.nateliason.com/p/de-atomization-is-the-secret-to-happiness"
+      },
+      {
+        title: "Known Costs, Unknownable Benefits",
+        url: "https://blog.nateliason.com/p/known-costs-unknowable-benefits"
+      }
+    ],
+    bgColor: "bg-yellow-900/30",
+    textColor: "text-yellow-100",
+    borderColor: "border-yellow-700/50"
+  },
+  {
+    name: "Rachel Andrew",
+    image: "", // Add your image link here
+    bio: "I’m a web developer and technical writer and editor. I work for Google on the Chrome team as a senior staff technical writer and content lead for web.dev and developer.chrome.com. ",
+    website: "https://rachelandrew.co.uk/",
+    twitter: "pjrvs",
+    essays: [
+      {
+        title: "On Having No Visual Memory",
+        url: "https://rachelandrew.co.uk/archives/2024/04/21/on-having-no-visual-memory/"
+      },
+      {
+        title: "1996",
+        url: "https://rachelandrew.co.uk/archives/2023/12/31/1996/"
+      },
+      {
+        title: "A Year in Links",
+        url: "https://rachelandrew.co.uk/archives/2014/12/26/a-year-in-links/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  }
+];

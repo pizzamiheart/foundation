@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="stripes" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" style="stop-color:#E63946"/>
+      <stop offset="20%" style="stop-color:#E63946"/>
+      <stop offset="20%" style="stop-color:#F77F00"/>
+      <stop offset="40%" style="stop-color:#F77F00"/>
+      <stop offset="40%" style="stop-color:#FCCA46"/>
+      <stop offset="60%" style="stop-color:#FCCA46"/>
+      <stop offset="60%" style="stop-color:#F77F00"/>
+      <stop offset="80%" style="stop-color:#F77F00"/>
+      <stop offset="80%" style="stop-color:#E63946"/>
+      <stop offset="100%" style="stop-color:#E63946"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 50 H462 V462 H362 V150 H150 V462 H50 V50Z" fill="url(#stripes)"/>
+</svg>
