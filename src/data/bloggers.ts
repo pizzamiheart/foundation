@@ -584,7 +584,7 @@ export const bloggers = [
         url: "https://gwern.net/bitcoin-is-worse-is-better"
       },
       {
-        title: "Everything is Correladed",
+        title: "Everything is Correlated",
         url: "https://gwern.net/everything"
       },
       {
