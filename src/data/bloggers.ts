@@ -314,7 +314,7 @@ export const bloggers = [
     image: "",
     bio: "Software engineer and writer exploring mathematics, programming, and complex systems.",
     website: "https://grantslatton.com/",
-    twitter: "GrantSlatton"
+    twitter: "GrantSlatton",
     essays: [
       {
         title: "Mental Models",
