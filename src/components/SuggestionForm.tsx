@@ -12,9 +12,19 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
   const [essays, setEssays] = useState<Essay[]>([{ title: '', url: '' }]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitCount, setSubmitCount] = useState(0);
+  const [lastSubmitTime, setLastSubmitTime] = useState(0);
+
+  const encode = (data: any) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  }
 
   const addEssay = () => {
-    setEssays([...essays, { title: '', url: '' }]);
+    if (essays.length < 3) {
+      setEssays([...essays, { title: '', url: '' }]);
+    }
   };
 
   const removeEssay = (index: number) => {
@@ -25,6 +35,36 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
     const newEssays = [...essays];
     newEssays[index] = { ...newEssays[index], [field]: value };
     setEssays(newEssays);
+  };
+
+  const validateForm = () => {
+    // Check for rapid submissions (more than 3 in 5 minutes)
+    const now = Date.now();
+    if (submitCount >= 3 && now - lastSubmitTime < 300000) {
+      alert('Please wait a few minutes before submitting again.');
+      return false;
+    }
+
+    // Basic content validation
+    if (authorName.length < 2 || authorName.length > 100) {
+      alert('Please enter a valid author name');
+      return false;
+    }
+
+    // URL format validation
+    const urlRegex = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
+    for (const essay of essays) {
+      if (!urlRegex.test(essay.url)) {
+        alert('Please enter valid URLs for all essays');
+        return false;
+      }
+      if (essay.title.length < 3 || essay.title.length > 200) {
+        alert('Essay titles must be between 3 and 200 characters');
+        return false;
+      }
+    }
+
+    return true;
   };
 
   if (isSubmitted) {
@@ -42,34 +82,40 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
   return (
     <div className="max-w-2xl mx-auto">
       <form
-        name="suggestions"
-        method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
         onSubmit={(e) => {
           e.preventDefault();
+          
+          if (!validateForm()) return;
+          
           setIsSubmitting(true);
+          const now = Date.now();
 
-          const formData = new FormData(e.target as HTMLFormElement);
-          formData.append("form-name", "suggestions");
-          essays.forEach((essay, index) => {
-            formData.append(`essayTitle${index}`, essay.title);
-            formData.append(`essayUrl${index}`, essay.url);
-          });
+          const formData = {
+            "form-name": "suggestions",
+            authorName,
+            submitterTwitter,
+            ...essays.reduce((acc, essay, index) => ({
+              ...acc,
+              [`essayTitle${index}`]: essay.title,
+              [`essayUrl${index}`]: essay.url,
+            }), {})
+          };
 
           fetch("/", {
             method: "POST",
-            body: formData
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode(formData)
           })
-            .then(() => setIsSubmitted(true))
+            .then(() => {
+              setIsSubmitted(true);
+              setSubmitCount(prev => prev + 1);
+              setLastSubmitTime(now);
+            })
             .catch(error => console.error(error))
             .finally(() => setIsSubmitting(false));
         }}
         className="space-y-6"
       >
-        <input type="hidden" name="form-name" value="suggestions" />
-        <input type="hidden" name="bot-field" />
-        
         <div className="rounded-lg overflow-hidden bg-black border-2 border-white/20 p-6">
           <div className="space-y-4">
             <div>
@@ -81,6 +127,7 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
                 id="authorName"
                 name="authorName"
                 required
+                maxLength={100}
                 value={authorName}
                 onChange={(e) => setAuthorName(e.target.value)}
                 className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md text-white focus:ring-2 focus:ring-red-500 focus:border-transparent"
@@ -98,6 +145,7 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
                       type="text"
                       name={`essayTitle${index}`}
                       required
+                      maxLength={200}
                       placeholder="Essay title"
                       value={essay.title}
                       onChange={(e) => updateEssay(index, 'title', e.target.value)}
@@ -108,6 +156,7 @@ export default function SuggestionForm({ onClose }: { onClose: () => void }) {
                       name={`essayUrl${index}`}
                       required
                       placeholder="URL"
+                      pattern="https?://.+"
                       value={essay.url}
                       onChange={(e) => updateEssay(index, 'url', e.target.value)}
                       className="flex-1 px-3 py-2 bg-white/5 border border-white/10 rounded-md text-white focus:ring-2 focus:ring-red-500 focus:border-transparent"
