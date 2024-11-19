@@ -273,7 +273,7 @@ export const bloggers = [
         url: "https://www.cold-takes.com/most-important-century/"
       },
       {
-        title: "Has Life Gotten Better",
+        title: "Has Life Gotten Better?",
         url: "https://www.cold-takes.com/p/e7960cbf-baa6-4f75-a4b9-6506d99b0acd/"
       },
       {
@@ -314,6 +314,7 @@ export const bloggers = [
     image: "",
     bio: "Software engineer and writer exploring mathematics, programming, and complex systems.",
     website: "https://grantslatton.com/",
+    twitter: "GrantSlatton"
     essays: [
       {
         title: "Mental Models",
@@ -420,7 +421,7 @@ export const bloggers = [
         url: "https://nivi.com/creativity"
       },
       {
-        title: "Is Now All There Ss?",
+        title: "Is Now All There Is?",
         url: "https://nivi.com/now"
       }
     ],
@@ -776,7 +777,7 @@ export const bloggers = [
         url: "https://blog.nateliason.com/p/proof-you-can-do-hard-things"
       },
       {
-        title: "De-Atomizatino is the Secret to Happieness",
+        title: "De-Atomization is the Secret to Happieness",
         url: "https://blog.nateliason.com/p/de-atomization-is-the-secret-to-happiness"
       },
       {
