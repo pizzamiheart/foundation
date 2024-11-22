@@ -840,7 +840,7 @@ export const bloggers = [
   {
     name: "L.M. Sacasas",
     image: "", // Add your image link here
-    bio: "I'm a technologist and writer living in Brooklyn.Subpixel Space is mostly longform essays and shorter-form things about technology and culture.",
+    bio: "The Convivial Society is a newsletter exploring the relationship between technology and culture. It's grounded in the history and philosophy of technology, with a sprinkling of media ecology",
     website: "https://theconvivialsociety.substack.com/",
     twitter: "LMSacasas",
     essays: [
