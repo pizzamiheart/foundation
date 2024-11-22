@@ -812,5 +812,53 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Toby Shorin",
+    image: "", // Add your image link here
+    bio: "I'm a technologist and writer living in Brooklyn.Subpixel Space is mostly longform essays and shorter-form things about technology and culture.",
+    website: "https://subpixel.space/about/",
+    twitter: "tobyshorin",
+    essays: [
+      {
+        title: "Moral Ecosystems: My Big Idea",
+        url: "https://subpixel.space/entries/moral-ecosystems"
+      },
+      {
+        title: "Life After Lifestyle",
+        url: "https://subpixel.space/entries/life-after-lifestyle/"
+      },
+      {
+        title: "Towards a Blogger Peer Review",
+        url: "https://subpixel.space/entries/towards-blogger-peer-review/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "L.M. Sacasas",
+    image: "", // Add your image link here
+    bio: "I'm a technologist and writer living in Brooklyn.Subpixel Space is mostly longform essays and shorter-form things about technology and culture.",
+    website: "https://theconvivialsociety.substack.com/",
+    twitter: "LMSacasas",
+    essays: [
+      {
+        title: "If Your World Is Not Enchanted, You're Not Paying Attention",
+        url: "https://subpixel.space/entries/moral-ecosystems"
+      },
+      {
+        title: "The Stuff of (a Well-Lived) Life",
+        url: "https://theconvivialsociety.substack.com/p/the-stuff-of-a-well-lived-life"
+      },
+      {
+        title: "Desire, Dopamine, and the Internet",
+        url: "https://theconvivialsociety.substack.com/p/desire-dopamine-and-the-internet"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
