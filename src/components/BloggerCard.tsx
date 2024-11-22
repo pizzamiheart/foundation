@@ -1,5 +1,5 @@
-import React from 'react';
-import { Globe, ExternalLink } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Globe, ExternalLink, Share2 } from 'lucide-react';
 
 interface Essay {
   title: string;
@@ -53,8 +53,54 @@ export default function BloggerCard({
   textColor,
   borderColor,
 }: BloggerProps) {
+  const cardId = name.toLowerCase().replace(/\s+/g, '-');
+
+  useEffect(() => {
+    // Scroll to card if it's in the URL hash
+    if (window.location.hash === `#${cardId}`) {
+      document.getElementById(cardId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const setMetaTag = (property: string, content: string) => {
+      let meta = document.querySelector(`meta[property="${property}"]`);
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        document.head.appendChild(meta);
+      }
+      meta.setAttribute('content', content);
+    };
+
+    const cardElement = document.getElementById(cardId);
+    if (cardElement) {
+      cardElement.addEventListener('mouseenter', () => {
+        setMetaTag('og:title', name);
+        setMetaTag('og:description', bio);
+        setMetaTag('og:image', '/social-card.png');
+        setMetaTag('og:image:type', 'image/png');
+        setMetaTag('og:image:width', '1200');
+        setMetaTag('og:image:height', '630');
+        setMetaTag('og:url', `${window.location.origin}/#${cardId}`);
+        setMetaTag('og:type', 'profile');
+
+        setMetaTag('twitter:card', 'summary_large_image');
+        setMetaTag('twitter:title', name);
+        setMetaTag('twitter:description', bio);
+        setMetaTag('twitter:image', '/social-card.png');
+      });
+    }
+  }, [name, bio, cardId]);
+
+  const handleShare = () => {
+    const tweetText = `just read an essay by ${twitter ? `@${twitter}` : name} on foundation! lots of interesting writers and thinkers in (mostly) tech to check out :)`;
+    const shareUrl = `${window.location.origin}/#${cardId}`;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(shareUrl)}`;
+    window.open(twitterUrl, '_blank');
+  };
+
   return (
     <div 
+      id={cardId}
       className={`rounded-lg overflow-hidden transition-all duration-75 
         bg-black border-2 border-white/20
         shadow-[6px_6px_0px_rgba(255,253,245,0.15)] 
@@ -65,36 +111,45 @@ export default function BloggerCard({
         hover:border-white/30`}
     >
       <div className="p-4 flex flex-col h-full">
-        <div className="flex items-center gap-3 mb-3">
-          <div 
-            className="w-16 h-16 rounded-full flex-shrink-0 border-2 border-white/20"
-            style={getProfileStripes()}
-          />
-          <div>
-            <h2 className="text-lg font-medieval font-extrabold text-white">
-              {name}
-            </h2>
-            <div className="flex gap-2">
-              <a
-                href={website}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/80 hover:text-red-500 transition-colors"
-              >
-                <Globe className="w-4 h-4" />
-              </a>
-              {twitter && (
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-3">
+            <div 
+              className="w-16 h-16 rounded-full flex-shrink-0 border-2 border-white/20"
+              style={getProfileStripes()}
+            />
+            <div>
+              <h2 className="text-lg font-medieval font-extrabold text-white">
+                {name}
+              </h2>
+              <div className="flex gap-2">
                 <a
-                  href={`https://twitter.com/${twitter}`}
+                  href={website}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/80 hover:text-red-500 transition-colors"
                 >
-                  <XLogo />
+                  <Globe className="w-4 h-4" />
                 </a>
-              )}
+                {twitter && (
+                  <a
+                    href={`https://twitter.com/${twitter}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/80 hover:text-red-500 transition-colors"
+                  >
+                    <XLogo />
+                  </a>
+                )}
+              </div>
             </div>
           </div>
+          <button
+            onClick={handleShare}
+            className="p-2 text-white/80 hover:text-red-500 transition-colors border border-white/20 hover:border-red-500 rounded-full"
+            title="Share on Twitter"
+          >
+            <Share2 className="w-4 h-4" />
+          </button>
         </div>
 
         <p className="text-sm mb-3 line-clamp-2 text-white/80">

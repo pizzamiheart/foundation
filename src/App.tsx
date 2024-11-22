@@ -7,6 +7,20 @@ import { bloggers } from './data/bloggers';
 export default function App() {
   const [showForm, setShowForm] = React.useState(false);
 
+  React.useEffect(() => {
+    // Handle anchor navigation after page load
+    const hash = window.location.hash;
+    if (hash) {
+      // Add a small delay to ensure the DOM is ready
+      setTimeout(() => {
+        const element = document.getElementById(hash.slice(1));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#1A1A1A] to-[#121212]">
       <header className="bg-black border-b border-white/10 sticky top-0 z-10">
