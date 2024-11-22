@@ -816,7 +816,7 @@ export const bloggers = [
   {
     name: "Toby Shorin",
     image: "", // Add your image link here
-    bio: "I'm a technologist and writer living in Brooklyn.Subpixel Space is mostly longform essays and shorter-form things about technology and culture.",
+    bio: "Technologist and writer living in Brooklyn. Subpixel Space is mostly longform essays and shorter-form things about technology and culture.",
     website: "https://subpixel.space/about/",
     twitter: "tobyshorin",
     essays: [
