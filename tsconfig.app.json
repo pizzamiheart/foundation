@@ -14,11 +14,22 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Type Definitions */
+    "types": ["node", "react", "react-dom"],
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Optional Enhancements */
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"]
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "include": ["src"]
 }

@@ -56,9 +56,11 @@ export default function BloggerCard({
   const cardId = name.toLowerCase().replace(/\s+/g, '-');
 
   useEffect(() => {
-    // Scroll to card if it's in the URL hash
     if (window.location.hash === `#${cardId}`) {
-      document.getElementById(cardId)?.scrollIntoView({ behavior: 'smooth' });
+      const element = document.getElementById(cardId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
 
     const setMetaTag = (property: string, content: string) => {
@@ -73,7 +75,7 @@ export default function BloggerCard({
 
     const cardElement = document.getElementById(cardId);
     if (cardElement) {
-      cardElement.addEventListener('mouseenter', () => {
+      const updateMetaTags = () => {
         setMetaTag('og:title', name);
         setMetaTag('og:description', bio);
         setMetaTag('og:image', '/social-card.png');
@@ -87,7 +89,10 @@ export default function BloggerCard({
         setMetaTag('twitter:title', name);
         setMetaTag('twitter:description', bio);
         setMetaTag('twitter:image', '/social-card.png');
-      });
+      };
+
+      cardElement.addEventListener('mouseenter', updateMetaTags);
+      return () => cardElement.removeEventListener('mouseenter', updateMetaTags);
     }
   }, [name, bio, cardId]);
 
@@ -152,7 +157,7 @@ export default function BloggerCard({
           </button>
         </div>
 
-        <p className="text-sm mb-3 line-clamp-2 text-white/80">
+        <p className="text-sm mb-3 text-white/80 line-clamp-2">
           {bio}
         </p>
 
@@ -160,16 +165,22 @@ export default function BloggerCard({
           <h3 className="text-sm font-bold mb-2 text-white">Featured Essays</h3>
           <ul className="space-y-1.5">
             {essays.map((essay, index) => (
-              <li key={index} className="flex items-center gap-1.5">
+              <li key={index} className="flex items-center gap-1.5 group relative pr-24">
                 <ExternalLink className="w-3 h-3 flex-shrink-0 text-white/60 group-hover:text-red-500" />
                 <a
                   href={essay.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs font-medium text-white/80 hover:text-red-500 hover:underline transition-colors line-clamp-1 group"
+                  className="essay-link text-xs font-medium text-white/80 hover:text-red-500 hover:underline transition-colors line-clamp-1"
                 >
                   {essay.title}
                 </a>
+                <button
+                  onClick={() => window.open(essay.url, '_blank')}
+                  className="borrow-button text-xs font-typewriter px-3 py-1 border border-red-500 text-white/80 hover:text-red-500 hover:border-red-500 transition-colors absolute right-0"
+                >
+                  Borrow
+                </button>
               </li>
             ))}
           </ul>

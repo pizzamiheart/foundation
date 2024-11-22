@@ -7,10 +7,18 @@
     font-family: 'Medieval';
     src: url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
   }
+  @font-face {
+    font-family: 'Special Elite';
+    src: url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+  }
 }
 
 .font-medieval {
   font-family: 'Cinzel', serif;
+}
+
+.font-typewriter {
+  font-family: 'Special Elite', monospace;
 }
 
 .x-logo:before {
@@ -21,4 +29,39 @@
   background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 -8 26 30" xmlns="http://www.w3.org/2000/svg"><g><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>');
   background-size: cover;
   background-position: center;
+}
+
+.slide-out {
+  animation: slideOut 0.5s ease-in-out forwards;
+  transform-origin: left;
+  color: #E53A46 !important;
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+.borrow-button {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.slide-out + .borrow-button {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.highlighted-card {
+  position: relative;
+}
+
+.highlighted-card.active {
+  box-shadow: 6px 6px 0px rgba(229, 58, 70, 0.3) !important;
+  border-color: #E53A46 !important;
 }

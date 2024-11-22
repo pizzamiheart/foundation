@@ -2,16 +2,15 @@ import React from 'react';
 import { Library } from 'lucide-react';
 import BloggerCard from './components/BloggerCard';
 import SuggestionForm from './components/SuggestionForm';
+import LibrariansPick from './components/LibrariansPick';
 import { bloggers } from './data/bloggers';
 
 export default function App() {
   const [showForm, setShowForm] = React.useState(false);
 
   React.useEffect(() => {
-    // Handle anchor navigation after page load
     const hash = window.location.hash;
     if (hash) {
-      // Add a small delay to ensure the DOM is ready
       setTimeout(() => {
         const element = document.getElementById(hash.slice(1));
         if (element) {
@@ -37,12 +36,15 @@ export default function App() {
                 aggregating essays and blogs in ideas + tech
               </p>
             </div>
-            <button
-              onClick={() => setShowForm(!showForm)}
-              className="text-sm text-white/80 hover:text-red-500 transition-colors"
-            >
-              {showForm ? '← Back to essays' : 'Make a suggestion →'}
-            </button>
+            <div className="flex items-center gap-4">
+              <LibrariansPick bloggers={bloggers} />
+              <button
+                onClick={() => setShowForm(!showForm)}
+                className="text-sm text-white/80 hover:text-red-500 transition-colors"
+              >
+                {showForm ? '← Back to essays' : 'Make a suggestion →'}
+              </button>
+            </div>
           </div>
         </div>
       </header>
