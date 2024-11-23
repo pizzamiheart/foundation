@@ -526,6 +526,54 @@ export const bloggers = [
     borderColor: "border-slate-700/50"
   },
   {
+    name: "Sam Altman",
+    image: "", // Add your image link here
+    bio: "CEO OpenAI. AI is cool I guess.",
+    website: "https://blog.samaltman.com/",
+    twitter: "sama",
+    essays: [
+      {
+        title: "How to be Successful",
+        url: "https://blog.samaltman.com/how-to-be-successful"
+      },
+      {
+        title: "The Strength of Being Misunderstood",
+        url: "https://blog.samaltman.com/the-strength-of-being-misunderstood"
+      },
+      {
+        title: "Before Growth",
+        url: "https://blog.samaltman.com/before-growth"
+      }
+    ],
+    bgColor: "bg-slate-900/30",
+    textColor: "text-slate-100",
+    borderColor: "border-slate-700/50"
+  },
+  {
+    name: "Pieter Levels",
+    image: "", // Add your image link here
+    bio: "My belief is we live in the most exciting time in history for humanity, and we live in a global world, and I want to spend my life experiencing that to the fullest.",
+    website: "https://levels.io/blog/",
+    twitter: "levelsio",
+    essays: [
+      {
+        title: "Why I'm Unreachable and Maybe You Should be Too",
+        url: "https://levels.io/contact/"
+      },
+      {
+        title: "No One Should Ever Work",
+        url: "https://levels.io/no-one-should-ever-work/"
+      },
+      {
+        title: "What I Learnt From 100 Days of Shipping",
+        url: "https://levels.io/100-days-of-shipping/"
+      }
+    ],
+    bgColor: "bg-slate-900/30",
+    textColor: "text-slate-100",
+    borderColor: "border-slate-700/50"
+  },
+  {
     name: "Benedict Evans",
     image: "", // Add your image link here
     bio: "Tech analyst covering trends in technology, media, and telecommunications.",
