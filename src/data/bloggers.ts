@@ -908,5 +908,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Deedy Das",
+    image: "", // Add your image link here
+    bio: "Investing in AI, SaaS and Infra at Menlo Ventures in San Francisco. Previous: Founding team Glean, Google Search, Facebook.",
+    website: "https://debarghyadas.com/writes/",
+    twitter: "deedydas",
+    essays: [
+      {
+        title: "The Top 100 Hacker News Posts of All Time",
+        url: "https://debarghyadas.com/writes/the-top-100-hacker-news-posts-of-all-time/"
+      },
+      {
+        title: "Why are Adults so Busy?",
+        url: "https://debarghyadas.com/writes/why-are-adults-so-busy/"
+      },
+      {
+        title: "On Privilege",
+        url: "https://debarghyadas.com/writes/on-privilege/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
