@@ -932,5 +932,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Josh Manders",
+    image: "", // Add your image link here
+    bio: "Ambitious founder building so many products at once that I've started outsourcing my sleep.",
+    website: "https://ambitiousfounder.com/",
+    twitter: "joshmanders",
+    essays: [
+      {
+        title: "I Lost my Love for the Web",
+        url: "https://ambitiousfounder.com/i-lost-my-love-for-the-web"
+      },
+      {
+        title: "How to Find a Product to Build",
+        url: "https://ambitiousfounder.com/how-to-find-a-product-to-build"
+      },
+      {
+        title: "25 Years Coding",
+        url: "https://ambitiousfounder.com/25-years-coding"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
