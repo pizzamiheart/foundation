@@ -956,5 +956,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Naval",
+    image: "", // Add your image link here
+    bio: "Incompressible",
+    website: "https://nav.al/",
+    twitter: "naval",
+    essays: [
+      {
+        title: "Reject Most Advice",
+        url: "https://nav.al/reject-advice"
+      },
+      {
+        title: "How to Get Rich",
+        url: "https://nav.al/rich"
+      },
+      {
+        title: "Humans Are Exceptional",
+        url: "https://nav.al/exceptional"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
