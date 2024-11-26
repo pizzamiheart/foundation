@@ -312,7 +312,7 @@ export const bloggers = [
   {
     name: "Grant Slatton",
     image: "",
-    bio: "Software engineer and writer exploring mathematics, programming, and complex systems.",
+    bio: "Founding engineer at Row Zero where we've built the world's fastest spreadsheet. Formerly, I was a senior engineer at AWS S3",
     website: "https://grantslatton.com/",
     twitter: "GrantSlatton",
     essays: [
