@@ -317,16 +317,16 @@ export const bloggers = [
     twitter: "GrantSlatton",
     essays: [
       {
-        title: "Mental Models",
-        url: "https://grantslatton.com/mental-models/"
+        title: "Twitter",
+        url: "https://grantslatton.com/twitter"
       },
       {
-        title: "Software Engineering",
-        url: "https://grantslatton.com/software-engineering/"
+        title: "AI Follows Auditability",
+        url: "https://grantslatton.com/ai-auditability"
       },
       {
-        title: "Mathematics",
-        url: "https://grantslatton.com/mathematics/"
+        title: "Status Among Whom",
+        url: "https://grantslatton.com/status-among-whom"
       }
     ],
     bgColor: "bg-slate-900/30",
