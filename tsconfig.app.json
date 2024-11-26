@@ -26,7 +26,7 @@
     /* Optional Enhancements */
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/suggestion/*"]
     },
     "resolveJsonModule": true,
     "esModuleInterop": true
