@@ -26,7 +26,7 @@ export const bloggers = [
   {
     name: "Graham Duncan",
     image: "",
-    bio: "Co-founder of East Rock Capital, writing about talent evaluation, investing, and personal development.",
+    bio: "Co-founder of East Rock Capital. Compulsively seeking new ways of seeing reality.",
     website: "https://grahamduncan.blog/",
     twitter: "GrahamDuncanNYC",
     essays: [
@@ -74,7 +74,7 @@ export const bloggers = [
   {
     name: "Marc Andreessen",
     image: "",
-    bio: "Co-founder of Andreessen Horowitz, writing about technology, startups, and the future.",
+    bio: "Co-founder of Mosaic browser and a16z. It's time to build.",
     website: "https://pmarchive.com/",
     twitter: "pmarca",
     essays: [
@@ -98,7 +98,7 @@ export const bloggers = [
   {
     name: "Packy McCormick",
     image: "",
-    bio: "Writer of Not Boring, exploring business strategy, crypto, and the future of technology.",
+    bio: "Author of Not Boring. Not Boring’s mission is to make the world more optimistic.",
     website: "https://www.notboring.co/",
     twitter: "packyM",
     essays: [
@@ -122,8 +122,9 @@ export const bloggers = [
   {
     name: "Bret Victor",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-    bio: "Designer, engineer, and researcher exploring new ways to understand and create.",
+    bio: "I’ve dedicated my life to creating a humane dynamic medium.",
     website: "https://worrydream.com/",
+    twitter: "worrydream",
     essays: [
       {
         title: "Learnable Programming",
@@ -169,7 +170,7 @@ export const bloggers = [
   {
     name: "Paul Graham",
     image: "",
-    bio: "Co-founder of Y Combinator, writing about startups, programming, and life philosophy.",
+    bio: "Co-founder of Y Combinator.",
     website: "https://www.paulgraham.com/articles.html",
     twitter: "paulg",
     essays: [
@@ -193,7 +194,7 @@ export const bloggers = [
   {
     name: "Kevin Kelly",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-    bio: "Founding editor of Wired, exploring technology, culture, and future trends.",
+    bio: "Senior Maverick at Wired, author of bestseller book, The Inevitable. Also Cool Tool maven, Recomendo chief, and radical optimist.",
     website: "https://kk.org/thetechnium/",
     twitter: "kevin2kelly",
     essays: [
@@ -217,7 +218,7 @@ export const bloggers = [
   {
     name: "Patrick Collison",
     image: "",
-    bio: "Co-founder of Stripe, writing about progress, science, and technology.",
+    bio: " currently live in California and work at Stripe. I grew up in Ireland and previously studied at MIT.",
     website: "https://patrickcollison.com/about",
     twitter: "patrickc",
     essays: [
@@ -336,7 +337,7 @@ export const bloggers = [
   {
     name: "Ben Thompson",
     image: "",
-    bio: "Writer and researcher, creator of Evergreen notes and knowledge management systems.",
+    bio: "I’ve worked previously at Apple (interned), Microsoft, and Automattic, where I focused on strategy, developer relations, and marketing.",
     website: "https://stratechery.com/",
     twitter: "benthompson",
     essays: [
@@ -384,7 +385,7 @@ export const bloggers = [
   {
     name: "Amjad Masad",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-    bio: "CEO of Replit, writing about programming, education, and developer tools.",
+    bio: "ceo replit. civilizationist",
     website: "https://amasad.me/",
     twitter: "amasad",
     essays: [
@@ -408,7 +409,7 @@ export const bloggers = [
   {
     name: "Nivi",
     image: "",
-    bio: "Co-founder of AngelList, writing about startups, investing, and technology.",
+    bio: "Founder of AngelList.",
     website: "https://nivi.com/",
     twitter: "nivi",
     essays: [
@@ -504,7 +505,7 @@ export const bloggers = [
   {
     name: "Tobi Lütke",
     image: "", // Add your image link here
-    bio: "Shopify CEO by day, Dad in evening, hacker at night. Aspiring comprehensivist",
+    bio: "Shopify CEO by day, Dad in evening, hacker at night. Aspiring comprehensivist.",
     website: "https://tobi.lutke.com/",
     twitter: "tobi",
     essays: [
@@ -576,7 +577,7 @@ export const bloggers = [
   {
     name: "Benedict Evans",
     image: "", // Add your image link here
-    bio: "Tech analyst covering trends in technology, media, and telecommunications.",
+    bio: "I’ve spent 20 years analysing mobile, media and technology, and worked in equity research, strategy, consulting and venture capital.",
     website: "https://www.ben-evans.com/newsletter",
     twitter: "benedictevans",
     essays: [
@@ -648,7 +649,7 @@ export const bloggers = [
   {
     name: "Lenny Rachitsky",
     image: "", // Add your image link here
-    bio: "Product and growth expert, providing insights on scaling products and achieving product-market fit.",
+    bio: "Author of Lenny's Newsletter. Before that, I spent years building and managing product teams at early startups and Airbnb.",
     website: "https://www.lennysnewsletter.com/",
     twitter: "lennysan",
     essays: [
@@ -768,7 +769,7 @@ export const bloggers = [
   {
     name: "Sahil Lavingia",
     image: "", // Add your image link here
-    bio: "Founder of Gumroad, writing about minimalism, entrepreneurship, and the creator economy.",
+    bio: "Founder of Gumroad. Building Antiwork.",
     website: "https://sahillavingia.com/",
     twitter: "shl",
     essays: [
