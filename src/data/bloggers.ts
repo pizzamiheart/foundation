@@ -1077,5 +1077,53 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Chris Olah",
+    image: "", // Add your image link here
+    bio: "I'm one of the co-founders of Anthropic, an AI lab focused on the safety of large models. Previously, I led interpretability research at OpenAI, worked at Google Brain, and co-founded Distill, a scientific journal focused on outstanding communication.",
+    website: "https://colah.github.io/",
+    twitter: "ch402",
+    essays: [
+      {
+        title: "Do I Need to Go to University?",
+        url: "https://colah.github.io/posts/2020-05-University/"
+      },
+      {
+        title: "Research Taste Exercises",
+        url: "https://colah.github.io/notes/taste/"
+      },
+      {
+        title: "Collaboration & Credit Principles",
+        url: "https://colah.github.io/posts/2019-05-Collaboration/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Aaron Francis",
+    image: "", // Add your image link here
+    bio: "I'm a software developer, content creator, and co-founder of Try Hard Studios. I'm on Twitter all the time, and I make videos on YouTube",
+    website: "https://aaronfrancis.com/",
+    twitter: "aarondfrancis",
+    essays: [
+      {
+        title: "An Argument for Logging Off",
+        url: "https://aaronfrancis.com/2024/an-argument-for-logging-off-9a4de45b"
+      },
+      {
+        title: "What if You Tried Hard?",
+        url: "https://aaronfrancis.com/2024/what-if-you-tried-hard-dac139a5"
+      },
+      {
+        title: "Publishing Your Work Increases Your Luck",
+        url: "https://github.com/readme/guides/publishing-your-work"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
