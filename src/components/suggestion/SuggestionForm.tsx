@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { Send, Plus } from 'lucide-react';
-import { Essay, FormData } from './types';
+import { Essay } from './types';
 import EssayInput from './EssayInput';
 import SuccessMessage from './SuccessMessage';
 import { validateForm } from './validation';
-import { submitSuggestion } from './api';
 
 export default function SuggestionForm() {
   const [authorName, setAuthorName] = useState('');
   const [submitterTwitter, setSubmitterTwitter] = useState('');
+  const [email, setEmail] = useState('');
+  const [wantsUpdates, setWantsUpdates] = useState(false);
   const [essays, setEssays] = useState<Essay[]>([{ title: '', url: '' }]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,16 +47,26 @@ export default function SuggestionForm() {
     const now = Date.now();
 
     try {
-      const formData: FormData = {
-        authorName,
-        submitterTwitter,
-        essays: essays.map(essay => ({
-          title: essay.title,
-          url: essay.url
-        }))
-      };
+      const formData = new FormData();
+      formData.append('form-name', 'suggestions');
+      formData.append('authorName', authorName);
+      formData.append('submitterTwitter', submitterTwitter);
+      formData.append('email', email);
+      formData.append('wantsUpdates', wantsUpdates.toString());
+      
+      essays.forEach((essay, index) => {
+        formData.append(`essayTitle${index}`, essay.title);
+        formData.append(`essayUrl${index}`, essay.url);
+      });
 
-      await submitSuggestion(formData);
+      const response = await fetch("/", {
+        method: "POST",
+        body: formData
+      });
+
+      if (!response.ok) {
+        throw new Error('Submission failed');
+      }
 
       setIsSubmitted(true);
       setSubmitCount(prev => prev + 1);
@@ -76,7 +87,15 @@ export default function SuggestionForm() {
     <div className="max-w-2xl mx-auto">
       <div className="rounded-lg overflow-hidden bg-black border-2 border-white/20 p-8">
         <h2 className="text-2xl font-bold text-white mb-6">Suggest an Author</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form 
+          name="suggestions"
+          method="POST"
+          data-netlify="true"
+          onSubmit={handleSubmit} 
+          className="space-y-6"
+        >
+          <input type="hidden" name="form-name" value="suggestions" />
+          
           <div>
             <label htmlFor="authorName" className="block text-sm font-medium text-white/80 mb-2">
               Author Name
@@ -84,6 +103,7 @@ export default function SuggestionForm() {
             <input
               type="text"
               id="authorName"
+              name="authorName"
               value={authorName}
               onChange={(e) => setAuthorName(e.target.value)}
               className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
@@ -101,6 +121,7 @@ export default function SuggestionForm() {
               <input
                 type="text"
                 id="submitterTwitter"
+                name="submitterTwitter"
                 value={submitterTwitter}
                 onChange={(e) => setSubmitterTwitter(e.target.value)}
                 className="w-full px-4 py-2 pl-8 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
