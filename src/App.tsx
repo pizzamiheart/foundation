@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Library } from 'lucide-react';
-import BloggerCard from './BloggerCard';
+import BloggerCard from './components/BloggerCard';
 import SuggestionForm from './components/suggestion/SuggestionForm';
-import LibrariansPick from './LibrariansPick';
-import Footer from './Footer';
+import LibrariansPick from './components/LibrariansPick';
+import Footer from './components/Footer';
 import { bloggers } from './data/bloggers';
 
 interface HeaderProps {
