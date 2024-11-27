@@ -981,5 +981,101 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Neel Nanda",
+    image: "", // Add your image link here
+    bio: "Hi, I'm Neel! I run the Google DeepMind mechanistic interpretability team... This blog is a collection of my thoughts on various ideas I've found valuable for being happy, improving my life, or understanding the world.",
+    website: "https://www.neelnanda.io/",
+    twitter: "NeelNanda5",
+    essays: [
+      {
+        title: "Become a Person who Actually Does Things",
+        url: "https://www.neelnanda.io/blog/become-a-person-who-actually-does-things"
+      },
+      {
+        title: "Live a Life You Feel Excited About",
+        url: "https://www.neelnanda.io/blog/mini-blog-post-11-live-a-life-you-feel-excited-about"
+      },
+      {
+        title: "Seek Upside Risk",
+        url: "https://www.neelnanda.io/blog/33-upside-risk"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Visakan Veerasamy",
+    image: "", // Add your image link here
+    bio: "My mission is to build the greatest social graph of friendly, ambitious nerds that the world has ever seen.",
+    website: "https://visakanv.com/",
+    twitter: "visakanv",
+    essays: [
+      {
+        title: "Are You Serious?",
+        url: "https://visakanv.substack.com/p/are-you-serious"
+      },
+      {
+        title: "Are you having fun, son?",
+        url: "https://visakanv.substack.com/p/are-you-having-fun-son"
+      },
+      {
+        title: "We Were Voyagers",
+        url: "https://visakanv.substack.com/p/we-were-voyagers"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Nabeel S. Qureshi",
+    image: "", // Add your image link here
+    bio: "I'm currently a startup founder (in stealth). Previously, I worked at Palantir, and was a Visiting Scholar in AI at the Mercatus Center, as well as an Emergent Ventures awardee.",
+    website: "https://nabeelqu.co/",
+    twitter: "nabeelqu",
+    essays: [
+      {
+        title: "Reflections on Palantir",
+        url: "https://nabeelqu.co/reflections-on-palantir"
+      },
+      {
+        title: "How to Sell",
+        url: "https://nabeelqu.co/post-selling"
+      },
+      {
+        title: "Video Games are the Future of Education",
+        url: "https://nabeelqu.co/education"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Nate Soares",
+    image: "", // Add your image link here
+    bio: "I'm the president of the Machine Intelligence Research Institute. I'm an aspiring rationalist, which means that I spend a lot of time thinking about how I think about things, ostensibly so that I'll get better at it.",
+    website: "https://mindingourway.com/",
+    twitter: "So8res",
+    essays: [
+      {
+        title: "Half-assing it With Everything You've Got",
+        url: "https://mindingourway.com/half-assing-it-with-everything-youve-got/"
+      },
+      {
+        title: "Replacing Guilt",
+        url: "https://mindingourway.com/replacing-guilt/"
+      },
+      {
+        title: "On Caring",
+        url: "https://mindingourway.com/on-caring/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
