@@ -83,7 +83,6 @@ export default function Footer() {
             </div>
           )}
           <div className="text-center text-white/60 text-xs">
-            i might send you an email in the future with more essays or blogs
             <br />
             <span className="opacity-75">
               made by{' '}

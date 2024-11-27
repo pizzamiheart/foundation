@@ -24,6 +24,7 @@ function Header({ isHomePage }: HeaderProps) {
               </h1>
             </div>
             <p className="text-sm text-white/80 italic mt-1">
+              probably some of the most important writing on the internet
             </p>
           </Link>
           <div className="flex items-center gap-4">
