@@ -5,7 +5,6 @@
     <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation Essays</title>
-    <!-- Meta description -->
     <meta name="description" content="probably some of the most important writing on the internet" />
     
     <!-- Open Graph / Facebook -->
@@ -13,7 +12,7 @@
     <meta property="og:url" content="https://foundationessays.com" />
     <meta property="og:title" content="Foundation Essays" />
     <meta property="og:description" content="probably some of the most important writing on the internet" />
-    <meta property="og:image" content="https://foundationessays.com/social-card-new.png" />
+    <meta property="og:image" content="/social-card.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -23,32 +22,24 @@
     <meta name="twitter:url" content="https://foundationessays.com" />
     <meta name="twitter:title" content="Foundation Essays" />
     <meta name="twitter:description" content="probably some of the most important writing on the internet" />
-    <meta name="twitter:image" content="https://foundationessays.com/social-card-new.png" />
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YGQFENTMLN"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-YGQFENTMLN');
-    </script>
-
-    <script defer data-domain="foundationessays.com" src="https://plausible.io/js/script.js"></script>
-
+    <meta name="twitter:image" content="/social-card.png" />
   </head>
   <body>
-    <!-- A hidden form that Netlify can detect -->
+    <!-- Hidden forms that Netlify can detect -->
     <form name="suggestions" netlify hidden>
       <input type="text" name="authorName" />
       <input type="text" name="submitterTwitter" />
+      <input type="email" name="email" />
+      <input type="checkbox" name="wantsUpdates" />
       <input type="text" name="essayTitle0" />
       <input type="url" name="essayUrl0" />
       <input type="text" name="essayTitle1" />
       <input type="url" name="essayUrl1" />
       <input type="text" name="essayTitle2" />
       <input type="url" name="essayUrl2" />
+    </form>
+    <form name="library-card" netlify hidden>
+      <input type="email" name="email" />
     </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

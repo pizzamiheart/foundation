@@ -1,15 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { Library } from 'lucide-react';
-import BloggerCard from './suggestion/BloggerCard';
-import SuggestionForm from './suggestion/SuggestionForm';
-import LibrariansPick from './suggestion/LibrariansPick';
+import BloggerCard from './BloggerCard';
+import SuggestionForm from './components/suggestion/SuggestionForm';
+import LibrariansPick from './LibrariansPick';
+import Footer from './Footer';
 import { bloggers } from './data/bloggers';
 
-function Header() {
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
+interface HeaderProps {
+  isHomePage: boolean;
+}
 
+function Header({ isHomePage }: HeaderProps) {
   return (
     <header className="bg-black border-b border-white/10 sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -22,7 +24,6 @@ function Header() {
               </h1>
             </div>
             <p className="text-sm text-white/80 italic mt-1">
-              aggregating essays and blogs in ideas + tech
             </p>
           </Link>
           <div className="flex items-center gap-4">
@@ -40,6 +41,12 @@ function Header() {
   );
 }
 
+function HeaderWrapper() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  return <Header isHomePage={isHomePage} />;
+}
+
 function Home() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -53,23 +60,15 @@ function Home() {
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gradient-to-b from-[#1A1A1A] to-[#121212]">
-        <Header />
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="min-h-screen bg-gradient-to-b from-[#1A1A1A] to-[#121212] flex flex-col">
+        <HeaderWrapper />
+        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/suggest" element={<SuggestionForm onClose={() => null} />} />
+            <Route path="/suggest" element={<SuggestionForm />} />
           </Routes>
         </main>
-        <footer className="bg-black border-t border-white/10 mt-auto">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <p className="text-center text-white/80 text-sm">
-              probably some of the most important writing on the internet
-              <br />
-              <span className="text-xs opacity-75">made by <a href="https://x.com/pizzamiheart" target="_blank" rel="noopener noreferrer" className="text-white hover:text-red-500 hover:underline transition-colors">@pizzamiheart</a></span>
-            </p>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </Router>
   );

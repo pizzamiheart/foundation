@@ -94,7 +94,7 @@ export default function SuggestionForm() {
 
           <div>
             <label htmlFor="submitterTwitter" className="block text-sm font-medium text-white/80 mb-2">
-              Your Twitter Handle (optional)
+              Your X/Twitter (optional)
             </label>
             <div className="relative">
               <span className="absolute left-4 top-2 text-white/40">@</span>
