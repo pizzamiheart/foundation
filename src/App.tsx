@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Library } from 'lucide-react';
+import { Library, HelpCircle } from 'lucide-react';
 import BloggerCard from './BloggerCard';
 import SuggestionForm from './components/suggestion/SuggestionForm';
 import LibrariansPick from './LibrariansPick';
 import Footer from './Footer';
+import AboutModal from './AboutModal';
 import { bloggers } from './data/bloggers';
 
 interface HeaderProps {
   isHomePage: boolean;
+  onOpenAbout: () => void;
 }
 
-function Header({ isHomePage }: HeaderProps) {
+function Header({ isHomePage, onOpenAbout }: HeaderProps) {
   return (
     <header className="bg-black border-b border-white/10 sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -28,7 +30,18 @@ function Header({ isHomePage }: HeaderProps) {
             </p>
           </Link>
           <div className="flex items-center gap-4">
-            {isHomePage && <LibrariansPick bloggers={bloggers} />}
+            <button
+              onClick={onOpenAbout}
+              className="flex items-center justify-center w-7 h-7 rounded-full border-2 border-red-500 text-white/60 hover:bg-red-500 hover:text-white transition-colors"
+              aria-label="About Foundation"
+            >
+              <HelpCircle className="w-4 h-4" />
+            </button>
+            {isHomePage && (
+              <div className="hidden sm:block">
+                <LibrariansPick bloggers={bloggers} />
+              </div>
+            )}
             <Link
               to={isHomePage ? "/suggest" : "/"}
               className="text-sm text-white/80 hover:text-red-500 transition-colors"
@@ -37,15 +50,20 @@ function Header({ isHomePage }: HeaderProps) {
             </Link>
           </div>
         </div>
+        {isHomePage && (
+          <div className="sm:hidden mt-4">
+            <LibrariansPick bloggers={bloggers} />
+          </div>
+        )}
       </div>
     </header>
   );
 }
 
-function HeaderWrapper() {
+function HeaderWrapper({ onOpenAbout }: { onOpenAbout: () => void }) {
   const location = useLocation();
   const isHomePage = location.pathname === '/';
-  return <Header isHomePage={isHomePage} />;
+  return <Header isHomePage={isHomePage} onOpenAbout={onOpenAbout} />;
 }
 
 function Home() {
@@ -59,10 +77,12 @@ function Home() {
 }
 
 export default function App() {
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
+
   return (
     <Router>
       <div className="min-h-screen bg-gradient-to-b from-[#1A1A1A] to-[#121212] flex flex-col">
-        <HeaderWrapper />
+        <HeaderWrapper onOpenAbout={() => setIsAboutOpen(true)} />
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -70,6 +90,10 @@ export default function App() {
           </Routes>
         </main>
         <Footer />
+        <AboutModal 
+          isOpen={isAboutOpen}
+          onClose={() => setIsAboutOpen(false)}
+        />
       </div>
     </Router>
   );

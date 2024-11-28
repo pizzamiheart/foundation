@@ -9,7 +9,17 @@ export default {
       fontFamily: {
         medieval: ['Cinzel', 'serif'],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: 'rgba(255, 255, 255, 0.8)',
+            maxWidth: 'none',
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
