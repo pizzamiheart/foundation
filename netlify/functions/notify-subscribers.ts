@@ -9,22 +9,21 @@ export const handler: Handler = async (event) => {
   }
 
   try {
-    const suggestion = JSON.parse(event.body || '');
-    
-    // Since we're using Netlify Forms, we don't need to store the data here
-    // The form submission is automatically handled by Netlify
-    
+    const { authorName } = JSON.parse(event.body || '');
+
+    // For now, we'll just return success
+    // You can implement email notifications using a service like SendGrid later
     return {
       statusCode: 200,
       body: JSON.stringify({ 
-        message: 'Suggestion submitted successfully'
+        message: 'Notification handled successfully'
       }),
     };
   } catch (error) {
     console.error('Error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'Error submitting suggestion' }),
+      body: JSON.stringify({ message: 'Error processing notification' }),
     };
   }
 };
