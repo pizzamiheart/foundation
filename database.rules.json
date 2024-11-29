@@ -1,0 +1,10 @@
+{
+    "rules": {
+      "stats": {
+        "library_cards": {
+          ".read": true,
+          ".write": true
+        }
+      }
+    }
+  }

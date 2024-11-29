@@ -4,6 +4,7 @@ import { Library, HelpCircle } from 'lucide-react';
 import BloggerCard from './BloggerCard';
 import SuggestionForm from './components/suggestion/SuggestionForm';
 import LibrariansPick from './LibrariansPick';
+import LibraryStats from './LibraryStats';
 import Footer from './Footer';
 import AboutModal from './AboutModal';
 import { bloggers } from './data/bloggers';
@@ -25,9 +26,12 @@ function Header({ isHomePage, onOpenAbout }: HeaderProps) {
                 Foundation
               </h1>
             </div>
-            <p className="text-sm text-white/80 italic mt-1">
-              probably some of the most important writing on the internet
-            </p>
+            <div className="flex items-center gap-4 mt-1">
+              <p className="text-sm text-white/80 italic">
+                probably some of the most important writing on the internet
+              </p>
+              <LibraryStats />
+            </div>
           </Link>
           <div className="flex items-center gap-4">
             <button

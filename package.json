@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@firebase/analytics": "^0.10.0",
+    "@firebase/app": "^0.9.25",
+    "@firebase/database": "^1.0.2",
     "@netlify/functions": "^2.6.0",
-    "@supabase/supabase-js": "^2.39.7",
-    "@types/node": "^20.11.24",
+    "firebase": "^11.0.2",
     "framer-motion": "^11.0.8",
     "lucide-react": "^0.344.0",
     "react": "^18.2.0",

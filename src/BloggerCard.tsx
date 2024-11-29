@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Globe, ExternalLink, Share2 } from 'lucide-react';
+import { incrementLibraryCards } from './lib/firebase';
 
 interface Essay {
   title: string;
@@ -55,46 +56,13 @@ export default function BloggerCard({
 }: BloggerProps) {
   const cardId = name.toLowerCase().replace(/\s+/g, '-');
 
-  useEffect(() => {
-    if (window.location.hash === `#${cardId}`) {
-      const element = document.getElementById(cardId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+  const handleEssayClick = async () => {
+    try {
+      await incrementLibraryCards();
+    } catch (error) {
+      console.error('Error incrementing library cards:', error);
     }
-
-    const setMetaTag = (property: string, content: string) => {
-      let meta = document.querySelector(`meta[property="${property}"]`);
-      if (!meta) {
-        meta = document.createElement('meta');
-        meta.setAttribute('property', property);
-        document.head.appendChild(meta);
-      }
-      meta.setAttribute('content', content);
-    };
-
-    const cardElement = document.getElementById(cardId);
-    if (cardElement) {
-      const updateMetaTags = () => {
-        setMetaTag('og:title', name);
-        setMetaTag('og:description', bio);
-        setMetaTag('og:image', '/social-card.png');
-        setMetaTag('og:image:type', 'image/png');
-        setMetaTag('og:image:width', '1200');
-        setMetaTag('og:image:height', '630');
-        setMetaTag('og:url', `${window.location.origin}/#${cardId}`);
-        setMetaTag('og:type', 'profile');
-
-        setMetaTag('twitter:card', 'summary_large_image');
-        setMetaTag('twitter:title', name);
-        setMetaTag('twitter:description', bio);
-        setMetaTag('twitter:image', '/social-card.png');
-      };
-
-      cardElement.addEventListener('mouseenter', updateMetaTags);
-      return () => cardElement.removeEventListener('mouseenter', updateMetaTags);
-    }
-  }, [name, bio, cardId]);
+  };
 
   const handleShare = () => {
     const tweetText = `just read an essay by ${twitter ? `@${twitter}` : name} on foundation! lots of interesting writers and thinkers in (mostly) tech to check out :)`;
@@ -171,12 +139,16 @@ export default function BloggerCard({
                   href={essay.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={handleEssayClick}
                   className="essay-link text-xs font-medium text-white/80 hover:text-red-500 hover:underline transition-colors line-clamp-1"
                 >
                   {essay.title}
                 </a>
                 <button
-                  onClick={() => window.open(essay.url, '_blank')}
+                  onClick={() => {
+                    handleEssayClick();
+                    window.open(essay.url, '_blank');
+                  }}
                   className="borrow-button text-xs font-typewriter px-3 py-1 border border-red-500 text-white/80 hover:text-red-500 hover:border-red-500 transition-colors absolute right-0"
                 >
                   Borrow
