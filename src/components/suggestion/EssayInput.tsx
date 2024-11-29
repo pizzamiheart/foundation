@@ -1,6 +1,6 @@
 import React from 'react';
 import { Minus } from 'lucide-react';
-import { Essay } from './types';
+import { Essay } from '../../lib/types';
 
 interface EssayInputProps {
   index: number;

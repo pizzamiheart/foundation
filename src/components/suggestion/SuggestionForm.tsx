@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Send, Plus } from 'lucide-react';
-import { Essay } from './types';
+import { Essay } from '../../lib/types';
 import EssayInput from './EssayInput';
 import SuccessMessage from './SuccessMessage';
 import { validateForm } from './validation';
@@ -8,8 +8,6 @@ import { validateForm } from './validation';
 export default function SuggestionForm() {
   const [authorName, setAuthorName] = useState('');
   const [submitterTwitter, setSubmitterTwitter] = useState('');
-  const [email, setEmail] = useState('');
-  const [wantsUpdates, setWantsUpdates] = useState(false);
   const [essays, setEssays] = useState<Essay[]>([{ title: '', url: '' }]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -51,8 +49,6 @@ export default function SuggestionForm() {
       formData.append('form-name', 'suggestions');
       formData.append('authorName', authorName);
       formData.append('submitterTwitter', submitterTwitter);
-      formData.append('email', email);
-      formData.append('wantsUpdates', wantsUpdates.toString());
       
       essays.forEach((essay, index) => {
         formData.append(`essayTitle${index}`, essay.title);
