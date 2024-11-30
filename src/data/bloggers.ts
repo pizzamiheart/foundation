@@ -1129,7 +1129,7 @@ export const bloggers = [
   {
     name: "Derek Sivers",
     image: "", // Add your image link here
-    bio: "I've been a musician, circus performer, entrepreneur, and speaker.I'm a slow thinker, explorer, xenophile, and I love a different point of view.",
+    bio: "I've been a musician, circus performer, entrepreneur, and speaker. I'm a slow thinker, explorer, xenophile, and I love a different point of view.",
     website: "https://sive.rs/",
     twitter: "sivers",
     essays: [

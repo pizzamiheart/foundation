@@ -1,6 +1,7 @@
 import React from 'react';
 import { Globe, ExternalLink, Share2 } from 'lucide-react';
 import { incrementLibraryCards } from './lib/firebase';
+import { trackEssayClick } from './lib/analytics';
 
 interface Essay {
   title: string;
@@ -56,11 +57,14 @@ export default function BloggerCard({
 }: BloggerProps) {
   const cardId = name.toLowerCase().replace(/\s+/g, '-');
 
-  const handleEssayClick = async () => {
+  const handleEssayClick = async (essay: Essay) => {
     try {
-      await incrementLibraryCards();
+      await Promise.all([
+        incrementLibraryCards(),
+        trackEssayClick(name, essay.title, essay.url)
+      ]);
     } catch (error) {
-      console.error('Error incrementing library cards:', error);
+      console.error('Error handling essay click:', error);
     }
   };
 
@@ -139,14 +143,14 @@ export default function BloggerCard({
                   href={essay.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={handleEssayClick}
+                  onClick={() => handleEssayClick(essay)}
                   className="essay-link text-xs font-medium text-white/80 hover:text-red-500 hover:underline transition-colors line-clamp-1"
                 >
                   {essay.title}
                 </a>
                 <button
                   onClick={() => {
-                    handleEssayClick();
+                    handleEssayClick(essay);
                     window.open(essay.url, '_blank');
                   }}
                   className="borrow-button text-xs font-typewriter px-3 py-1 border border-red-500 text-white/80 hover:text-red-500 hover:border-red-500 transition-colors absolute right-0"

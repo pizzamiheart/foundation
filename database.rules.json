@@ -4,7 +4,30 @@
         "library_cards": {
           ".read": true,
           ".write": true
+        },
+        "essay_clicks": {
+          ".read": true,
+          ".write": true,
+          "$click_id": {
+            ".validate": "newData.hasChildren(['authorName', 'essayTitle', 'essayUrl', 'timestamp'])",
+            "authorName": {
+              ".validate": "newData.isString()"
+            },
+            "essayTitle": {
+              ".validate": "newData.isString()"
+            },
+            "essayUrl": {
+              ".validate": "newData.isString()"
+            },
+            "timestamp": {
+              ".validate": "newData.val() == now"
+            }
+          }
         }
+      },
+      "suggestions": {
+        ".read": false,
+        ".write": true
       }
     }
   }
