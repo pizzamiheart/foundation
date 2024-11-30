@@ -24,11 +24,3 @@ export const trackEssayClick = async (authorName: string, essayTitle: string, es
     console.error('Error tracking essay click:', error);
   }
 };
-
-export const getEssayClicks = async () => {
-  const db = getDatabase();
-  const clicksRef = ref(db, 'stats/essay_clicks');
-  
-  // You can implement this later if you want to display analytics
-  // For now we'll just track the clicks
-};
