@@ -45,7 +45,7 @@ export default function LibraryCard({ count }: LibraryCardProps) {
             </div>
           ))}
         </div>
-        <span className="font-typewriter text-sm text-white/70">cards issued</span>
+        <span className="font-typewriter text-sm text-white/70">essays borrowed</span>
       </div>
     </div>
   );
