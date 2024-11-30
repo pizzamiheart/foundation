@@ -1105,7 +1105,7 @@ export const bloggers = [
   {
     name: "Aaron Francis",
     image: "", // Add your image link here
-    bio: "I'm a software developer, content creator, and co-founder of Try Hard Studios. I'm on Twitter all the time, and I make videos on YouTube",
+    bio: "I'm a software developer, content creator, and co-founder of Try Hard Studios. I'm on Twitter all the time, and I make videos on YouTube.",
     website: "https://aaronfrancis.com/",
     twitter: "aarondfrancis",
     essays: [
@@ -1120,6 +1120,30 @@ export const bloggers = [
       {
         title: "Publishing Your Work Increases Your Luck",
         url: "https://github.com/readme/guides/publishing-your-work"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Derek Sivers",
+    image: "", // Add your image link here
+    bio: "I've been a musician, circus performer, entrepreneur, and speaker.I'm a slow thinker, explorer, xenophile, and I love a different point of view.",
+    website: "https://sive.rs/",
+    twitter: "sivers",
+    essays: [
+      {
+        title: "Tech Independence",
+        url: "https://sive.rs/ti"
+      },
+      {
+        title: "How to Do What You Love and Make Good Money",
+        url: "https://sive.rs/balance"
+      },
+      {
+        title: "Write Plain Text Files",
+        url: "https://sive.rs/plaintext"
       }
     ],
     bgColor: "bg-green-900/30",
