@@ -1149,5 +1149,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Matt Palmer",
+    image: "", // Add your image link here
+    bio: "Former data professional turned product marketer, I spend my time thinking about how to communicate complex technology.",
+    website: "https://mattpalmer.io/#writing",
+    twitter: "mattppal",
+    essays: [
+      {
+        title: "Every Problem is the Same",
+        url: "https://blog.mattpalmer.io/every-problem-is-the-same/"
+      },
+      {
+        title: "Making Analytics Fun",
+        url: "https://blog.mattpalmer.io/making-analytics-fun/"
+      },
+      {
+        title: "Data is a Meme",
+        url: "https://blog.mattpalmer.io/data-is-a-meme/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
