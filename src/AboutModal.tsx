@@ -41,19 +41,11 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
               </p>
               
               <p>
-                much of what is shaping our now, and our future, is our ability to think, write, and communicate our ideas. our ideas tell others about who we are.
+                much of what is shaping our now, and our future, is our ability to think, write, and communicate our ideas. our ideas tell others about who we are. they are our signal to the machine god that we know the way forward because we've written down the past.
               </p>
-              
+
               <p>
-                they are our signal to the machine god that we know the forward because we've written down the past.
-              </p>
-              
-              <p>
-                the way forward into the future is being shaped by technology that is more like us than anything we've ever created. it makes everything else seem alien in a way.
-              </p>
-              
-              <p>
-                in this future, should we begin to forget who we are, we'll do well read what has been written. we should reflect on our ideas. reshape them. communicate them again.
+                the way forward into the future is being shaped by technology that is more like us than anything we've ever created. it makes everything else seem alien in a way. in this future, should we begin to forget who we are, we'll do well to read what has been written - to revist our ideas - and remember that we have imagination and can shape the world.
               </p>
               
               <p>
