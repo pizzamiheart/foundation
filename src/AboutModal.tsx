@@ -13,25 +13,26 @@ export default function AboutModal({ isOpen, onClose }: AboutModalProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80">
       <div 
         className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg 
-          bg-black border-2 border-red-500 shadow-[6px_6px_0px_rgba(229,58,70,0.3)]
+          bg-[#ffffe8] dark:bg-black border-2 border-red-500/30 dark:border-red-500 
+          shadow-[6px_6px_0px_rgba(229,58,70,0.1)] dark:shadow-[6px_6px_0px_rgba(229,58,70,0.3)]
           transition-all duration-300 ring-1 ring-red-500/30"
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-red-500/[0.03] to-transparent pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-red-500/[0.01] dark:from-red-500/[0.03] to-transparent pointer-events-none" />
         
         <div className="relative p-8">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 text-red-500/60 hover:text-red-500 transition-colors"
+            className="absolute top-4 right-4 p-2 text-black/60 dark:text-red-500/60 hover:text-red-500 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
           
-          <div className="prose prose-invert max-w-none">
+          <div className="prose prose-invert dark:prose-invert max-w-none">
             <p className="text-2xl font-medieval text-red-500 mb-8">
               we are in the age of curation.
             </p>
             
-            <div className="space-y-6 text-white/80">
+            <div className="space-y-6 text-black/80 dark:text-white/80">
               <p>
                 it has never been easier, faster, or cheaper to create something. and, increasingly, anything you want.
               </p>

@@ -81,8 +81,8 @@ export default function SuggestionForm() {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="rounded-lg overflow-hidden bg-black border-2 border-white/20 p-8">
-        <h2 className="text-2xl font-bold text-white mb-6">Suggest an Author</h2>
+      <div className="rounded-lg overflow-hidden bg-[#ffffe8] dark:bg-black border-2 border-black/20 dark:border-white/20 p-8">
+        <h2 className="text-2xl font-bold text-black dark:text-white mb-6">Suggest an Author</h2>
         <form 
           name="suggestions"
           method="POST"
@@ -93,7 +93,7 @@ export default function SuggestionForm() {
           <input type="hidden" name="form-name" value="suggestions" />
           
           <div>
-            <label htmlFor="authorName" className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor="authorName" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-2">
               Author Name
             </label>
             <input
@@ -102,25 +102,25 @@ export default function SuggestionForm() {
               name="authorName"
               value={authorName}
               onChange={(e) => setAuthorName(e.target.value)}
-              className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-2 bg-white/50 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
               placeholder="e.g., Paul Graham"
               required
             />
           </div>
 
           <div>
-            <label htmlFor="submitterTwitter" className="block text-sm font-medium text-white/80 mb-2">
+            <label htmlFor="submitterTwitter" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-2">
               Your X/Twitter (optional)
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-2 text-white/40">@</span>
+              <span className="absolute left-4 top-2 text-black/40 dark:text-white/40">@</span>
               <input
                 type="text"
                 id="submitterTwitter"
                 name="submitterTwitter"
                 value={submitterTwitter}
                 onChange={(e) => setSubmitterTwitter(e.target.value)}
-                className="w-full px-4 py-2 pl-8 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full px-4 py-2 pl-8 bg-white/50 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
                 placeholder="username"
               />
             </div>
@@ -128,14 +128,14 @@ export default function SuggestionForm() {
 
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <label className="block text-sm font-medium text-white/80">
+              <label className="block text-sm font-medium text-black/80 dark:text-white/80">
                 Essays
               </label>
               {essays.length < 3 && (
                 <button
                   type="button"
                   onClick={addEssay}
-                  className="flex items-center gap-1 text-sm text-white/80 hover:text-red-500 transition-colors"
+                  className="flex items-center gap-1 text-sm text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
                 >
                   <Plus className="w-4 h-4" />
                   Add Essay
@@ -157,7 +157,7 @@ export default function SuggestionForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 text-black dark:text-white border border-black/20 dark:border-white/20 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send className="w-4 h-4" />
             {isSubmitting ? 'Submitting...' : 'Submit Suggestion'}

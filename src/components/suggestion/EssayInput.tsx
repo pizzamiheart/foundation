@@ -18,14 +18,14 @@ export default function EssayInput({
   onChange 
 }: EssayInputProps) {
   return (
-    <div className="space-y-4 p-4 bg-white/5 rounded-md">
+    <div className="space-y-4 p-4">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-white/60">Essay {index + 1}</span>
+        <span className="text-sm font-medium text-black/60 dark:text-white/60">Essay {index + 1}</span>
         {canRemove && (
           <button
             type="button"
             onClick={() => onRemove(index)}
-            className="text-white/60 hover:text-red-500 transition-colors"
+            className="text-black/60 dark:text-white/60 hover:text-red-500 transition-colors"
           >
             <Minus className="w-4 h-4" />
           </button>
@@ -35,7 +35,7 @@ export default function EssayInput({
         type="text"
         value={essay.title}
         onChange={(e) => onChange(index, 'title', e.target.value)}
-        className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
+        className="w-full px-4 py-2 bg-white/50 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
         placeholder="Essay Title"
         required
       />
@@ -43,7 +43,7 @@ export default function EssayInput({
         type="url"
         value={essay.url}
         onChange={(e) => onChange(index, 'url', e.target.value)}
-        className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-md text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
+        className="w-full px-4 py-2 bg-white/50 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white placeholder-black/40 dark:placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500"
         placeholder="https://..."
         required
       />
