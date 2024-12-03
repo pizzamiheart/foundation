@@ -1154,7 +1154,7 @@ export const bloggers = [
     name: "Matt Palmer",
     image: "", // Add your image link here
     bio: "Former data professional turned product marketer, I spend my time thinking about how to communicate complex technology.",
-    website: "https://mattpalmer.io/#writing",
+    website: "https://blog.mattpalmer.io/",
     twitter: "mattppal",
     essays: [
       {
