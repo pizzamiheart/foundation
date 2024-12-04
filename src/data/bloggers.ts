@@ -1325,12 +1325,12 @@ export const bloggers = [
     twitter: "finmoorhouse",
     essays: [
       {
-        title: "Beware Point Estimates of Tractability",
-        url: "https://finmoorhouse.com/writing/tractability/"
+        title: "Carl Sagan Quotations",
+        url: "https://finmoorhouse.com/writing/carl-sagan-quotations/"
       },
       {
         title: "Summary of What We Owe to the Future",
-        url: "https://finmoorhouse.com/writing/tractability/"
+        url: "https://finmoorhouse.com/writing/wwotf-summary/"
       },
       {
         title: "You Don't Need to Read the News",
