@@ -24,6 +24,30 @@ export const bloggers = [
     borderColor: "border-slate-700/50"
   },
   {
+    name: "Wenbin Fang",
+    image: "",
+    bio: "Founder and CEO of Listen Notes. Developer of microfeed, inca.fm, points411.com and listen411.com",
+    website: "https://www.wenbin.org/",
+    twitter: "wenbinf",
+    essays: [
+      {
+        title: "Notebook LM: A Threat to the Podcasting World",
+        url: "https://www.listennotes.com/blog/notebook-lm-a-threat-to-the-podcasting-world-79/"
+      },
+      {
+        title: "How I Accidentally Built a Podcast API Business",
+        url: "https://www.listennotes.com/blog/how-i-accidentally-built-a-podcast-api-business-46/"
+      },
+      {
+        title: "Good Enough Engineering to Start an Internet Company",
+        url: "https://www.listennotes.com/blog/good-enough-engineering-to-start-an-internet-27/"
+      }
+    ],
+    bgColor: "bg-slate-900/30",
+    textColor: "text-slate-100",
+    borderColor: "border-slate-700/50"
+  },
+  {
     name: "Graham Duncan",
     image: "",
     bio: "Co-founder of East Rock Capital. Compulsively seeking new ways of seeing reality.",
