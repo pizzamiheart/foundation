@@ -1223,6 +1223,54 @@ export const bloggers = [
     borderColor: "border-green-700/50"
   },
   {
+    name: "Delian Asparouhov",
+    image: "", // Add your image link here
+    bio: "I'm currently a Partner at Founders Fund. Before this I was a Principal at Khosla Ventures, the head of growth at Teespring, and the founder of a healthcare company called Nightingale. I'm Bulgarian, I like to ski, and I'm better with computers than people.",
+    website: "https://delian.io/",
+    twitter: "zebulgar",
+    essays: [
+      {
+        title: "Lessons From Keith Rabois Essay 1",
+        url: "https://delian.io/lessons-1"
+      },
+      {
+        title: "Lessons from Keith Rabois Essay 2",
+        url: "https://delian.io/lessons-2"
+      },
+      {
+        title: "Lessons from Keith Rabois Essay 3",
+        url: "https://delian.io/lessons-3"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Paras Chopra",
+    image: "", // Add your image link here
+    bio: "I'm Paras Chopra. These days I'm running Turing's Dream, an AI research lab focused on creativity and reasoning.",
+    website: "https://invertedpassion.com/",
+    twitter: "paraschopra",
+    essays: [
+      {
+        title: "Never Ask Your Friends or Family if They Like Your Idea",
+        url: "https://invertedpassion.com/never-ask-your-friends-or-family-if-they-like-your-idea/"
+      },
+      {
+        title: "What Bootstraps Intelligence?",
+        url: "https://invertedpassion.com/what-bootstraps-intelligence/"
+      },
+      {
+        title: "People Don't Like Using Technology",
+        url: "https://invertedpassion.com/people-dont-like-using-technology/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
     name: "Amanda Askell",
     image: "", // Add your image link here
     bio: "I'm a philosopher working on finetuning and AI alignment at Anthropic.",
@@ -1273,7 +1321,7 @@ export const bloggers = [
     name: "Fin Moorhouse",
     image: "", // Add your image link here
     bio: "Currently I'm a researcher at Longview Philanthropy. Before that, I was a Research Scholar and assistant to Toby Ord at Oxford University's Future of Humanity Institute.",
-    website: "https://finmoorhouse.com/writing/",
+    website: "https://finmoorhouse.com/",
     twitter: "finmoorhouse",
     essays: [
       {
