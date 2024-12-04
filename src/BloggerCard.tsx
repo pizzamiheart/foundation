@@ -20,7 +20,7 @@ interface BloggerProps {
 }
 
 const XLogo = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" className="text-black/80 dark:text-white/80 hover:text-red-500 transition-colors">
+  <svg viewBox="0 0 24 24" width="16" height="16" className="text-black/80 dark:text-white/80 group-hover:text-red-500 transition-colors">
     <path 
       fill="currentColor" 
       d="M18.901 1.153h3.68l-8.04 9.19L24 21.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153ZM17.61 19.644h2.039L6.486 3.24H4.298l13.312 16.404Z"
@@ -98,16 +98,16 @@ export default function BloggerCard({
                   href={website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
+                  className="group text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
                 >
-                  <Globe className="w-4 h-4" />
+                  <Globe className="w-4 h-4 group-hover:text-red-500 transition-colors" />
                 </a>
                 {twitter && (
                   <a
                     href={`https://twitter.com/${twitter}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
+                    className="group text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
                   >
                     <XLogo />
                   </a>
