@@ -1273,7 +1273,7 @@ export const bloggers = [
     name: "Fin Moorhouse",
     image: "", // Add your image link here
     bio: "Currently I'm a researcher at Longview Philanthropy. Before that, I was a Research Scholar and assistant to Toby Ord at Oxford University's Future of Humanity Institute.",
-    website: "https://sideways-view.comhttps://finmoorhouse.com/writing//",
+    website: "https://finmoorhouse.com/writing/",
     twitter: "finmoorhouse",
     essays: [
       {
