@@ -1202,7 +1202,7 @@ export const bloggers = [
     name: "Guillermo Rauch",
     image: "", // Add your image link here
     bio: "I'm a software engineer and CEO of Vercel. I'm originally from Lanús, Buenos Aires, Argentina. I owe much of my career to the Web and Open Source.",
-    website: "https://rauchg.com/about",
+    website: "https://rauchg.com/",
     twitter: "rauchg",
     essays: [
       {
@@ -1216,6 +1216,77 @@ export const bloggers = [
       {
         title: "Making the Web. Faster.",
         url: "https://rauchg.com/2021/making-the-web-faster"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Amanda Askell",
+    image: "", // Add your image link here
+    bio: "I'm a philosopher working on finetuning and AI alignment at Anthropic.",
+    website: "https://askell.io/",
+    twitter: "AmandaAskell",
+    essays: [
+      {
+        title: "Self-Serving Utilitarian Arguments",
+        url: "https://www.askell.blog/self-serving-utilitarian-arguments/"
+      },
+      {
+        title: "The Optimal Rate of Failure",
+        url: "https://www.askell.blog/the-optimal-rate-of-failure/"
+      },
+      {
+        title: "In AI Ethics, 'bad' isn't good enough",
+        url: "https://rauchg.com/2021/making-the-web-faster"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Paul Christiano",
+    image: "", // Add your image link here
+    bio: "Paul Christiano is head of AI safety for the U.S. Artificial Intelligence Safety Institute.",
+    website: "https://sideways-view.com/",
+    essays: [
+      {
+        title: "Self-driving Car Bets",
+        url: "https://sideways-view.com/2023/07/29/self-driving-car-bets/"
+      },
+      {
+        title: "Improving Capital Gains Taxes",
+        url: "https://sideways-view.com/2021/07/09/improving-capital-gains-taxes/"
+      },
+      {
+        title: "Takeoff Speeds",
+        url: "https://sideways-view.com/2018/02/24/takeoff-speeds/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Fin Moorhouse",
+    image: "", // Add your image link here
+    bio: "Currently I'm a researcher at Longview Philanthropy. Before that, I was a Research Scholar and assistant to Toby Ord at Oxford University's Future of Humanity Institute.",
+    website: "https://sideways-view.comhttps://finmoorhouse.com/writing//",
+    twitter: "finmoorhouse",
+    essays: [
+      {
+        title: "Beware Point Estimates of Tractability",
+        url: "https://finmoorhouse.com/writing/tractability/"
+      },
+      {
+        title: "Summary of What We Owe to the Future",
+        url: "https://finmoorhouse.com/writing/tractability/"
+      },
+      {
+        title: "You Don't Need to Read the News",
+        url: "https://finmoorhouse.com/writing/news/"
       }
     ],
     bgColor: "bg-green-900/30",
