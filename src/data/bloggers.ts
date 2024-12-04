@@ -1197,5 +1197,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Guillermo Rauch",
+    image: "", // Add your image link here
+    bio: "I'm a software engineer and CEO of Vercel. I'm originally from Lanús, Buenos Aires, Argentina. I owe much of my career to the Web and Open Source.",
+    website: "https://rauchg.com/about",
+    twitter: "rauchg",
+    essays: [
+      {
+        title: "7 Principles of Rich Web Applications",
+        url: "https://rauchg.com/2014/7-principles-of-rich-web-applications"
+      },
+      {
+        title: "Books People Re-read",
+        url: "https://rauchg.com/2020/books-people-reread"
+      },
+      {
+        title: "Making the Web. Faster.",
+        url: "https://rauchg.com/2021/making-the-web-faster"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
