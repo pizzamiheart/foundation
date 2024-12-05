@@ -3,14 +3,14 @@ import { getDatabase, ref, increment, get, set, onValue, Database, DataSnapshot 
 import { getAnalytics } from '@firebase/analytics';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCGr3CPtaLc1WtkDbGCNxBO-LKO51hduuw",
-  authDomain: "foundation-c0e8b.firebaseapp.com",
-  databaseURL: "https://foundation-c0e8b-default-rtdb.firebaseio.com",
-  projectId: "foundation-c0e8b",
-  storageBucket: "foundation-c0e8b.appspot.com",
-  messagingSenderId: "908024914529",
-  appId: "1:908024914529:web:e9f154c40388dca17dc020",
-  measurementId: "G-RND9F7NY5C"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
