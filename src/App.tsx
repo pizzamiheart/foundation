@@ -4,7 +4,6 @@ import { Library, HelpCircle } from 'lucide-react';
 import BloggerCard from './BloggerCard';
 import SuggestionForm from './components/suggestion/SuggestionForm';
 import LibrariansPick from './LibrariansPick';
-import LibraryStats from './LibraryStats';
 import Footer from './Footer';
 import AboutModal from './AboutModal';
 import ThemeToggle from './ThemeToggle';
@@ -19,7 +18,7 @@ interface HeaderProps {
 function Header({ isHomePage, onOpenAbout }: HeaderProps) {
   return (
     <header className="bg-cream dark:bg-black border-b border-black/10 dark:border-white/10 sticky top-0 z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex flex-col">
@@ -80,9 +79,9 @@ function HeaderWrapper({ onOpenAbout }: { onOpenAbout: () => void }) {
 function Home() {
   return (
     <>
-      <div className="py-8 bg-gradient-to-b from-black/5 dark:from-black/20 to-transparent">
+      <div className="py-12 mb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <LibraryStats />
+          {/* Buffer space */}
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
