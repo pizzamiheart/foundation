@@ -802,8 +802,8 @@ export const bloggers = [
         url: "https://sahillavingia.com/god"
       },
       {
-        title: "The Minimalist Entreprenuer",
-        url: "https://www.amazon.com/Minimalist-Entrepreneur-Great-Founders-More/dp/0593192397"
+        title: "No Meetings, No Deadlines, No Full-Time Employees",
+        url: "https://sahillavingia.com/work"
       },
       {
         title: "From Bubble to Bubble",
