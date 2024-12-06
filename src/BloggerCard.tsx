@@ -1,12 +1,6 @@
 import React from 'react';
 import { Globe, ExternalLink, Share2 } from 'lucide-react';
-import { incrementLibraryCards } from './lib/firebase';
-import { trackEssayClick } from './lib/analytics';
-
-interface Essay {
-  title: string;
-  url: string;
-}
+import { Essay } from './lib/types';
 
 interface BloggerProps {
   name: string;
@@ -39,10 +33,7 @@ export default function BloggerCard({
 
   const handleEssayClick = async (essay: Essay) => {
     try {
-      await Promise.all([
-        incrementLibraryCards(),
-        trackEssayClick(name, essay.title, essay.url)
-      ]);
+      window.open(essay.url, '_blank');
     } catch (error) {
       console.error('Error handling essay click:', error);
     }
@@ -100,7 +91,7 @@ export default function BloggerCard({
                   rel="noopener noreferrer"
                   className="group text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
                 >
-                  <Globe className="w-4 h-4 group-hover:text-red-500 transition-colors" />
+                  <Globe className="w-4 h-4" />
                 </a>
                 {twitter && (
                   <a
@@ -144,10 +135,7 @@ export default function BloggerCard({
                   {essay.title}
                 </a>
                 <button
-                  onClick={() => {
-                    handleEssayClick(essay);
-                    window.open(essay.url, '_blank');
-                  }}
+                  onClick={() => handleEssayClick(essay)}
                   className="borrow-button text-xs font-typewriter px-3 py-1 border-2 border-red-500/70 dark:border-red-500 text-black/80 dark:text-white/80 hover:text-red-500 hover:border-red-500 transition-colors absolute right-0"
                 >
                   Borrow
