@@ -1,6 +1,7 @@
 import React from 'react';
-import { Globe, ExternalLink, Share2 } from 'lucide-react';
+import { Globe, ExternalLink } from 'lucide-react';
 import { Essay } from './lib/types';
+import LayersIcon from './components/LayersIcon';
 
 interface BloggerProps {
   name: string;
@@ -14,7 +15,7 @@ interface BloggerProps {
 }
 
 const XLogo = () => (
-  <svg viewBox="0 0 24 24" width="16" height="16" className="text-black/80 dark:text-white/80 group-hover:text-red-500 transition-colors">
+  <svg viewBox="0 0 24 24" width="16" height="16" className="text-black/80 dark:text-white/80 hover:text-red-500 transition-colors">
     <path 
       fill="currentColor" 
       d="M18.901 1.153h3.68l-8.04 9.19L24 21.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932L18.901 1.153ZM17.61 19.644h2.039L6.486 3.24H4.298l13.312 16.404Z"
@@ -46,10 +47,15 @@ export default function BloggerCard({
     window.open(twitterUrl, '_blank');
   };
 
+  const handleSaveToReadwise = () => {
+    // Implement Readwise save functionality
+    console.log('Save to Readwise clicked');
+  };
+
   return (
     <div 
       id={cardId}
-      className="rounded-lg overflow-hidden transition-all duration-75 
+      className="group relative rounded-lg overflow-hidden transition-all duration-75 
         bg-[#ffffe8] dark:bg-black border-2 border-black/20 dark:border-white/20
         shadow-[6px_6px_0px_rgba(0,0,0,0.1)] dark:shadow-[6px_6px_0px_rgba(255,253,245,0.15)] 
         hover:shadow-[3px_3px_0px_rgba(0,0,0,0.05),inset_1px_1px_0px_rgba(255,255,255,0.9)] dark:hover:shadow-[3px_3px_0px_rgba(255,253,245,0.1),inset_1px_1px_0px_rgba(51,51,51,0.9)] 
@@ -89,7 +95,7 @@ export default function BloggerCard({
                   href={website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
+                  className="text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
                 >
                   <Globe className="w-4 h-4" />
                 </a>
@@ -98,7 +104,7 @@ export default function BloggerCard({
                     href={`https://twitter.com/${twitter}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group text-black/80 dark:text-white/80 hover:text-red-500 transition-colors"
+                    className="hover:text-red-500 transition-colors"
                   >
                     <XLogo />
                   </a>
@@ -106,25 +112,19 @@ export default function BloggerCard({
               </div>
             </div>
           </div>
-          <button
-            onClick={handleShare}
-            className="p-2 text-black/80 dark:text-white/80 hover:text-red-500 transition-colors border border-black/20 dark:border-white/20 hover:border-red-500 rounded-full"
-            title="Share on Twitter"
-          >
-            <Share2 className="w-4 h-4" />
-          </button>
+          <LayersIcon onShare={handleShare} onSaveToReadwise={handleSaveToReadwise} />
         </div>
 
         <p className="text-sm mb-3 text-black/80 dark:text-white/80 line-clamp-2">
           {bio}
         </p>
 
-        <div>
+        <div className="flex-1">
           <h3 className="text-sm font-bold mb-2 text-black dark:text-white">Featured Essays</h3>
           <ul className="space-y-1.5">
             {essays.map((essay, index) => (
-              <li key={index} className="flex items-center gap-1.5 group relative pr-24">
-                <ExternalLink className="w-3 h-3 flex-shrink-0 text-black/60 dark:text-white/60 group-hover:text-red-500" />
+              <li key={index} className="flex items-center gap-1.5 group/essay relative pr-24">
+                <ExternalLink className="w-3 h-3 flex-shrink-0 text-black/60 dark:text-white/60 group-hover/essay:text-red-500" />
                 <a
                   href={essay.url}
                   target="_blank"

@@ -20,23 +20,21 @@ function App() {
           <header className="bg-cream dark:bg-black border-b border-black/10 dark:border-white/10 sticky top-0 z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
               <div className="flex flex-col">
-                <div className="flex items-center justify-between relative">
-                  <Link to="/" className="flex flex-col">
+                <div className="flex items-center justify-between gap-4">
+                  <Link to="/" className="flex flex-col shrink-0">
                     <div className="flex items-center gap-3">
                       <img src="/logo.svg" alt="Foundation Logo" className="w-6 h-6" />
-                      <h1 className="text-2xl font-medieval text-black dark:text-white">
+                      <h1 className="text-xl sm:text-2xl font-medieval text-black dark:text-white">
                         Foundation
                       </h1>
                     </div>
-                    <p className="text-sm text-black/80 dark:text-white/80 italic mt-1">
+                    <p className="text-xs sm:text-sm text-black/80 dark:text-white/80 italic mt-1">
                       probably some of the most important writing on the internet
                     </p>
                   </Link>
-                  <div className="flex items-center gap-4">
-                    <div className="flex items-center">
-                      <HorizontalMenu onOpenAbout={() => setIsAboutOpen(true)} />
-                      <LibrariansPick bloggers={bloggers} />
-                    </div>
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <HorizontalMenu onOpenAbout={() => setIsAboutOpen(true)} />
+                    <LibrariansPick bloggers={bloggers} />
                   </div>
                 </div>
               </div>
@@ -48,7 +46,8 @@ function App() {
               <Route path="/" element={
                 <>
                   <div className="py-8 bg-gradient-to-b from-black/5 dark:from-black/20 to-transparent">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="max-w-7xl mx-auto">
+                      <LibraryStats />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">

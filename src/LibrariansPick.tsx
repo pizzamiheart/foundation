@@ -58,9 +58,9 @@ export default function LibrariansPick({ bloggers }: LibrariansPickProps) {
   return (
     <button
       onClick={pickRandomEssay}
-      className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+      className="text-xs sm:text-sm flex items-center justify-center gap-2 px-3 sm:px-4 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
     >
-      <BookOpen className="w-4 h-4" />
+      <BookOpen className="w-3 h-3 sm:w-4 sm:h-4" />
       <span>Librarian's Pick</span>
     </button>
   );
