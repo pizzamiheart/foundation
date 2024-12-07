@@ -19,8 +19,8 @@ function App() {
         <div className="min-h-screen bg-gradient-to-b from-cream to-white dark:from-[#1A1A1A] dark:to-[#121212] flex flex-col text-black dark:text-white">
           <header className="bg-cream dark:bg-black border-b border-black/10 dark:border-white/10 sticky top-0 z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-              <div className="flex flex-col">
-                <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-col space-y-4">
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                   <Link to="/" className="flex flex-col shrink-0">
                     <div className="flex items-center gap-3">
                       <img src="/logo.svg" alt="Foundation Logo" className="w-6 h-6" />
@@ -32,7 +32,7 @@ function App() {
                       probably some of the most important writing on the internet
                     </p>
                   </Link>
-                  <div className="flex items-center gap-2 sm:gap-4">
+                  <div className="flex items-center justify-center w-full sm:w-auto gap-2 sm:gap-4">
                     <HorizontalMenu onOpenAbout={() => setIsAboutOpen(true)} />
                     <LibrariansPick bloggers={bloggers} />
                   </div>
