@@ -61,18 +61,20 @@ export default function LibraryStats() {
                 method="POST"
                 data-netlify="true"
                 onSubmit={handleSubmit}
-                className="flex gap-2 w-full mt-2"
+                className="flex gap-2 w-full mt-4"
               >
                 <input type="hidden" name="form-name" value="library-card" />
-                <input
-                  type="email"
-                  name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  required
-                  className="w-full px-3 py-1.5 bg-white/5 border border-white/20 rounded-md text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-red-500 text-sm"
-                />
+                <div className="relative flex-1">
+                  <input
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    required
+                    className="w-full px-3 py-1.5 bg-white/5 border-2 border-[#FCCA46]/60 rounded-md text-white placeholder-white/40 focus:outline-none focus:border-[#FCCA46] text-sm transition-colors duration-300"
+                  />
+                </div>
                 <button
                   type="submit"
                   disabled={isSubmitting}
