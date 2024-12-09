@@ -1340,5 +1340,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Maraoz",
+    image: "", // Add your image link here
+    bio: "I cofounded and was formerly CTO at OpenZeppelin. I created Proof of Existence, one of the first non-financial bitcoin apps. I also helped create Decentraland.",
+    website: "https://maraoz.com/",
+    twitter: "maraoz",
+    essays: [
+      {
+        title: "Truth and Story",
+        url: "https://maraoz.com/truth-and-story/"
+      },
+      {
+        title: "The Meaning of Bitcoin",
+        url: "https://maraoz.com/bitcoin/"
+      },
+      {
+        title: "2026: predictions for the next decade",
+        url: "https://maraoz.com/2026/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
