@@ -32,12 +32,9 @@ export default function BloggerCard({
 }: BloggerProps) {
   const cardId = name.toLowerCase().replace(/\s+/g, '-');
 
-  const handleEssayClick = async (essay: Essay) => {
-    try {
-      window.open(essay.url, '_blank');
-    } catch (error) {
-      console.error('Error handling essay click:', error);
-    }
+  const handleEssayClick = (url: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open(url, '_blank');
   };
 
   const handleShare = () => {
@@ -48,7 +45,6 @@ export default function BloggerCard({
   };
 
   const handleSaveToReadwise = () => {
-    // Implement Readwise save functionality
     console.log('Save to Readwise clicked');
   };
 
@@ -127,15 +123,13 @@ export default function BloggerCard({
                 <ExternalLink className="w-3 h-3 flex-shrink-0 text-black/60 dark:text-white/60 group-hover/essay:text-red-500" />
                 <a
                   href={essay.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handleEssayClick(essay)}
+                  onClick={(e) => handleEssayClick(essay.url, e)}
                   className="essay-link text-xs font-medium text-black/80 dark:text-white/80 hover:text-red-500 hover:underline transition-colors line-clamp-1"
                 >
                   {essay.title}
                 </a>
                 <button
-                  onClick={() => handleEssayClick(essay)}
+                  onClick={(e) => handleEssayClick(essay.url, e)}
                   className="borrow-button text-xs font-typewriter px-3 py-1 border-2 border-red-500/70 dark:border-red-500 text-black/80 dark:text-white/80 hover:text-red-500 hover:border-red-500 transition-colors absolute right-0"
                 >
                   Borrow
