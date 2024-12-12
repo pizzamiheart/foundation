@@ -15,6 +15,9 @@ import UserMenu from './UserMenu';
 import { bloggers } from './data/bloggers';
 import { useAuth } from './contexts/AuthContext';
 
+// add this to test if the environment variable is being exposed
+console.log('API Key:', import.meta.env.vite_firebase_api_key);
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
   
