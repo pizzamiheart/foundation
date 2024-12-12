@@ -24,8 +24,8 @@ export default function SignUp() {
       setIsSuccess(true);
       setShowWelcomeModal(true);
     } catch (err: any) {
+      console.error('SignUp Error:', err);
       setError(err.message || 'Failed to create account');
-    } finally {
       setIsLoading(false);
     }
   };

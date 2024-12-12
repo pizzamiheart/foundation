@@ -10,9 +10,19 @@ import { createUserProfile } from './database';
 
 export const signUp = async (email: string, password: string, firstName: string): Promise<User> => {
   try {
+    // First create the auth user
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    await createUserProfile(userCredential.user.uid, email, firstName);
-    return userCredential.user;
+    
+    // Then create the user profile in Firestore
+    try {
+      await createUserProfile(userCredential.user.uid, email, firstName);
+      return userCredential.user;
+    } catch (error) {
+      console.error('Error creating user profile:', error);
+      // If profile creation fails, delete the auth user to maintain consistency
+      await userCredential.user.delete();
+      throw new Error('Failed to create user profile');
+    }
   } catch (error: any) {
     console.error('Error in signUp:', error);
     if (error.code === 'auth/email-already-in-use') {
@@ -27,6 +37,7 @@ export const signIn = async (email: string, password: string): Promise<User> => 
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     return userCredential.user;
   } catch (error: any) {
+    console.error('Error in signIn:', error);
     if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
       throw new Error('Invalid email or password');
     }
