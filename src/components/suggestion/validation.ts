@@ -1,4 +1,4 @@
-import { Essay } from './types';
+import { Essay } from '../../lib/types';
 
 export const validateForm = (
   authorName: string,
@@ -38,4 +38,4 @@ export const validateForm = (
   }
 
   return { isValid: true };
-}
+};

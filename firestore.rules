@@ -1,0 +1,28 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users collection
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null;
+    }
+    
+    // Essays collection
+    match /essays/{essayId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Authors collection
+    match /authors/{authorId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Stats collection
+    match /stats/{document=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
