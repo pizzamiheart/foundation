@@ -20,24 +20,29 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const initialize = async () => {
-      // Initialize Firebase first
-      await initializeFirebase();
-      
-      const unsubscribe = onAuthChange(async (user) => {
-        setUser(user);
+      try {
+        // Wait for Firebase to initialize
+        await initializeFirebase();
         
-        if (user) {
-          try {
-            await initializeCollections();
-          } catch (error) {
-            console.error('Error initializing collections:', error);
+        const unsubscribe = onAuthChange(async (user) => {
+          setUser(user);
+          
+          if (user) {
+            try {
+              await initializeCollections();
+            } catch (error) {
+              console.error('Error initializing collections:', error);
+            }
           }
-        }
-        
-        setLoading(false);
-      });
+          
+          setLoading(false);
+        });
 
-      return () => unsubscribe();
+        return () => unsubscribe();
+      } catch (error) {
+        console.error('Error in initialization:', error);
+        setLoading(false);
+      }
     };
 
     initialize();

@@ -5,8 +5,7 @@ import {
   setDoc, 
   updateDoc, 
   increment,
-  serverTimestamp,
-  writeBatch
+  serverTimestamp
 } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -35,16 +34,13 @@ export const createUserProfile = async (userId: string, email: string, firstName
     const userRef = doc(db, 'users', userId);
     const statsRef = doc(db, 'stats', 'global');
 
-    // Start a batch write
-    const batch = writeBatch(db);
-
-    // Get current stats first
+    // Get current stats for card number
     const statsDoc = await getDoc(statsRef);
-    const nextCardNumber = ((statsDoc.exists() ? statsDoc.data().lastCardNumber : 0) || 0) + 1;
+    const nextCardNumber = ((statsDoc.exists() ? statsDoc.data()?.lastCardNumber : 0) || 0) + 1;
     const paddedCardNumber = nextCardNumber.toString().padStart(5, '0');
 
-    // Add user document to batch
-    batch.set(userRef, {
+    // Create user document with final card number
+    await setDoc(userRef, {
       uid: userId,
       email,
       firstName,
@@ -54,29 +50,12 @@ export const createUserProfile = async (userId: string, email: string, firstName
       readingList: []
     });
 
-    // Update stats in batch
-    if (!statsDoc.exists()) {
-      batch.set(statsRef, {
-        totalUsers: 1,
-        lastCardNumber: nextCardNumber,
-        lastUpdated: serverTimestamp()
-      });
-    } else {
-      batch.update(statsRef, {
-        totalUsers: increment(1),
-        lastCardNumber: increment(1),
-        lastUpdated: serverTimestamp()
-      });
-    }
-
-    // Commit the batch
-    await batch.commit();
-
-    // Verify the user document was created
-    const verifyDoc = await getDoc(userRef);
-    if (!verifyDoc.exists()) {
-      throw new Error('User document was not created successfully');
-    }
+    // Update stats
+    await updateDoc(statsRef, {
+      totalUsers: increment(1),
+      lastCardNumber: nextCardNumber,
+      lastUpdated: serverTimestamp()
+    });
 
   } catch (error) {
     console.error('Error in createUserProfile:', error);
@@ -88,13 +67,7 @@ export const getUserProfile = async (userId: string) => {
   try {
     const userRef = doc(db, 'users', userId);
     const userDoc = await getDoc(userRef);
-    
-    if (!userDoc.exists()) {
-      console.error('User document does not exist');
-      return null;
-    }
-    
-    return userDoc.data();
+    return userDoc.exists() ? userDoc.data() : null;
   } catch (error) {
     console.error('Error getting user profile:', error);
     return null;
