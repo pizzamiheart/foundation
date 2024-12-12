@@ -6,11 +6,10 @@ import {
   updateDoc, 
   increment,
   serverTimestamp,
-  connectFirestoreEmulator
+  writeBatch
 } from 'firebase/firestore';
 import { db } from '../firebase';
 
-// Initialize collections if they don't exist
 export const initializeCollections = async (): Promise<void> => {
   const statsRef = doc(db, 'stats', 'global');
 
@@ -36,46 +35,49 @@ export const createUserProfile = async (userId: string, email: string, firstName
     const userRef = doc(db, 'users', userId);
     const statsRef = doc(db, 'stats', 'global');
 
-    // Get current stats
+    // Start a batch write
+    const batch = writeBatch(db);
+
+    // Get current stats first
     const statsDoc = await getDoc(statsRef);
+    const nextCardNumber = ((statsDoc.exists() ? statsDoc.data().lastCardNumber : 0) || 0) + 1;
+    const paddedCardNumber = nextCardNumber.toString().padStart(5, '0');
+
+    // Add user document to batch
+    batch.set(userRef, {
+      uid: userId,
+      email,
+      firstName,
+      cardNumber: paddedCardNumber,
+      createdAt: serverTimestamp(),
+      lastActive: serverTimestamp(),
+      readingList: []
+    });
+
+    // Update stats in batch
     if (!statsDoc.exists()) {
-      await setDoc(statsRef, {
-        totalUsers: 0,
-        lastCardNumber: 0,
+      batch.set(statsRef, {
+        totalUsers: 1,
+        lastCardNumber: nextCardNumber,
+        lastUpdated: serverTimestamp()
+      });
+    } else {
+      batch.update(statsRef, {
+        totalUsers: increment(1),
+        lastCardNumber: increment(1),
         lastUpdated: serverTimestamp()
       });
     }
 
-    const nextCardNumber = (statsDoc.data()?.lastCardNumber || 0) + 1;
-    const paddedCardNumber = nextCardNumber.toString().padStart(5, '0');
+    // Commit the batch
+    await batch.commit();
 
-    // Create user document with retry logic
-    let retries = 3;
-    while (retries > 0) {
-      try {
-        await setDoc(userRef, {
-          uid: userId,
-          email,
-          firstName,
-          cardNumber: paddedCardNumber,
-          createdAt: serverTimestamp(),
-          lastActive: serverTimestamp(),
-          readingList: []
-        });
-        break;
-      } catch (error) {
-        retries--;
-        if (retries === 0) throw error;
-        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait 1s before retry
-      }
+    // Verify the user document was created
+    const verifyDoc = await getDoc(userRef);
+    if (!verifyDoc.exists()) {
+      throw new Error('User document was not created successfully');
     }
 
-    // Update stats
-    await updateDoc(statsRef, {
-      totalUsers: increment(1),
-      lastCardNumber: increment(1),
-      lastUpdated: serverTimestamp()
-    });
   } catch (error) {
     console.error('Error in createUserProfile:', error);
     throw new Error('Failed to create user profile');
