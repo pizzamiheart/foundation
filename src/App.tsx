@@ -80,11 +80,7 @@ function AppContent() {
               </div>
             </>
           } />
-          <Route path="/suggest" element={
-            <ProtectedRoute>
-              <SuggestionForm />
-            </ProtectedRoute>
-          } />
+          <Route path="/suggest" element={<SuggestionForm />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
         </Routes>
