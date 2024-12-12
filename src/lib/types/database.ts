@@ -5,13 +5,16 @@ import {
   setDoc, 
   updateDoc, 
   increment,
-  arrayUnion,
-  Timestamp
+  serverTimestamp,
+  writeBatch
 } from 'firebase/firestore';
 import { db } from '../firebase';
 
-// Initialize collections if they don't exist
+let isInitialized = false;
+
 export const initializeCollections = async (): Promise<void> => {
+  if (isInitialized) return;
+
   const statsRef = doc(db, 'stats', 'global');
 
   try {
@@ -20,47 +23,81 @@ export const initializeCollections = async (): Promise<void> => {
       await setDoc(statsRef, {
         totalUsers: 0,
         totalEssayClicks: 0,
-        lastUpdated: Timestamp.now()
+        lastCardNumber: 0,
+        lastUpdated: serverTimestamp()
       });
-      console.log('Global stats initialized');
     }
+    isInitialized = true;
   } catch (error) {
     console.error('Error initializing collections:', error);
     throw error;
   }
 };
 
-// Create a new user profile
-export const createUserProfile = async (userId: string, email: string): Promise<void> => {
-  const userRef = doc(db, 'users', userId);
-  const statsRef = doc(db, 'stats', 'global');
+export const createUserProfile = async (userId: string, email: string, firstName: string): Promise<void> => {
+  // Ensure collections are initialized first
+  if (!isInitialized) {
+    await initializeCollections();
+  }
 
   try {
-    // Check if user profile already exists
-    const userDoc = await getDoc(userRef);
-    if (userDoc.exists()) {
-      console.log('User profile already exists:', userId);
-      return;
-    }
+    // Get references
+    const userRef = doc(db, 'users', userId);
+    const statsRef = doc(db, 'stats', 'global');
 
-    // Create user document
+    // Create initial user document
     await setDoc(userRef, {
       uid: userId,
       email,
-      createdAt: Timestamp.now(),
-      lastActive: Timestamp.now(),
+      firstName,
+      cardNumber: '00000', // Temporary number
+      createdAt: serverTimestamp(),
+      lastActive: serverTimestamp(),
       readingList: []
     });
 
-    // Update global stats
-    await updateDoc(statsRef, {
-      totalUsers: increment(1),
-      lastUpdated: Timestamp.now()
+    // Get current stats and update card number
+    const statsDoc = await getDoc(statsRef);
+    const nextCardNumber = ((statsDoc.exists() ? statsDoc.data().lastCardNumber : 0) || 0) + 1;
+    const paddedCardNumber = nextCardNumber.toString().padStart(5, '0');
+
+    // Update user with correct card number
+    await updateDoc(userRef, {
+      cardNumber: paddedCardNumber
     });
 
-    console.log('User profile created successfully:', userId);
+    // Update stats
+    await updateDoc(statsRef, {
+      totalUsers: increment(1),
+      lastCardNumber: increment(1),
+      lastUpdated: serverTimestamp()
+    });
+
+    // Verify the user document was created
+    const verifyDoc = await getDoc(userRef);
+    if (!verifyDoc.exists()) {
+      throw new Error('User document was not created successfully');
+    }
+
   } catch (error) {
-    console.error('Error creating user profile:', error);
-    throw error;
+    console.error('Error in createUserProfile:', error);
+    throw new Error('Failed to create user profile');
+  }
+};
+
+export const getUserProfile = async (userId: string) => {
+  try {
+    const userRef = doc(db, 'users', userId);
+    const userDoc = await getDoc(userRef);
+    
+    if (!userDoc.exists()) {
+      console.error('User document does not exist');
+      return null;
+    }
+    
+    return userDoc.data();
+  } catch (error) {
+    console.error('Error getting user profile:', error);
+    return null;
   }
 };

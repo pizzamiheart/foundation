@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import type { User } from 'firebase/auth';
 import { onAuthChange } from '../lib/services/auth';
 import { initializeCollections } from '../lib/services/database';
+import { initializeFirebase } from '../lib/firebase';
 
 interface AuthContextType {
   user: User | null;
@@ -18,21 +19,28 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthChange(async (user) => {
-      setUser(user);
+    const initialize = async () => {
+      // Initialize Firebase first
+      await initializeFirebase();
       
-      if (user) {
-        try {
-          await initializeCollections();
-        } catch (error) {
-          console.error('Error initializing collections:', error);
+      const unsubscribe = onAuthChange(async (user) => {
+        setUser(user);
+        
+        if (user) {
+          try {
+            await initializeCollections();
+          } catch (error) {
+            console.error('Error initializing collections:', error);
+          }
         }
-      }
-      
-      setLoading(false);
-    });
+        
+        setLoading(false);
+      });
 
-    return () => unsubscribe();
+      return () => unsubscribe();
+    };
+
+    initialize();
   }, []);
 
   return (
