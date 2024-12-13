@@ -2,54 +2,45 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import type { User } from 'firebase/auth';
 import { onAuthChange } from '../lib/services/auth';
 import { initializeCollections } from '../lib/services/database';
-import { initializeFirebase } from '../lib/firebase';
 
 interface AuthContextType {
   user: User | null;
   loading: boolean;
+  isVerified: boolean;
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
-  loading: true
+  loading: true,
+  isVerified: false
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isVerified, setIsVerified] = useState(false);
 
   useEffect(() => {
-    const initialize = async () => {
-      try {
-        // Wait for Firebase to initialize
-        await initializeFirebase();
-        
-        const unsubscribe = onAuthChange(async (user) => {
-          setUser(user);
-          
-          if (user) {
-            try {
-              await initializeCollections();
-            } catch (error) {
-              console.error('Error initializing collections:', error);
-            }
-          }
-          
-          setLoading(false);
-        });
-
-        return () => unsubscribe();
-      } catch (error) {
-        console.error('Error in initialization:', error);
-        setLoading(false);
+    const unsubscribe = onAuthChange(async (user) => {
+      setUser(user);
+      setIsVerified(user?.emailVerified ?? false);
+      
+      if (user) {
+        try {
+          await initializeCollections();
+        } catch (error) {
+          console.error('Error initializing collections:', error);
+        }
       }
-    };
+      
+      setLoading(false);
+    });
 
-    initialize();
+    return () => unsubscribe();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading }}>
+    <AuthContext.Provider value={{ user, loading, isVerified }}>
       {!loading && children}
     </AuthContext.Provider>
   );

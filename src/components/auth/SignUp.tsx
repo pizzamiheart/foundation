@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { signUp } from '../../lib/services/auth';
-import LibraryCard from '../../LibraryCard';
+import { sendVerificationEmail } from '../../lib/services/verification';
 import WelcomeModal from '../../WelcomeModal';
 
 export default function SignUp() {
@@ -10,7 +10,6 @@ export default function SignUp() {
   const [firstName, setFirstName] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const navigate = useNavigate();
 
@@ -20,8 +19,8 @@ export default function SignUp() {
     setIsLoading(true);
 
     try {
-      await signUp(email, password, firstName);
-      setIsSuccess(true);
+      const user = await signUp(email, password, firstName);
+      await sendVerificationEmail(user);
       setShowWelcomeModal(true);
     } catch (err: any) {
       console.error('SignUp Error:', err);
@@ -31,42 +30,20 @@ export default function SignUp() {
     }
   };
 
-  const handleCloseWelcomeModal = () => {
+  const handleCloseWelcome = () => {
     setShowWelcomeModal(false);
     navigate('/');
   };
-
-  if (isSuccess) {
-    return (
-      <>
-        <div className="max-w-md mx-auto mt-8 space-y-8">
-          <div className="text-center space-y-2">
-            <h2 className="text-2xl font-bold text-black dark:text-white">Welcome to Foundation!</h2>
-            <p className="text-black/60 dark:text-white/60">
-              Here's your library card. You can now borrow essays and track your reading journey.
-            </p>
-          </div>
-          <LibraryCard isNew={true} />
-        </div>
-        <WelcomeModal 
-          isOpen={showWelcomeModal}
-          onClose={handleCloseWelcomeModal}
-        />
-      </>
-    );
-  }
 
   return (
     <div className="max-w-md mx-auto mt-8">
       <div className="bg-[#ffffe8] dark:bg-black rounded-lg border-2 border-black/20 dark:border-white/20 p-8">
         <h2 className="text-2xl font-bold text-black dark:text-white mb-6">Create Account</h2>
-        
         {error && (
           <div className="bg-red-500/10 border border-red-500/20 text-red-500 p-3 rounded-md mb-4">
             {error}
           </div>
         )}
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-1">
@@ -81,7 +58,6 @@ export default function SignUp() {
               required
             />
           </div>
-
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-1">
               Email
@@ -95,7 +71,6 @@ export default function SignUp() {
               required
             />
           </div>
-
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-1">
               Password
@@ -109,7 +84,6 @@ export default function SignUp() {
               required
             />
           </div>
-
           <button
             type="submit"
             disabled={isLoading}
@@ -128,6 +102,13 @@ export default function SignUp() {
           </p>
         </div>
       </div>
+
+      <WelcomeModal 
+        isOpen={showWelcomeModal}
+        onClose={handleCloseWelcome}
+        email={email}
+        requireVerification={true}
+      />
     </div>
   );
 }
