@@ -82,7 +82,7 @@ export default function LibraryCard({ isNew = false }: LibraryCardProps) {
                 <h2 className="font-medieval text-black dark:text-white text-lg">Foundation Library Card</h2>
               </div>
               <div className="text-xs text-black/60 dark:text-white/60 font-typewriter">
-                007-{cardNumber}
+                {cardNumber}
               </div>
             </div>
 
