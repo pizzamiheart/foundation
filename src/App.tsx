@@ -15,21 +15,12 @@ import UserMenu from './UserMenu';
 import { bloggers } from './data/bloggers';
 import { useAuth } from './contexts/AuthContext';
 
-// add this to test if the environment variable is being exposed
-console.log('API Key:', import.meta.env.vite_firebase_api_key);
-
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { user, loading } = useAuth();
-  
-  if (loading) return null;
-  if (!user) return <Navigate to="/signin" />;
-  
-  return <>{children}</>;
-}
-
 function AppContent() {
   const [isAboutOpen, setIsAboutOpen] = useState(false);
-  const { user } = useAuth();
+  const { user, isVerified } = useAuth();
+
+  // Only show first 9 bloggers for non-signed in or non-verified users
+  const displayedBloggers = user && isVerified ? bloggers : bloggers.slice(0, 9);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-cream to-white dark:from-[#1A1A1A] dark:to-[#121212] flex flex-col text-black dark:text-white">
@@ -77,10 +68,25 @@ function AppContent() {
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-                {bloggers.map((blogger, index) => (
+                {displayedBloggers.map((blogger, index) => (
                   <BloggerCard key={index} {...blogger} />
                 ))}
               </div>
+              {(!user || !isVerified) && (
+                <div className="text-center py-12 px-4">
+                  <div className="max-w-xl mx-auto bg-[#ffffe8] dark:bg-black rounded-lg border-2 border-black/20 dark:border-white/20 p-6">
+                    <h2 className="text-xl font-medieval text-black dark:text-white mb-4">
+                      Want access to the whole Foundation Library?
+                    </h2>
+                    <Link
+                      to="/signup"
+                      className="inline-block px-6 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white transition-colors"
+                    >
+                      Sign up for a Library Card
+                    </Link>
+                  </div>
+                </div>
+              )}
             </>
           } />
           <Route path="/suggest" element={<SuggestionForm />} />
