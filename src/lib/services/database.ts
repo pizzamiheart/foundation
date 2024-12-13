@@ -11,16 +11,11 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebase';
 
-export const getUserProfile = async (userId: string) => {
-  try {
-    const userRef = doc(db, 'users', userId);
-    const userDoc = await getDoc(userRef);
-    return userDoc.exists() ? userDoc.data() : null;
-  } catch (error) {
-    console.error('Error getting user profile:', error);
-    return null;
-  }
-};
+interface UserProfileData {
+  email: string;
+  firstName: string;
+  twitter?: string;
+}
 
 export const initializeCollections = async (): Promise<void> => {
   const statsRef = doc(db, 'stats', 'global');
@@ -41,32 +36,18 @@ export const initializeCollections = async (): Promise<void> => {
   }
 };
 
-export const incrementEssaysBorrowed = async (userId: string): Promise<void> => {
+export const getUserProfile = async (userId: string) => {
   try {
     const userRef = doc(db, 'users', userId);
-    await updateDoc(userRef, {
-      essaysBorrowed: increment(1),
-      lastActive: serverTimestamp()
-    });
+    const userDoc = await getDoc(userRef);
+    return userDoc.exists() ? userDoc.data() : null;
   } catch (error) {
-    console.error('Error incrementing essays borrowed:', error);
-    throw new Error('Failed to update essays borrowed count');
+    console.error('Error getting user profile:', error);
+    return null;
   }
 };
 
-export const subscribeToUserProfile = (
-  userId: string, 
-  callback: (data: any) => void
-): () => void => {
-  const userRef = doc(db, 'users', userId);
-  return onSnapshot(userRef, (doc) => {
-    if (doc.exists()) {
-      callback(doc.data());
-    }
-  });
-};
-
-export const createUserProfile = async (userId: string, email: string, firstName: string): Promise<void> => {
+export const createUserProfile = async (userId: string, profileData: UserProfileData): Promise<void> => {
   try {
     const userRef = doc(db, 'users', userId);
     const statsRef = doc(db, 'stats', 'global');
@@ -86,8 +67,9 @@ export const createUserProfile = async (userId: string, email: string, firstName
     // Set user document
     batch.set(userRef, {
       uid: userId,
-      email,
-      firstName,
+      email: profileData.email,
+      firstName: profileData.firstName,
+      twitter: profileData.twitter,
       cardNumber: paddedCardNumber,
       createdAt: serverTimestamp(),
       lastActive: serverTimestamp(),
@@ -122,4 +104,29 @@ export const createUserProfile = async (userId: string, email: string, firstName
     console.error('Error in createUserProfile:', error);
     throw new Error('Failed to create user profile');
   }
+};
+
+export const incrementEssaysBorrowed = async (userId: string): Promise<void> => {
+  try {
+    const userRef = doc(db, 'users', userId);
+    await updateDoc(userRef, {
+      essaysBorrowed: increment(1),
+      lastActive: serverTimestamp()
+    });
+  } catch (error) {
+    console.error('Error incrementing essays borrowed:', error);
+    throw new Error('Failed to update essays borrowed count');
+  }
+};
+
+export const subscribeToUserProfile = (
+  userId: string, 
+  callback: (data: any) => void
+): () => void => {
+  const userRef = doc(db, 'users', userId);
+  return onSnapshot(userRef, (doc) => {
+    if (doc.exists()) {
+      callback(doc.data());
+    }
+  });
 };

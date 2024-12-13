@@ -60,7 +60,7 @@ export default function LibraryCard({ isNew = false }: LibraryCardProps) {
                   <div className="w-3 h-0.5 bg-orange-500" />
                   <div className="w-3.5 h-0.5 bg-yellow-500" />
                 </div>
-                <h2 className="font-medieval text-black dark:text-white text-sm">Foundation Library Card 007-{cardNumber}</h2>
+                <h2 className="font-medieval text-black dark:text-white text-sm">Foundation Library Card {cardNumber}</h2>
               </div>
             </div>
           </motion.div>

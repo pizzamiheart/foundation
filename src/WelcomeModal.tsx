@@ -16,21 +16,30 @@ export default function WelcomeModal({
   email,
   requireVerification = false 
 }: WelcomeModalProps) {
-  const { user } = useAuth();
+  const { user, refreshVerificationStatus } = useAuth();
   const [isChecking, setIsChecking] = useState(false);
 
   const handleVerificationCheck = async () => {
     if (!user) return;
     
     setIsChecking(true);
-    const isVerified = await checkEmailVerification(user);
     
-    if (isVerified) {
-      onClose();
-    } else {
-      alert('Email not verified yet. Please check your inbox.');
+    try {
+      // First refresh the user's verification status
+      await refreshVerificationStatus();
+      const isVerified = await checkEmailVerification(user);
+      
+      if (isVerified) {
+        onClose();
+      } else {
+        alert('Email not verified yet. Please check your inbox.');
+      }
+    } catch (error) {
+      console.error('Error checking verification:', error);
+      alert('Error checking verification status. Please try again.');
+    } finally {
+      setIsChecking(false);
     }
-    setIsChecking(false);
   };
 
   if (!isOpen) return null;
@@ -52,15 +61,25 @@ export default function WelcomeModal({
           
           <div className="prose prose-invert dark:prose-invert max-w-none">
             {requireVerification && (
-              <div className="mb-8 text-center">
-                <h2 className="text-2xl font-bold text-black dark:text-white mb-4">
-                  Verify Your Email
-                </h2>
-                <p className="text-black/80 dark:text-white/80">
-                  We've sent a verification email to <strong>{email}</strong>.<br />
-                  Please verify your email to access your library card.
-                </p>
-              </div>
+              <>
+                <div className="mb-8 text-center">
+                  <h2 className="text-2xl font-bold text-black dark:text-white mb-4">
+                    Verify Your Email
+                  </h2>
+                  <p className="text-black/80 dark:text-white/80 mb-4">
+                    We've sent a verification email to <strong>{email}</strong>.<br />
+                    Please verify your email to access your library card.
+                  </p>
+                  <button
+                    onClick={handleVerificationCheck}
+                    disabled={isChecking}
+                    className="px-6 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white transition-colors disabled:opacity-50"
+                  >
+                    {isChecking ? 'Checking...' : "Verified your email? Click here."}
+                  </button>
+                </div>
+                <div className="w-full h-px bg-black/10 dark:bg-white/10 my-8" />
+              </>
             )}
 
             <div className="flex items-start gap-6">
@@ -71,7 +90,7 @@ export default function WelcomeModal({
               />
               <div className="space-y-6 text-black/80 dark:text-white/80 flex-1">
                 <p>
-                  welcome to Foundation! I'm Andrew, the maker around here. the library is being built, so you're in at the ground floor - the first shelf. i'm still building the core features like building collections, lots more blogs and authors, and search and filtering.
+                  welcome to Foundation! i'm Andrew, the maker around here. the library is being built, so you're in at the ground floor - the first shelf. i'm still building the core features like building collections, lots more blogs and authors, and search and filtering.
                 </p>
                 
                 <p>
@@ -87,22 +106,10 @@ export default function WelcomeModal({
                 </p>
                 
                 <p>
-                  i want this to be the go-to place on the internet for finding great and important writing. thanks for joining the library.
+                  thanks for joining the library.
                 </p>
               </div>
             </div>
-
-            {requireVerification && (
-              <div className="mt-8 text-center">
-                <button
-                  onClick={handleVerificationCheck}
-                  disabled={isChecking}
-                  className="px-6 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white transition-colors disabled:opacity-50"
-                >
-                  {isChecking ? 'Checking...' : 'Verified your email? Click here.'}
-                </button>
-              </div>
-            )}
           </div>
         </div>
       </div>

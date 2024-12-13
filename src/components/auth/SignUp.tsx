@@ -8,6 +8,7 @@ export default function SignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [firstName, setFirstName] = useState('');
+  const [twitter, setTwitter] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
@@ -19,7 +20,12 @@ export default function SignUp() {
     setIsLoading(true);
 
     try {
-      const user = await signUp(email, password, firstName);
+      const user = await signUp({
+        email,
+        password,
+        firstName,
+        twitter: twitter.trim() || undefined // Only include if not empty
+      });
       await sendVerificationEmail(user);
       setShowWelcomeModal(true);
     } catch (err: any) {
@@ -70,6 +76,22 @@ export default function SignUp() {
               className="w-full px-4 py-2 bg-white/50 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white"
               required
             />
+          </div>
+          <div>
+            <label htmlFor="twitter" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-1">
+              X/Twitter Handle (optional)
+            </label>
+            <div className="relative">
+              <span className="absolute left-4 top-2 text-black/40 dark:text-white/40">@</span>
+              <input
+                id="twitter"
+                type="text"
+                value={twitter}
+                onChange={(e) => setTwitter(e.target.value.replace('@', ''))} // Remove @ if user types it
+                className="w-full px-4 py-2 pl-8 bg-white/50 dark:bg-white/10 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white"
+                placeholder="username"
+              />
+            </div>
           </div>
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-1">
