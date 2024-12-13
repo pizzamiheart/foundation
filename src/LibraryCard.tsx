@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronUp, ChevronDown } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
-import { getUserProfile } from './lib/services/database';
+import { subscribeToUserProfile } from './lib/services/database';
 
 interface LibraryCardProps {
   isNew?: boolean;
@@ -13,22 +13,26 @@ export default function LibraryCard({ isNew = false }: LibraryCardProps) {
   const [isMinimized, setIsMinimized] = useState(false);
   const [cardNumber, setCardNumber] = useState<string>('00000');
   const [firstName, setFirstName] = useState<string>('');
+  const [essaysBorrowed, setEssaysBorrowed] = useState<number>(0);
+  
   const memberSince = new Date().toLocaleDateString('en-US', { 
     month: 'long',
     year: 'numeric'
   });
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      if (user) {
-        const profile = await getUserProfile(user.uid);
-        if (profile) {
-          setCardNumber(profile.cardNumber);
-          setFirstName(profile.firstName);
+    if (user) {
+      // Subscribe to real-time updates
+      const unsubscribe = subscribeToUserProfile(user.uid, (data) => {
+        if (data) {
+          setCardNumber(data.cardNumber || '00000');
+          setFirstName(data.firstName || '');
+          setEssaysBorrowed(data.essaysBorrowed || 0);
         }
-      }
-    };
-    fetchUserData();
+      });
+
+      return () => unsubscribe();
+    }
   }, [user]);
 
   return (
@@ -56,7 +60,7 @@ export default function LibraryCard({ isNew = false }: LibraryCardProps) {
                   <div className="w-3 h-0.5 bg-orange-500" />
                   <div className="w-3.5 h-0.5 bg-yellow-500" />
                 </div>
-                <h2 className="font-medieval text-black dark:text-white text-sm">Foundation Library Card -{cardNumber}</h2>
+                <h2 className="font-medieval text-black dark:text-white text-sm">Foundation Library Card 007-{cardNumber}</h2>
               </div>
             </div>
           </motion.div>
@@ -78,7 +82,7 @@ export default function LibraryCard({ isNew = false }: LibraryCardProps) {
                 <h2 className="font-medieval text-black dark:text-white text-lg">Foundation Library Card</h2>
               </div>
               <div className="text-xs text-black/60 dark:text-white/60 font-typewriter">
-                {cardNumber}
+                007-{cardNumber}
               </div>
             </div>
 
@@ -98,13 +102,13 @@ export default function LibraryCard({ isNew = false }: LibraryCardProps) {
                 <div className="flex items-baseline gap-2">
                   <AnimatePresence mode="wait">
                     <motion.div
-                      key="0"
+                      key={essaysBorrowed}
                       initial={{ y: -20, opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
                       exit={{ y: 20, opacity: 0 }}
                       className="font-typewriter text-black dark:text-white"
                     >
-                      0
+                      {essaysBorrowed}
                     </motion.div>
                   </AnimatePresence>
                   <span className="text-xs text-black/40 dark:text-white/40">essays and counting</span>

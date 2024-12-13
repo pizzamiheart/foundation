@@ -1,6 +1,8 @@
 import React from 'react';
 import { Globe, ExternalLink } from 'lucide-react';
 import { Essay } from './lib/types';
+import { useAuth } from './contexts/AuthContext';
+import { incrementEssaysBorrowed } from './lib/services/database';
 import LayersIcon from './components/LayersIcon';
 
 interface BloggerProps {
@@ -29,11 +31,24 @@ export default function BloggerCard({
   website,
   twitter,
   essays,
+  bgColor,
+  textColor,
+  borderColor,
 }: BloggerProps) {
+  const { user } = useAuth();
   const cardId = name.toLowerCase().replace(/\s+/g, '-');
 
-  const handleEssayClick = (url: string, e: React.MouseEvent) => {
+  const handleEssayClick = async (url: string, e: React.MouseEvent) => {
     e.preventDefault();
+    
+    if (user) {
+      try {
+        await incrementEssaysBorrowed(user.uid);
+      } catch (error) {
+        console.error('Error updating essays borrowed:', error);
+      }
+    }
+    
     window.open(url, '_blank');
   };
 

@@ -26,6 +26,7 @@ export default function SignUp() {
     } catch (err: any) {
       console.error('SignUp Error:', err);
       setError(err.message || 'Failed to create account');
+    } finally {
       setIsLoading(false);
     }
   };
@@ -59,11 +60,13 @@ export default function SignUp() {
     <div className="max-w-md mx-auto mt-8">
       <div className="bg-[#ffffe8] dark:bg-black rounded-lg border-2 border-black/20 dark:border-white/20 p-8">
         <h2 className="text-2xl font-bold text-black dark:text-white mb-6">Create Account</h2>
+        
         {error && (
           <div className="bg-red-500/10 border border-red-500/20 text-red-500 p-3 rounded-md mb-4">
             {error}
           </div>
         )}
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-1">
@@ -78,6 +81,7 @@ export default function SignUp() {
               required
             />
           </div>
+
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-1">
               Email
@@ -91,6 +95,7 @@ export default function SignUp() {
               required
             />
           </div>
+
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-black/80 dark:text-white/80 mb-1">
               Password
@@ -104,6 +109,7 @@ export default function SignUp() {
               required
             />
           </div>
+
           <button
             type="submit"
             disabled={isLoading}
