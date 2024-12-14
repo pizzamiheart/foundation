@@ -36,7 +36,7 @@ function AppContent() {
                   </h1>
                 </div>
                 <p className="text-xs sm:text-sm text-black/80 dark:text-white/80 italic mt-1">
-                  probably some of the most important writing on the internet
+                  the internet's library for great writing
                 </p>
               </Link>
               <div className="flex items-center justify-center w-full sm:w-auto gap-2 sm:gap-4">
