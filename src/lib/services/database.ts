@@ -7,7 +7,8 @@ import {
   increment,
   writeBatch,
   serverTimestamp,
-  onSnapshot
+  onSnapshot,
+  runTransaction
 } from 'firebase/firestore';
 import { db } from '../firebase';
 
@@ -81,6 +82,7 @@ export const createUserProfile = async (userId: string, profileData: UserProfile
     if (!statsDoc.exists()) {
       batch.set(statsRef, {
         totalUsers: 1,
+        totalEssayClicks: 0,
         lastCardNumber: nextCardNumber,
         lastUpdated: serverTimestamp()
       });
@@ -108,10 +110,37 @@ export const createUserProfile = async (userId: string, profileData: UserProfile
 
 export const incrementEssaysBorrowed = async (userId: string): Promise<void> => {
   try {
-    const userRef = doc(db, 'users', userId);
-    await updateDoc(userRef, {
-      essaysBorrowed: increment(1),
-      lastActive: serverTimestamp()
+    // Use a transaction to ensure both updates succeed or fail together
+    await runTransaction(db, async (transaction) => {
+      const userRef = doc(db, 'users', userId);
+      const statsRef = doc(db, 'stats', 'global');
+      
+      // Get current documents
+      const userDoc = await transaction.get(userRef);
+      const statsDoc = await transaction.get(statsRef);
+      
+      if (!userDoc.exists()) {
+        throw new Error('User document not found');
+      }
+
+      // Update user document
+      transaction.update(userRef, {
+        essaysBorrowed: increment(1),
+        lastActive: serverTimestamp()
+      });
+
+      // Update global stats
+      if (!statsDoc.exists()) {
+        transaction.set(statsRef, {
+          totalEssayClicks: 1,
+          lastUpdated: serverTimestamp()
+        });
+      } else {
+        transaction.update(statsRef, {
+          totalEssayClicks: increment(1),
+          lastUpdated: serverTimestamp()
+        });
+      }
     });
   } catch (error) {
     console.error('Error incrementing essays borrowed:', error);

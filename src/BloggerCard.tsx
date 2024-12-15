@@ -38,18 +38,18 @@ export default function BloggerCard({
   const { user } = useAuth();
   const cardId = name.toLowerCase().replace(/\s+/g, '-');
 
-  const handleEssayClick = async (url: string, e: React.MouseEvent) => {
+  const handleEssayClick = async (essay: Essay, e: React.MouseEvent) => {
     e.preventDefault();
     
     if (user) {
       try {
         await incrementEssaysBorrowed(user.uid);
       } catch (error) {
-        console.error('Error updating essays borrowed:', error);
+        console.error('Error tracking essay click:', error);
       }
     }
     
-    window.open(url, '_blank');
+    window.open(essay.url, '_blank');
   };
 
   const handleShare = () => {
@@ -75,6 +75,7 @@ export default function BloggerCard({
         active:translate-y-[5px] active:translate-x-[5px]
         hover:border-black/30 dark:hover:border-white/30"
     >
+      {/* Card header */}
       <div className="p-4 flex flex-col h-full">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
@@ -138,13 +139,13 @@ export default function BloggerCard({
                 <ExternalLink className="w-3 h-3 flex-shrink-0 text-black/60 dark:text-white/60 group-hover/essay:text-red-500" />
                 <a
                   href={essay.url}
-                  onClick={(e) => handleEssayClick(essay.url, e)}
+                  onClick={(e) => handleEssayClick(essay, e)}
                   className="essay-link text-xs font-medium text-black/80 dark:text-white/80 hover:text-red-500 hover:underline transition-colors line-clamp-1"
                 >
                   {essay.title}
                 </a>
                 <button
-                  onClick={(e) => handleEssayClick(essay.url, e)}
+                  onClick={(e) => handleEssayClick(essay, e)}
                   className="borrow-button text-xs font-typewriter px-3 py-1 border-2 border-red-500/70 dark:border-red-500 text-black/80 dark:text-white/80 hover:text-red-500 hover:border-red-500 transition-colors absolute right-0"
                 >
                   Borrow
