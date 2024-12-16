@@ -1364,5 +1364,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Jordi Enric",
+    image: "", // Add your image link here
+    bio: "I am a frontend developer from Mallorca, Spain 🏝️, passionate about creating beautiful and fast web applications.",
+    website: "https://www.jordienric.com/",
+    twitter: "jordienr",
+    essays: [
+      {
+        title: "Easy Design Variables",
+        url: "https://jordi.zenblog.com/easy-design-variables"
+      },
+      {
+        title: "Ephemeral Everything",
+        url: "https://jordi.zenblog.com/ephemeral-everything"
+      },
+      {
+        title: "Building Zenblog",
+        url: "https://jordi.zenblog.com/building-zenblog"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
