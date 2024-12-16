@@ -1,5 +1,29 @@
 export const bloggers = [
   {
+    name: "Paul Graham",
+    image: "",
+    bio: "Co-founder of Y Combinator.",
+    website: "https://www.paulgraham.com/articles.html",
+    twitter: "paulg",
+    essays: [
+      {
+        title: "What You Can't Say",
+        url: "https://www.paulgraham.com/say.html"
+      },
+      {
+        title: "Founder Mode",
+        url: "https://www.paulgraham.com/foundermode.html"
+      },
+      {
+        title: "Do Things that Don't Scale",
+        url: "https://www.paulgraham.com/ds.html"
+      }
+    ],
+    bgColor: "bg-blue-900/30",
+    textColor: "text-blue-100",
+    borderColor: "border-blue-700/50"
+  },
+  {
     name: "Andy Matuschak",
     image: "",
     bio: "I'm an applied researcher, focused on creating user interfaces that expand what people can think and do.",
@@ -146,7 +170,7 @@ export const bloggers = [
   {
     name: "Bret Victor",
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800",
-    bio: "I’ve dedicated my life to creating a humane dynamic medium.",
+    bio: "I've dedicated my life to creating a humane dynamic medium.",
     website: "https://worrydream.com/",
     twitter: "worrydream",
     essays: [
@@ -190,30 +214,6 @@ export const bloggers = [
     bgColor: "bg-lime-900/30",
     textColor: "text-lime-100",
     borderColor: "border-lime-700/50"
-  },
-  {
-    name: "Paul Graham",
-    image: "",
-    bio: "Co-founder of Y Combinator.",
-    website: "https://www.paulgraham.com/articles.html",
-    twitter: "paulg",
-    essays: [
-      {
-        title: "What You Can't Say",
-        url: "https://www.paulgraham.com/say.html"
-      },
-      {
-        title: "Founder Mode",
-        url: "https://www.paulgraham.com/foundermode.html"
-      },
-      {
-        title: "Do Things that Don't Scale",
-        url: "https://www.paulgraham.com/ds.html"
-      }
-    ],
-    bgColor: "bg-blue-900/30",
-    textColor: "text-blue-100",
-    borderColor: "border-blue-700/50"
   },
   {
     name: "Kevin Kelly",
