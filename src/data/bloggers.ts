@@ -1432,5 +1432,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Tyan",
+    image: "", // Add your image link here
+    bio: "I'm an author, creator of CruiseSheet.com, and personal coach. I reside in Las Vegas but also spend a lot of time in Hawaii, Budapest, and elsewhere. I'm a minimalist nomad.",
+    website: "https://tynan.com/",
+    twitter: "tynan",
+    essays: [
+      {
+        title: "How I Choose What to Work On",
+        url: "https://tynan.com/workonwhat/"
+      },
+      {
+        title: "Gear Post 2023",
+        url: "https://tynan.com/gear2023/"
+      },
+      {
+        title: "Variance and Investment",
+        url: "https://tynan.com/variance/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
