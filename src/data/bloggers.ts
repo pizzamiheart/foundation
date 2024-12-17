@@ -1388,5 +1388,49 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Boris Tane",
+    image: "", // Add your image link here
+    bio: "I build observability at Cloudflare. I hangout on twitter - hit me up, my dms are open!",
+    website: "https://boristane.com/",
+    twitter: "boristane",
+    essays: [
+      {
+        title: "Lessons From Starting, Building, and Exiting a Devtools Startup",
+        url: "https://boristane.com/blog/learnings-from-starting-building-and-exiting-a-devtools-startup/"
+      },
+      {
+        title: "Observability Wide Events 101",
+        url: "https://boristane.com/blog/observability-wide-events-101/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Steve Krouse",
+    image: "", // Add your image link here
+    bio: "👋 Hi, I'm Steve. I live in Prospect Heights, Brooklyn. I build Val Town, a social website to code in the cloud.",
+    website: "https://stevekrouse.com/",
+    twitter: "stevekrouse",
+    essays: [
+      {
+        title: "End-Programmer Programming",
+        url: "https://val-town.notion.site/End-programmer-Programming-a749beb4a9b143f2990f575fb7e59b33"
+      },
+      {
+        title: "The Lens Lens",
+        url: "https://stevekrouse.github.io/lens.html"
+      },
+      {
+        title: "Start Small",
+        url: "https://stevekrouse.github.io/small.html"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
