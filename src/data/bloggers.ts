@@ -1434,7 +1434,7 @@ export const bloggers = [
     borderColor: "border-green-700/50"
   },
   {
-    name: "Tyan",
+    name: "Tynan",
     image: "", // Add your image link here
     bio: "I'm an author, creator of CruiseSheet.com, and personal coach. I reside in Las Vegas but also spend a lot of time in Hawaii, Budapest, and elsewhere. I'm a minimalist nomad.",
     website: "https://tynan.com/",
