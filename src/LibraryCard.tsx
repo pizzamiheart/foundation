@@ -24,7 +24,6 @@ export default function LibraryCard({ isNew = false, readonly = false, userData 
   const [firstName, setFirstName] = useState<string>('');
   const [essaysBorrowed, setEssaysBorrowed] = useState<number>(0);
   const [memberSince, setMemberSince] = useState<string>('');
-  const [showCopied, setShowCopied] = useState(false);
 
   useEffect(() => {
     if (userData) {
@@ -66,18 +65,9 @@ export default function LibraryCard({ isNew = false, readonly = false, userData 
     }
   }, [user, userData]);
 
-  const handleShare = async () => {
+  const handleShare = () => {
     if (!user) return;
-    
-    const shareUrl = `${window.location.origin}/library/card/${user.uid}`;
-    
-    try {
-      await navigator.clipboard.writeText(shareUrl);
-      setShowCopied(true);
-      setTimeout(() => setShowCopied(false), 2000);
-    } catch (err) {
-      console.error('Failed to copy:', err);
-    }
+    window.open(`${window.location.origin}/library/card/${user.uid}`, '_blank');
   };
 
   return (
@@ -127,14 +117,9 @@ export default function LibraryCard({ isNew = false, readonly = false, userData 
                 {!readonly && user && (
                   <button
                     onClick={handleShare}
-                    className="px-4 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-red-500 rounded-md text-black dark:text-white transition-colors font-typewriter text-sm relative"
+                    className="px-4 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-red-500 rounded-md text-black dark:text-white transition-colors font-typewriter text-sm"
                   >
                     Share with friends
-                    {showCopied && (
-                      <span className="absolute -top-8 left-0 px-2 py-1 text-xs bg-black text-white rounded whitespace-nowrap">
-                        Copied to clipboard!
-                      </span>
-                    )}
                   </button>
                 )}
 
