@@ -4,27 +4,52 @@ import { ChevronUp, ChevronDown } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
 import { subscribeToUserProfile } from './lib/services/database';
 
-interface LibraryCardProps {
-  isNew?: boolean;
+interface UserData {
+  cardNumber: string;
+  firstName: string;
+  essaysBorrowed: number;
+  createdAt: any;
 }
 
-export default function LibraryCard({ isNew = false }: LibraryCardProps) {
+interface LibraryCardProps {
+  isNew?: boolean;
+  readonly?: boolean;
+  userData?: UserData;
+}
+
+export default function LibraryCard({ isNew = false, readonly = false, userData }: LibraryCardProps) {
   const { user } = useAuth();
   const [isMinimized, setIsMinimized] = useState(false);
   const [cardNumber, setCardNumber] = useState<string>('00000');
   const [firstName, setFirstName] = useState<string>('');
   const [essaysBorrowed, setEssaysBorrowed] = useState<number>(0);
   const [memberSince, setMemberSince] = useState<string>('');
-  
+  const [showCopied, setShowCopied] = useState(false);
+
   useEffect(() => {
-    if (user) {
+    if (userData) {
+      // Use provided userData for shared card view
+      setCardNumber(userData.cardNumber || '00000');
+      setFirstName(userData.firstName || '');
+      setEssaysBorrowed(userData.essaysBorrowed || 0);
+      
+      if (userData.createdAt) {
+        const date = new Date(userData.createdAt.toDate());
+        setMemberSince(date.toLocaleDateString('en-US', {
+          timeZone: 'America/New_York',
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric'
+        }));
+      }
+    } else if (user) {
+      // Use real-time subscription for authenticated user's own card
       const unsubscribe = subscribeToUserProfile(user.uid, (data) => {
         if (data) {
           setCardNumber(data.cardNumber || '00000');
           setFirstName(data.firstName || '');
           setEssaysBorrowed(data.essaysBorrowed || 0);
           
-          // Format the createdAt timestamp to EST
           if (data.createdAt) {
             const date = new Date(data.createdAt.toDate());
             setMemberSince(date.toLocaleDateString('en-US', {
@@ -39,16 +64,32 @@ export default function LibraryCard({ isNew = false }: LibraryCardProps) {
 
       return () => unsubscribe();
     }
-  }, [user]);
+  }, [user, userData]);
+
+  const handleShare = async () => {
+    if (!user) return;
+    
+    const shareUrl = `${window.location.origin}/library/card/${user.uid}`;
+    
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      setShowCopied(true);
+      setTimeout(() => setShowCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
 
   return (
     <div className="relative w-full max-w-2xl mx-auto">
-      <button
-        onClick={() => setIsMinimized(!isMinimized)}
-        className="absolute -top-3 right-4 z-20 p-1 bg-[#ffffe8] dark:bg-black rounded-full border-2 border-red-500/30 text-black/60 dark:text-white/60 hover:text-red-500 transition-colors"
-      >
-        {isMinimized ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
-      </button>
+      {!readonly && (
+        <button
+          onClick={() => setIsMinimized(!isMinimized)}
+          className="absolute -top-3 right-4 z-20 p-1 bg-[#ffffe8] dark:bg-black rounded-full border-2 border-red-500/30 text-black/60 dark:text-white/60 hover:text-red-500 transition-colors"
+        >
+          {isMinimized ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
+        </button>
+      )}
 
       <AnimatePresence mode="wait">
         {isMinimized ? (
@@ -83,6 +124,20 @@ export default function LibraryCard({ isNew = false }: LibraryCardProps) {
             <div className="grid grid-cols-2">
               {/* Left Side - Card Details */}
               <div className="p-8 space-y-6">
+                {!readonly && user && (
+                  <button
+                    onClick={handleShare}
+                    className="px-4 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-red-500 rounded-md text-black dark:text-white transition-colors font-typewriter text-sm relative"
+                  >
+                    Share with friends
+                    {showCopied && (
+                      <span className="absolute -top-8 left-0 px-2 py-1 text-xs bg-black text-white rounded whitespace-nowrap">
+                        Copied to clipboard!
+                      </span>
+                    )}
+                  </button>
+                )}
+
                 <div>
                   <h2 className="font-medieval text-xl text-black dark:text-white mb-1">
                     Foundation Library Card
