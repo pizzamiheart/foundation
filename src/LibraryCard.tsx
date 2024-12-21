@@ -69,7 +69,7 @@ export default function LibraryCard({ isNew = false, readonly = false, userData 
   };
 
   return (
-    <div className="relative w-full max-w-md mx-auto scale-90">
+    <div className="relative w-full mx-auto">
       {!readonly && (
         <button
           onClick={() => setIsMinimized(!isMinimized)}
@@ -107,42 +107,42 @@ export default function LibraryCard({ isNew = false, readonly = false, userData 
             initial={isNew ? { scale: 0.9, opacity: 0 } : false}
             animate={isNew ? { scale: 1, opacity: 1 } : false}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-[#ffffe8] dark:bg-black rounded-md border border-black/20 dark:border-white/20 overflow-hidden"
+            className="bg-[#ffffe8] dark:bg-black rounded-md border border-black/20 dark:border-white/20 overflow-hidden scale-90 md:scale-100"
           >
             <div className="grid grid-cols-2">
               {/* Left Side - Card Details */}
-              <div className="p-4 space-y-3">
+              <div className="p-4 md:p-8 space-y-3 md:space-y-6">
                 {!readonly && user && (
                   <button
                     onClick={handleShare}
-                    className="px-3 py-1.5 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-red-500 rounded text-black dark:text-white transition-colors font-typewriter text-xs"
+                    className="px-3 py-1.5 md:px-4 md:py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-red-500 rounded text-black dark:text-white transition-colors font-typewriter text-xs md:text-sm"
                   >
                     Share with friends
                   </button>
                 )}
 
                 <div>
-                  <h2 className="font-medieval text-base text-black dark:text-white">
+                  <h2 className="font-medieval text-base md:text-xl text-black dark:text-white">
                     Foundation Library Card
                   </h2>
-                  <p className="text-xs text-black/60 dark:text-white/60 font-typewriter">
+                  <p className="text-xs md:text-sm text-black/60 dark:text-white/60 font-typewriter">
                     {cardNumber}
                   </p>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 md:space-y-4">
                   <div>
-                    <label className="text-[10px] text-black/60 dark:text-white/60">MEMBER</label>
-                    <p className="font-typewriter text-sm text-black dark:text-white">{firstName}</p>
+                    <label className="text-[10px] md:text-xs text-black/60 dark:text-white/60">MEMBER</label>
+                    <p className="font-typewriter text-sm md:text-base text-black dark:text-white">{firstName}</p>
                   </div>
 
                   <div>
-                    <label className="text-[10px] text-black/60 dark:text-white/60">MEMBER SINCE</label>
-                    <p className="font-typewriter text-sm text-black dark:text-white">{memberSince}</p>
+                    <label className="text-[10px] md:text-xs text-black/60 dark:text-white/60">MEMBER SINCE</label>
+                    <p className="font-typewriter text-sm md:text-base text-black dark:text-white">{memberSince}</p>
                   </div>
 
                   <div>
-                    <label className="text-[10px] text-black/60 dark:text-white/60">ESSAYS BORROWED</label>
+                    <label className="text-[10px] md:text-xs text-black/60 dark:text-white/60">ESSAYS BORROWED</label>
                     <div className="flex items-baseline gap-2">
                       <AnimatePresence mode="wait">
                         <motion.div
@@ -150,12 +150,12 @@ export default function LibraryCard({ isNew = false, readonly = false, userData 
                           initial={{ y: -20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           exit={{ y: 20, opacity: 0 }}
-                          className="font-typewriter text-sm text-black dark:text-white"
+                          className="font-typewriter text-sm md:text-base text-black dark:text-white"
                         >
                           {essaysBorrowed}
                         </motion.div>
                       </AnimatePresence>
-                      <span className="text-[10px] text-black/40 dark:text-white/40">
+                      <span className="text-[10px] md:text-xs text-black/40 dark:text-white/40">
                         essays and counting
                       </span>
                     </div>
@@ -165,11 +165,11 @@ export default function LibraryCard({ isNew = false, readonly = false, userData 
 
               {/* Right Side - Decorative Lines */}
               <div className="relative">
-                <div className="absolute inset-0 flex flex-col justify-between p-2">
+                <div className="absolute inset-0 flex flex-col justify-between p-2 md:p-4">
                   {[...Array(30)].map((_, i) => (
                     <div 
                       key={i} 
-                      className="h-[1px] w-full"
+                      className="h-[1px] md:h-[2px] w-full"
                       style={{
                         background: i % 3 === 1 ? '#E63946' : // red
                                   i % 3 === 2 ? '#F77F00' : // orange

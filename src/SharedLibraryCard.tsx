@@ -75,20 +75,22 @@ export default function SharedLibraryCard() {
   }
 
   return (
-    <div className="py-12">
-      <div className="w-full max-w-2xl mx-auto px-4">
-        <div className="flex flex-col items-center gap-4 mb-8">
-          <h2 className="text-3xl font-medieval text-black dark:text-white text-center">
+    <div className="flex flex-col items-center pt-12 md:pt-24 px-4">
+      <div className="w-full max-w-3xl mx-auto">
+        <div className="flex flex-col items-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-medieval text-black dark:text-white text-center mb-8">
             {userData.firstName}'s Library Card
           </h2>
           <button
             onClick={handleGetCard}
-            className="inline-block px-6 py-3 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border-2 border-yellow-500/50 dark:border-yellow-500/70 rounded-md text-black dark:text-white transition-all duration-300 hover:border-yellow-500"
+            className="px-6 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border-2 border-yellow-500/50 dark:border-yellow-500/70 rounded-md text-black dark:text-white transition-all duration-300 hover:border-yellow-500"
           >
-            Get Your Own
+            Get Your Own Library Card
           </button>
         </div>
-        <LibraryCard readonly userData={userData} />
+        <div className="w-full max-w-md md:max-w-2xl mx-auto">
+          <LibraryCard readonly userData={userData} />
+        </div>
       </div>
     </div>
   );
