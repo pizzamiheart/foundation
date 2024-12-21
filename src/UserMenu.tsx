@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { LogOut, User } from 'lucide-react';
-import { useAuth } from '././contexts/AuthContext';
-import { signOut } from '././lib/services/auth';
+import { useAuth } from './contexts/AuthContext';
+import { signOut } from './lib/services/auth';
 
 export default function UserMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,10 +19,10 @@ export default function UserMenu() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-1.5 text-xs sm:text-sm bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-black/20 dark:border-white/20 rounded-md text-black dark:text-white transition-colors"
+        className="p-2 text-black/60 dark:text-white/60 hover:text-red-500 transition-colors"
+        aria-label="User menu"
       >
         <User className="w-4 h-4" />
-        <span className="hidden sm:inline">{user?.email}</span>
       </button>
 
       {isOpen && (
