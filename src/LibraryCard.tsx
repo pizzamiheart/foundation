@@ -4,17 +4,10 @@ import { ChevronUp, ChevronDown } from 'lucide-react';
 import { useAuth } from './contexts/AuthContext';
 import { subscribeToUserProfile } from './lib/services/database';
 
-interface UserData {
-  cardNumber: string;
-  firstName: string;
-  essaysBorrowed: number;
-  createdAt: any;
-}
-
 interface LibraryCardProps {
   isNew?: boolean;
   readonly?: boolean;
-  userData?: UserData;
+  userData?: any;
 }
 
 export default function LibraryCard({ isNew = false, readonly = false, userData }: LibraryCardProps) {
@@ -107,7 +100,14 @@ export default function LibraryCard({ isNew = false, readonly = false, userData 
             initial={isNew ? { scale: 0.9, opacity: 0 } : false}
             animate={isNew ? { scale: 1, opacity: 1 } : false}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-[#ffffe8] dark:bg-black rounded-md border border-black/20 dark:border-white/20 overflow-hidden scale-90 md:scale-100"
+            className="bg-[#ffffe8] dark:bg-black rounded-md border-2 border-black/20 dark:border-white/20 overflow-hidden scale-90 md:scale-100
+              shadow-[6px_6px_0px_rgba(0,0,0,0.1)] dark:shadow-[6px_6px_0px_rgba(255,253,245,0.15)] 
+              hover:shadow-[3px_3px_0px_rgba(0,0,0,0.05),inset_1px_1px_0px_rgba(255,255,255,0.9)] dark:hover:shadow-[3px_3px_0px_rgba(255,253,245,0.1),inset_1px_1px_0px_rgba(51,51,51,0.9)] 
+              hover:translate-y-[3px] hover:translate-x-[3px]
+              active:shadow-[1px_1px_0px_rgba(0,0,0,0.025),inset_2px_2px_0px_rgba(255,255,255,1)] dark:active:shadow-[1px_1px_0px_rgba(255,253,245,0.05),inset_2px_2px_0px_rgba(51,51,51,1)] 
+              active:translate-y-[5px] active:translate-x-[5px]
+              hover:border-black/30 dark:hover:border-white/30
+              transition-all duration-75"
           >
             <div className="grid grid-cols-2">
               {/* Left Side - Card Details */}
