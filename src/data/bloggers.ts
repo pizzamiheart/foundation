@@ -24,6 +24,30 @@ export const bloggers = [
     borderColor: "border-blue-700/50"
   },
   {
+    name: "Sriram Krishnan",
+    image: "",
+    bio: "I'm an engineer and investor. Most recently I was a General Partner at Andreessen Horowitz. I previously lead organizations at Meta, Twitter/X and Microsoft.",
+    website: "https://sriramk.com/",
+    twitter: "sriramk",
+    essays: [
+      {
+        title: "Stuff I've Learned at Microsoft",
+        url: "https://sriramk.com/stuff-ive-learned-at-microsoft"
+      },
+      {
+        title: "Group Chats Rule the World",
+        url: "https://sriramk.com/group-chats-rule-the-world"
+      },
+      {
+        title: "How to Write a Cold Email",
+        url: "https://sriramk.com/coldemail"
+      }
+    ],
+    bgColor: "bg-blue-900/30",
+    textColor: "text-blue-100",
+    borderColor: "border-blue-700/50"
+  },
+  {
     name: "Andy Matuschak",
     image: "",
     bio: "I'm an applied researcher, focused on creating user interfaces that expand what people can think and do.",
