@@ -1480,5 +1480,269 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Aashay Sanghvi",
+    image: "", // Add your image link here
+    bio: "I live in San Francisco, CA. Prior to Haystack, I helped start Branch Furniture and studied economics and history at Harvard. I am a technology optimist and believe that everything big starts small.",
+    website: "https://www.aashaysanghvi.com/",
+    twitter: "aashaysanghvi_",
+    essays: [
+      {
+        title: "Dealing with a Hangover",
+        url: "https://aashay.substack.com/p/dealing-with-a-hangover?triedRedirect=true"
+      },
+      {
+        title: "Dynamism",
+        url: "https://aashay.substack.com/p/dynamism?triedRedirect=true"
+      },
+      {
+        title: "Observer Effect",
+        url: "https://aashay.substack.com/p/observer-effect?triedRedirect=true"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Varun Srinivasan",
+    image: "", // Add your image link here
+    bio: "I'm building Farcaster, a decentralized social network. Before that, I helped decentralize money at Coinbase, started SoundFocus to help people with hearing loss, and built productivity software at Microsoft.",
+    website: "https://www.varunsrinivasan.com/writing/",
+    twitter: "varunsrin",
+    essays: [
+      {
+        title: "How to Ship Fast",
+        url: "https://www.varunsrinivasan.com/2024/08/17/how-to-ship-fast"
+      },
+      {
+        title: "Crypto Moats",
+        url: "https://www.varunsrinivasan.com/2020/09/29/crypto-moats"
+      },
+      {
+        title: "The Goldilocks Consensus Problem",
+        url: "https://www.varunsrinivasan.com/2024/04/28/the-goldilocks-consensus-problem"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Aaron Harris",
+    image: "", // Add your image link here
+    bio: "I was a partner at Y Combinator for 7.5 years. I ran a company called Tutorspree for 3 years. I'm reasonably sure I've seen everything that can happen to an early stage company, and much of what happens at later stages.",
+    website: "https://aaronkharris.com/",
+    twitter: "harris",
+    essays: [
+      {
+        title: "The Hindsight Game",
+        url: "https://blog.aaronkharris.com/the-hindsight-game"
+      },
+      {
+        title: "A Framework for Choosing What to Do",
+        url: "https://blog.aaronkharris.com/a-framework-for-choosing-a-job"
+      },
+      {
+        title: "Raise Less Money",
+        url: "https://blog.aaronkharris.com/raise-less-money"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Hari Raghavan",
+    image: "", // Add your image link here
+    bio: "Hi! I'm Hari Raghavan. I love moving atoms and pennies with bits. I'm a loyalist to some people, some causes, and all dogs.",
+    website: "https://hariraghavan.com/",
+    twitter: "haridigresses",
+    essays: [
+      {
+        title: "How to Be An Elite Startup Employee",
+        url: "https://blog.hariraghavan.com/p/startup-social-contract"
+      },
+      {
+        title: "Are you a Nice Person, or Seem Like a Nice Person?",
+       url: "https://blog.hariraghavan.com/p/are-you-a-nice-person-or-seem-like"
+      },
+      {
+        title: "Why Product Doesn't Matter for Product Market Fit",
+        url: "https://blog.hariraghavan.com/p/pmf"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Erik Torenberg",
+    image: "", // Add your image link here
+    bio: "I'm a technology entrepreneur and investor. Presently I am the founder of Turpentine. Previously, I was the chairman of On Deck, co-founder and general partner at Village Global, and first employee at Product Hunt.",
+    website: "https://eriktorenberg.com/",
+    twitter: "eriktorenberg",
+    essays: [
+      {
+        title: "Startups Are Less Risky Than You Think",
+        url: "https://eriktorenberg.substack.com/p/starting-a-company-is-less-risky"
+      },
+      {
+        title: "Navigating Career Transitions",
+        url: "https://eriktorenberg.substack.com/p/navigating-career-transitions"
+      },
+      {
+        title: "Faith Over Logic",
+        url: "https://eriktorenberg.substack.com/p/faith-over-logic"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Andrew Chen",
+    image: "", // Add your image link here
+    bio: "Hello there! I'm a partner at Andreessen Horowitz focused on tech startups based in LA and SF.",
+    website: "https://andrewchen.com/list-of-essays/",
+    twitter: "andrewchen",
+    essays: [
+      {
+        title: "How Startups Die from Their Addiction to Paid Marketing",
+        url: "https://andrewchen.co/paid-marketing-addiction/"
+      },
+      {
+        title: "The Power User Curve",
+        url: "https://andrewchen.com/power-user-curve/"
+      },
+      {
+        title: "Growth Hacker is the New VP Marketing",
+        url: "https://andrewchen.com/how-to-be-a-growth-hacker-an-airbnbcraigslist-case-study/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Fred Wilson",
+    image: "", // Add your image link here
+    bio: "I am a VC. I have been since 1986. I am also a husband, a father of three amazing people, a blogger, a music fan, and a bunch of other things too.",
+    website: "https://avc.com/",
+    twitter: "fredwilson",
+    essays: [
+      {
+        title: "Sign Everything",
+        url: "https://avc.com/2022/12/sign-everything/"
+      },
+      {
+        title: "Leading From The Heart",
+        url: "https://avc.com/2023/04/leading-from-the-heart/"
+      },
+      {
+        title: "What Happened in the 2010s",
+        url: "https://avc.com/2019/12/what-happened-in-the-2010s/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Vivek Ravisankar",
+    image: "", // Add your image link here
+    bio: "I'm Vivek, co-founder, HackerRank.",
+    website: "https://www.rvivek.com/",
+    twitter: "rvivek",
+    essays: [
+      {
+        title: "Raising the Bar",
+        url: "https://www.rvivek.com/2017/06/10/raising-the-bar.html"
+      },
+      {
+        title: "Motivation",
+        url: "https://www.rvivek.com/motivation/"
+      },
+      {
+        title: "Leadership",
+        url: "https://www.rvivek.com/2024/02/23/Leadership.html"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Jack Altman",
+    image: "", // Add your image link here
+    bio: "Early stage investor at Alt Capital. Founder of Lattice, drowning in kids.",
+    website: "https://jackealtman.com/",
+    twitter: "jaltma",
+    essays: [
+      {
+        title: "Know Thyself and Compete Accordingly",
+        url: "https://jackealtman.com/know-thyself-and-compete-accordingly"
+      },
+      {
+        title: "Why We're Not in a Tech Bubble",
+        url: "https://jackealtman.com/why-were-not-in-a-tech-bubble"
+      },
+      {
+        title: "Your Best Option is to Be the Best",
+        url: "https://jackealtman.com/your-best-option-is-to-be-the-best"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Peter Askew",
+    image: "", // Add your image link here
+    bio: "I'm Peter Askew, and .com domain names are wonderful. Beautiful in fact. I enjoy acquiring them & building humble websites that serve niche communities.",
+    website: "https://www.askew.org/",
+    twitter: "searchbound",
+    essays: [
+      {
+        title: "How on Earth I Became an Entrepreneur",
+        url: "https://www.deepsouthventures.com/how-on-earth/"
+      },
+      {
+        title: "I Sell Onions on the Internet",
+        url: "https://www.deepsouthventures.com/i-sell-onions-on-the-internet/"
+      },
+      {
+        title: "On Being Laid Off and Unplanned Entrepreneurship",
+        url: "https://www.deepsouthventures.com/build-a-side-business/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Ludwig",
+    image: "", // Add your image link here
+    bio: "swe at [redacted] -- currently building large-scale distributed systems",
+    website: "https://ludwigabap.bearblog.dev/",
+    twitter: "ludwigABAP",
+    essays: [
+      {
+        title: "On Getting Started With Category Theory",
+        url: "https://ludwigabap.bearblog.dev/on-getting-started-with-category-theory/"
+      },
+      {
+        title: "On First Principles Thinking",
+        url: "https://ludwigabap.bearblog.dev/yap-transcript-on-first-principles-thinking/"
+      },
+      {
+        title: "On Answering ~150 DMs on x.com in 48hrs",
+        url: "https://ludwigabap.bearblog.dev/reflections-on-150-dms-on-xcom-in-48hrs/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
