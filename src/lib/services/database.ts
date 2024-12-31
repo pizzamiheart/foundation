@@ -65,17 +65,23 @@ export const createUserProfile = async (userId: string, profileData: UserProfile
     const nextCardNumber = ((statsDoc.exists() ? statsDoc.data()?.lastCardNumber : 0) || 0) + 1;
     const paddedCardNumber = nextCardNumber.toString().padStart(5, '0');
 
+    // Remove undefined fields from profileData
+    const cleanProfileData: Record<string, any> = { ...profileData };
+    Object.keys(cleanProfileData).forEach((key) => {
+      if (cleanProfileData[key] === undefined) {
+        delete cleanProfileData[key];
+      }
+    });
+
     // Set user document
     batch.set(userRef, {
       uid: userId,
-      email: profileData.email,
-      firstName: profileData.firstName,
-      twitter: profileData.twitter,
+      ...cleanProfileData,
       cardNumber: paddedCardNumber,
       createdAt: serverTimestamp(),
       lastActive: serverTimestamp(),
       readingList: [],
-      essaysBorrowed: 0
+      essaysBorrowed: 0,
     });
 
     // Update stats document
@@ -84,13 +90,13 @@ export const createUserProfile = async (userId: string, profileData: UserProfile
         totalUsers: 1,
         totalEssayClicks: 0,
         lastCardNumber: nextCardNumber,
-        lastUpdated: serverTimestamp()
+        lastUpdated: serverTimestamp(),
       });
     } else {
       batch.update(statsRef, {
         totalUsers: increment(1),
         lastCardNumber: increment(1),
-        lastUpdated: serverTimestamp()
+        lastUpdated: serverTimestamp(),
       });
     }
 

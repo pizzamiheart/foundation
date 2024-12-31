@@ -12,7 +12,7 @@ export interface SignUpData {
   email: string;
   password: string;
   firstName: string;
-  twitter?: string;
+  twitter?: string; // Allow undefined for optional fields
 }
 
 export const signUp = async ({ email, password, firstName, twitter }: SignUpData): Promise<User> => {
@@ -25,7 +25,7 @@ export const signUp = async ({ email, password, firstName, twitter }: SignUpData
       await createUserProfile(userCredential.user.uid, {
         email,
         firstName,
-        twitter: twitter?.replace('@', ''), // Remove @ if present
+        twitter: twitter?.replace('@', '') || undefined, // Use undefined if not provided
       });
       return userCredential.user;
     } catch (error) {
