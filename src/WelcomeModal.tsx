@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import { useAuth } from './contexts/AuthContext';
-import { checkEmailVerification } from './lib/services/verification';
+import { useAuth } from '././contexts/AuthContext';
+import { checkEmailVerification } from '././lib/services/verification';
 
 interface WelcomeModalProps {
   isOpen: boolean;
@@ -45,19 +45,33 @@ export default function WelcomeModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80">
-      <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg 
-        bg-[#ffffe8] dark:bg-black border-2 border-red-500/30 dark:border-red-500 
-        shadow-[6px_6px_0px_rgba(229,58,70,0.1)] dark:shadow-[6px_6px_0px_rgba(229,58,70,0.3)]
-        transition-all duration-300 ring-1 ring-red-500/30">
-        
+    <div 
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+      onClick={(e) => {
+        // Only allow clicking outside to close if verification is not required
+        if (!requireVerification) {
+          e.stopPropagation();
+          onClose();
+        }
+      }}
+    >
+      <div 
+        className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-lg 
+          bg-[#ffffe8] dark:bg-black border-2 border-red-500/30 dark:border-red-500 
+          shadow-[6px_6px_0px_rgba(229,58,70,0.1)] dark:shadow-[6px_6px_0px_rgba(229,58,70,0.3)]
+          transition-all duration-300 ring-1 ring-red-500/30"
+        onClick={e => e.stopPropagation()}
+      >
         <div className="relative p-8">
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 p-2 text-black/60 dark:text-red-500/60 hover:text-red-500 transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          {/* Only show close button if verification is not required */}
+          {!requireVerification && (
+            <button
+              onClick={onClose}
+              className="absolute top-4 right-4 p-2 text-black/60 dark:text-red-500/60 hover:text-red-500 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          )}
           
           <div className="prose prose-invert dark:prose-invert max-w-none">
             {requireVerification && (
