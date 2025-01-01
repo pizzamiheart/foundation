@@ -1744,5 +1744,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Andrej Karpathy",
+    image: "", // Add your image link here
+    bio: "Building Eureka Labs. Previously Director of AI @ Tesla, founding team @ OpenAI, CS231n/PhD @ Stanford. I like to train large deep neural nets 🧠🤖💥",
+    website: "https://karpathy.ai/",
+    twitter: "karpathy",
+    essays: [
+      {
+        title: "Biohacking Lite",
+        url: "https://karpathy.github.io/2020/06/11/biohacking-lite/"
+      },
+      {
+        title: "Software 2.0",
+        url: "https://karpathy.medium.com/software-2-0-a64152b37c35"
+      },
+      {
+        title: "Founding Fathers on Today's America",
+        url: "https://karpathy.ai/blog/foundingfathers.html"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
