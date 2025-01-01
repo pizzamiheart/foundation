@@ -1768,5 +1768,29 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Dan Luu",
+    image: "", // Add your image link here
+    bio: "I write danluu.com, a blog about programming and the programming industry.",
+    website: "https://danluu.com/",
+    twitter: "danluu",
+    essays: [
+      {
+        title: "Willingness to Look Stupid",
+        url: "https://danluu.com/look-stupid/"
+      },
+      {
+        title: "Steve Ballmer Was an Underrated CEO",
+        url: "https://danluu.com/ballmer/"
+      },
+      {
+        title: "What to Learn",
+        url: "https://danluu.com/learn-what/"
+      }
+    ],
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
