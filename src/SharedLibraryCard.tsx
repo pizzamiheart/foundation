@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from './lib/firebase';
 import LibraryCard from './LibraryCard';
@@ -46,10 +47,6 @@ export default function SharedLibraryCard() {
     return () => unsubscribe();
   }, [userId]);
 
-  const handleGetCard = () => {
-    window.open('/signup', '_blank');
-  };
-
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
@@ -78,15 +75,18 @@ export default function SharedLibraryCard() {
     <div className="flex flex-col items-center pt-12 md:pt-24 px-4">
       <div className="w-full max-w-3xl mx-auto">
         <div className="flex flex-col items-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-medieval text-black dark:text-white text-center mb-8">
+          <h3 className="text-lg font-medieval text-black/80 dark:text-white/80 mb-3">
+            Don't have a library card yet?
+          </h3>
+          <Link
+            to="/signup"
+            className="px-6 py-2 mb-8 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border-2 border-yellow-500/50 dark:border-yellow-500/70 rounded-md text-black dark:text-white transition-all duration-300 hover:border-yellow-500"
+          >
+            Grab it Here
+          </Link>
+          <h2 className="text-3xl md:text-4xl font-medieval text-black dark:text-white text-center">
             {userData.firstName}'s Library Card
           </h2>
-          <button
-            onClick={handleGetCard}
-            className="px-6 py-2 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border-2 border-yellow-500/50 dark:border-yellow-500/70 rounded-md text-black dark:text-white transition-all duration-300 hover:border-yellow-500"
-          >
-            Get Your Own Library Card
-          </button>
         </div>
         <div className="w-full max-w-md md:max-w-2xl mx-auto">
           <LibraryCard readonly userData={userData} />
