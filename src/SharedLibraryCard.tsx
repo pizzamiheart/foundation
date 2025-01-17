@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { doc, onSnapshot } from 'firebase/firestore';
 import { db } from './lib/firebase';
 import LibraryCard from './LibraryCard';
-
-interface UserData {
-  cardNumber: string;
-  firstName: string;
-  essaysBorrowed: number;
-  createdAt: any;
-}
+import type { UserData } from './lib/types';
 
 export default function SharedLibraryCard() {
   const { userId } = useParams();

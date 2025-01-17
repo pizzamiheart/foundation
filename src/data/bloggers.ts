@@ -19,6 +19,9 @@ export const bloggers = [
         url: "https://www.paulgraham.com/ds.html"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-blue-900/30",
     textColor: "text-blue-100",
     borderColor: "border-blue-700/50"
@@ -43,6 +46,9 @@ export const bloggers = [
         url: "https://sriramk.com/coldemail"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-blue-900/30",
     textColor: "text-blue-100",
     borderColor: "border-blue-700/50"
@@ -67,6 +73,9 @@ export const bloggers = [
         url: "https://andymatuschak.org/books/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-slate-900/30",
     textColor: "text-slate-100",
     borderColor: "border-slate-700/50"
@@ -91,6 +100,9 @@ export const bloggers = [
         url: "https://www.listennotes.com/blog/good-enough-engineering-to-start-an-internet-27/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-slate-900/30",
     textColor: "text-slate-100",
     borderColor: "border-slate-700/50"
@@ -115,6 +127,9 @@ export const bloggers = [
         url: "https://grahamduncan.blog/current-questions-i-find-interesting/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-slate-900/30",
     textColor: "text-slate-100",
     borderColor: "border-slate-700/50"
@@ -139,6 +154,9 @@ export const bloggers = [
         url: "https://marginalrevolution.com/marginalrevolution/2018/01/tyler-cowens-12-rules-life.html"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-indigo-900/30",
     textColor: "text-indigo-100",
     borderColor: "border-indigo-700/50"
@@ -163,6 +181,9 @@ export const bloggers = [
         url: "https://pmarchive.com/guide_to_personal_productivity.html"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-violet-900/30",
     textColor: "text-violet-100",
     borderColor: "border-violet-700/50"
@@ -170,7 +191,7 @@ export const bloggers = [
   {
     name: "Packy McCormick",
     image: "",
-    bio: "Author of Not Boring. Not Boring’s mission is to make the world more optimistic.",
+    bio: "Author of Not Boring. Not Boring's mission is to make the world more optimistic.",
     website: "https://www.notboring.co/",
     twitter: "packyM",
     essays: [
@@ -187,6 +208,9 @@ export const bloggers = [
         url: "https://www.notboring.co/p/the-value-chain-of-the-open-metaverse"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-rose-900/30",
     textColor: "text-rose-100",
     borderColor: "border-rose-700/50"
@@ -211,6 +235,9 @@ export const bloggers = [
         url: "https://worrydream.com/ClimateChange/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-amber-900/30",
     textColor: "text-amber-100",
     borderColor: "border-amber-700/50"
@@ -235,6 +262,9 @@ export const bloggers = [
         url: "https://michaelnielsen.org/blog/is-there-a-tension-between-creativity-and-accuracy/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-lime-900/30",
     textColor: "text-lime-100",
     borderColor: "border-lime-700/50"
@@ -259,6 +289,9 @@ export const bloggers = [
         url: "https://kk.org/thetechnium/better-than-fre/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-sky-900/30",
     textColor: "text-sky-100",
     borderColor: "border-sky-700/50"
@@ -283,6 +316,9 @@ export const bloggers = [
         url: "https://patrickcollison.com/questions"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-purple-900/30",
     textColor: "text-purple-100",
     borderColor: "border-purple-700/50"
@@ -307,6 +343,9 @@ export const bloggers = [
         url: "https://joecarlsmith.com/2021/03/14/against-neutrality-about-creating-happy-lives"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-neutral-900/30",
     textColor: "text-neutral-100",
     borderColor: "border-neutral-700/50"
@@ -330,6 +369,9 @@ export const bloggers = [
         url: "https://www.cold-takes.com/summary-of-history-empowerment-and-well-being-lens/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-neutral-900/30",
     textColor: "text-neutral-100",
     borderColor: "border-neutral-700/50"
@@ -353,6 +395,9 @@ export const bloggers = [
         url: "https://herman.bearblog.dev/my-product-is-my-garden/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-neutral-900/30",
     textColor: "text-neutral-100",
     borderColor: "border-neutral-700/50"
@@ -378,6 +423,9 @@ export const bloggers = [
         url: "https://grantslatton.com/status-among-whom"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-slate-900/30",
     textColor: "text-slate-100",
     borderColor: "border-slate-700/50"
@@ -385,7 +433,7 @@ export const bloggers = [
   {
     name: "Ben Thompson",
     image: "",
-    bio: "I’ve worked previously at Apple (interned), Microsoft, and Automattic, where I focused on strategy, developer relations, and marketing.",
+    bio: "I've worked previously at Apple (interned), Microsoft, and Automattic, where I focused on strategy, developer relations, and marketing.",
     website: "https://stratechery.com/",
     twitter: "benthompson",
     essays: [
@@ -402,6 +450,9 @@ export const bloggers = [
         url: "https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-zinc-900/30",
     textColor: "text-zinc-100",
     borderColor: "border-zinc-700/50"
@@ -426,6 +477,9 @@ export const bloggers = [
         url: "https://www.ribbonfarm.com/tempo/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-stone-900/30",
     textColor: "text-stone-100",
     borderColor: "border-stone-700/50"
@@ -450,6 +504,9 @@ export const bloggers = [
         url: "https://amasad.me/story"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-teal-900/30",
     textColor: "text-teal-100",
     borderColor: "border-teal-700/50"
@@ -474,6 +531,9 @@ export const bloggers = [
         url: "https://nivi.com/now"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-fuchsia-900/30",
     textColor: "text-fuchsia-100",
     borderColor: "border-fuchsia-700/50"
@@ -498,6 +558,9 @@ export const bloggers = [
         url: "https://www.molsonhart.com/blog/8hr41ggabv9ok0tpp94f5om7ib7epd"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-emerald-900/30",
     textColor: "text-emerald-100",
     borderColor: "border-emerald-700/50"
@@ -522,6 +585,9 @@ export const bloggers = [
         url: "https://cassidoo.co/post/scrabble-keyboard/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-orange-900/30",
     textColor: "text-orange-100",
     borderColor: "border-orange-700/50"
@@ -546,13 +612,16 @@ export const bloggers = [
         url: "https://interconnected.org/home/2024/01/26/hardware"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-cyan-900/30",
     textColor: "text-cyan-100",
     borderColor: "border-cyan-700/50"
   },
   {
     name: "Tobi Lütke",
-    image: "", // Add your image link here
+    image: "",
     bio: "Shopify CEO by day, Dad in evening, hacker at night. Aspiring comprehensivist.",
     website: "https://tobi.lutke.com/",
     twitter: "tobi",
@@ -570,13 +639,16 @@ export const bloggers = [
         url: "https://tobi.lutke.com/blogs/news/11280225-good-at-making-decisions"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-slate-900/30",
     textColor: "text-slate-100",
     borderColor: "border-slate-700/50"
   },
   {
     name: "Sam Altman",
-    image: "", // Add your image link here
+    image: "",
     bio: "CEO OpenAI. AI is cool I guess.",
     website: "https://blog.samaltman.com/",
     twitter: "sama",
@@ -594,13 +666,16 @@ export const bloggers = [
         url: "https://blog.samaltman.com/before-growth"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-slate-900/30",
     textColor: "text-slate-100",
     borderColor: "border-slate-700/50"
   },
   {
     name: "Pieter Levels",
-    image: "", // Add your image link here
+    image: "",
     bio: "My belief is we live in the most exciting time in history for humanity, and we live in a global world, and I want to spend my life experiencing that to the fullest.",
     website: "https://levels.io/blog/",
     twitter: "levelsio",
@@ -618,14 +693,17 @@ export const bloggers = [
         url: "https://levels.io/100-days-of-shipping/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-slate-900/30",
     textColor: "text-slate-100",
     borderColor: "border-slate-700/50"
   },
   {
     name: "Benedict Evans",
-    image: "", // Add your image link here
-    bio: "I’ve spent 20 years analysing mobile, media and technology, and worked in equity research, strategy, consulting and venture capital.",
+    image: "",
+    bio: "I've spent 20 years analysing mobile, media and technology, and worked in equity research, strategy, consulting and venture capital.",
     website: "https://www.ben-evans.com/newsletter",
     twitter: "benedictevans",
     essays: [
@@ -642,13 +720,16 @@ export const bloggers = [
         url: "https://www.ben-evans.com/benedictevans/2020/5/16/not-even-wrong"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-teal-900/30",
     textColor: "text-teal-100",
     borderColor: "border-teal-700/50"
   },
   {
     name: "Shane Parrish",
-    image: "", // Add your image link here
+    image: "",
     bio: "Mastering the best of what other people have already figured out.",
     website: "https://fs.blog/being-alone/",
     twitter: "ShaneAParrish",
@@ -666,13 +747,16 @@ export const bloggers = [
         url: "https://fs.blog/mental-models/#military_and_war"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-amber-900/30",
     textColor: "text-amber-100",
     borderColor: "border-amber-700/50"
   },
   {
     name: "Gwern",
-    image: "", // Add your image link here
+    image: "",
     bio: "I write about AI, psychology, & statistics. I am best known for my writings about DL scaling, poetry & anime neural networks, darknet markets & Bitcoin, blinded self-experiments, and dual n-back & spaced repetition.",
     website: "https://gwern.net/",
     twitter: "jessefarmer",
@@ -690,13 +774,16 @@ export const bloggers = [
         url: "https://gwern.net/note/note#on-being-sick-as-a-kid"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-orange-900/30",
     textColor: "text-orange-100",
     borderColor: "border-orange-700/50"
   },
   {
     name: "Lenny Rachitsky",
-    image: "", // Add your image link here
+    image: "",
     bio: "Author of Lenny's Newsletter. Before that, I spent years building and managing product teams at early startups and Airbnb.",
     website: "https://www.lennysnewsletter.com/",
     twitter: "lennysan",
@@ -707,20 +794,22 @@ export const bloggers = [
       },
       {
         title: "500,000",
-        url: "https://www.lennysnewsletter.com/p/500000"
-      },
+        url: "https://www.lennysnewsletter.com/p/500000" },
       {
         title: "Raising a Seed Round 101",
         url: "https://www.lennysnewsletter.com/p/raising-a-seed-round-101"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-cyan-900/30",
     textColor: "text-cyan-100",
     borderColor: "border-cyan-700/50"
   },
   {
     name: "Jason Fried",
-    image: "", // Add your image link here
+    image: "",
     bio: "Co-founder of Basecamp, exploring productivity, business, and work-life balance.",
     website: "https://world.hey.com/jason",
     twitter: "jasonfried",
@@ -738,14 +827,17 @@ export const bloggers = [
         url: "https://world.hey.com/jason/73-of-what-80e24c13"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-neutral-900/30",
     textColor: "text-neutral-100",
     borderColor: "border-neutral-700/50"
   },
   {
     name: "Ryan Hoover",
-    image: "", // Add your image link here
-    bio: "I’m the Founder of Product Hunt and Investor at Weekend Fund. I helped write Hooked and sometimes I publish essays.",
+    image: "",
+    bio: "I'm the Founder of Product Hunt and Investor at Weekend Fund. I helped write Hooked and sometimes I publish essays.",
     website: "https://www.ryanhoover.me/",
     twitter: "rrhoover",
     essays: [
@@ -762,13 +854,16 @@ export const bloggers = [
         url: "https://www.ryanhoover.me/post/how-we-made-our-first-dollar-at-product-hunt"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-purple-900/30",
     textColor: "text-purple-100",
     borderColor: "border-purple-700/50"
   },
-{
+  {
     name: "Scott Alexander",
-    image: "", // Add your image link here
+    image: "",
     bio: "Psychiatrist and writer exploring a range of topics from science and technology to philosophy and culture.",
     website: "https://astralcodexten.substack.com/",
     twitter: "slatestarcodex",
@@ -786,13 +881,16 @@ export const bloggers = [
         url: "https://slatestarcodex.com/2016/11/07/tuesday-shouldnt-change-the-narrative/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-indigo-900/30",
     textColor: "text-indigo-100",
     borderColor: "border-indigo-700/50"
   },
   {
     name: "Tim Urban",
-    image: "", // Add your image link here
+    image: "",
     bio: "Founder of Wait But Why, writing in-depth posts about science, technology, and human behavior.",
     website: "https://waitbutwhy.com/",
     twitter: "waitbutwhy",
@@ -810,13 +908,16 @@ export const bloggers = [
         url: "https://waitbutwhy.com/2018/04/picking-career.html"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-rose-900/30",
     textColor: "text-rose-100",
     borderColor: "border-rose-700/50"
   },
   {
     name: "Sahil Lavingia",
-    image: "", // Add your image link here
+    image: "",
     bio: "Founder of Gumroad. Building Antiwork.",
     website: "https://sahillavingia.com/",
     twitter: "shl",
@@ -834,13 +935,16 @@ export const bloggers = [
         url: "https://sahillavingia.com/bubble"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-teal-900/30",
     textColor: "text-teal-100",
     borderColor: "border-teal-700/50"
   },
   {
     name: "Morgan Housel",
-    image: "", // Add your image link here
+    image: "",
     bio: "Partner at Collaborative Fund, writing about finance, investing, and human behavior.",
     website: "https://www.collaborativefund.com/blog/",
     twitter: "morganhousel",
@@ -858,14 +962,17 @@ export const bloggers = [
         url: "https://www.collaborativefund.com/blog/a-few-rules/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-orange-900/30",
     textColor: "text-orange-100",
     borderColor: "border-orange-700/50"
   },
   {
     name: "Nat Eliason",
-    image: "", // Add your image link here
-    bio: "I’m the author of Crypto Confidential, and have been publishing articles, essays, and guides online for over a decade.",
+    image: "",
+    bio: "I'm the author of Crypto Confidential, and have been publishing articles, essays, and guides online for over a decade.",
     website: "https://blog.nateliason.com/",
     twitter: "nateliason",
     essays: [
@@ -882,14 +989,17 @@ export const bloggers = [
         url: "https://blog.nateliason.com/p/known-costs-unknowable-benefits"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-yellow-900/30",
     textColor: "text-yellow-100",
     borderColor: "border-yellow-700/50"
   },
   {
     name: "Rachel Andrew",
-    image: "", // Add your image link here
-    bio: "I’m a web developer and technical writer and editor. I work for Google on the Chrome team as a senior staff technical writer and content lead for web.dev and developer.chrome.com. ",
+    image: "",
+    bio: "I'm a web developer and technical writer and editor. I work for Google on the Chrome team as a senior staff technical writer and content lead for web.dev and developer.chrome.com. ",
     website: "https://rachelandrew.co.uk/",
     twitter: "pjrvs",
     essays: [
@@ -906,13 +1016,16 @@ export const bloggers = [
         url: "https://rachelandrew.co.uk/archives/2014/12/26/a-year-in-links/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Toby Shorin",
-    image: "", // Add your image link here
+    image: "",
     bio: "Technologist and writer living in Brooklyn. Subpixel Space is mostly longform essays and shorter-form things about technology and culture.",
     website: "https://subpixel.space/about/",
     twitter: "tobyshorin",
@@ -930,13 +1043,16 @@ export const bloggers = [
         url: "https://subpixel.space/entries/towards-blogger-peer-review/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "L.M. Sacasas",
-    image: "", // Add your image link here
+    image: "",
     bio: "The Convivial Society is a newsletter exploring the relationship between technology and culture. It's grounded in the history and philosophy of technology, with a sprinkling of media ecology",
     website: "https://theconvivialsociety.substack.com/",
     twitter: "LMSacasas",
@@ -954,13 +1070,16 @@ export const bloggers = [
         url: "https://theconvivialsociety.substack.com/p/desire-dopamine-and-the-internet"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Deedy Das",
-    image: "", // Add your image link here
+    image: "",
     bio: "Investing in AI, SaaS and Infra at Menlo Ventures in San Francisco. Previous: Founding team Glean, Google Search, Facebook.",
     website: "https://debarghyadas.com/writes/",
     twitter: "deedydas",
@@ -978,13 +1097,16 @@ export const bloggers = [
         url: "https://debarghyadas.com/writes/on-privilege/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Josh Manders",
-    image: "", // Add your image link here
+    image: "",
     bio: "Ambitious founder building so many products at once that I've started outsourcing my sleep.",
     website: "https://ambitiousfounder.com/",
     twitter: "joshmanders",
@@ -1002,13 +1124,16 @@ export const bloggers = [
         url: "https://ambitiousfounder.com/25-years-coding"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Naval",
-    image: "", // Add your image link here
+    image: "",
     bio: "Incompressible",
     website: "https://nav.al/",
     twitter: "naval",
@@ -1026,13 +1151,16 @@ export const bloggers = [
         url: "https://nav.al/exceptional"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Neel Nanda",
-    image: "", // Add your image link here
+    image: "",
     bio: "Hi, I'm Neel! I run the Google DeepMind mechanistic interpretability team... This blog is a collection of my thoughts on various ideas I've found valuable for being happy, improving my life, or understanding the world.",
     website: "https://www.neelnanda.io/",
     twitter: "NeelNanda5",
@@ -1050,13 +1178,16 @@ export const bloggers = [
         url: "https://www.neelnanda.io/blog/33-upside-risk"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Visakan Veerasamy",
-    image: "", // Add your image link here
+    image: "",
     bio: "My mission is to build the greatest social graph of friendly, ambitious nerds that the world has ever seen.",
     website: "https://visakanv.com/",
     twitter: "visakanv",
@@ -1074,13 +1205,16 @@ export const bloggers = [
         url: "https://visakanv.substack.com/p/we-were-voyagers"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Nabeel S. Qureshi",
-    image: "", // Add your image link here
+    image: "",
     bio: "I'm currently a startup founder (in stealth). Previously, I worked at Palantir, and was a Visiting Scholar in AI at the Mercatus Center, as well as an Emergent Ventures awardee.",
     website: "https://nabeelqu.co/",
     twitter: "nabeelqu",
@@ -1098,13 +1232,16 @@ export const bloggers = [
         url: "https://nabeelqu.co/education"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Nate Soares",
-    image: "", // Add your image link here
+    image: "",
     bio: "I'm the president of the Machine Intelligence Research Institute. I'm an aspiring rationalist, which means that I spend a lot of time thinking about how I think about things, ostensibly so that I'll get better at it.",
     website: "https://mindingourway.com/",
     twitter: "So8res",
@@ -1122,13 +1259,16 @@ export const bloggers = [
         url: "https://mindingourway.com/on-caring/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Chris Olah",
-    image: "", // Add your image link here
+    image: "",
     bio: "I'm one of the co-founders of Anthropic, an AI lab focused on the safety of large models. Previously, I led interpretability research at OpenAI, worked at Google Brain, and co-founded Distill, a scientific journal focused on outstanding communication.",
     website: "https://colah.github.io/",
     twitter: "ch402",
@@ -1146,13 +1286,16 @@ export const bloggers = [
         url: "https://colah.github.io/posts/2019-05-Collaboration/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Aaron Francis",
-    image: "", // Add your image link here
+    image: "",
     bio: "I'm a software developer, content creator, and co-founder of Try Hard Studios. I'm on Twitter all the time, and I make videos on YouTube.",
     website: "https://aaronfrancis.com/",
     twitter: "aarondfrancis",
@@ -1170,13 +1313,16 @@ export const bloggers = [
         url: "https://github.com/readme/guides/publishing-your-work"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Derek Sivers",
-    image: "", // Add your image link here
+    image: "",
     bio: "I've been a musician, circus performer, entrepreneur, and speaker. I'm a slow thinker, explorer, xenophile, and I love a different point of view.",
     website: "https://sive.rs/",
     twitter: "sivers",
@@ -1194,13 +1340,16 @@ export const bloggers = [
         url: "https://sive.rs/plaintext"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Matt Palmer",
-    image: "", // Add your image link here
+    image: "",
     bio: "Former data professional turned product marketer, I spend my time thinking about how to communicate complex technology.",
     website: "https://blog.mattpalmer.io/",
     twitter: "mattppal",
@@ -1218,13 +1367,16 @@ export const bloggers = [
         url: "https://blog.mattpalmer.io/data-is-a-meme/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Guillermo Rauch",
-    image: "", // Add your image link here
+    image: "",
     bio: "I'm a software engineer and CEO of Vercel. I'm originally from Lanús, Buenos Aires, Argentina. I owe much of my career to the Web and Open Source.",
     website: "https://rauchg.com/",
     twitter: "rauchg",
@@ -1242,13 +1394,16 @@ export const bloggers = [
         url: "https://rauchg.com/2021/making-the-web-faster"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Delian Asparouhov",
-    image: "", // Add your image link here
+    image: "",
     bio: "I'm currently a Partner at Founders Fund. Before this I was a Principal at Khosla Ventures, the head of growth at Teespring, and the founder of a healthcare company called Nightingale. I'm Bulgarian, I like to ski, and I'm better with computers than people.",
     website: "https://delian.io/",
     twitter: "zebulgar",
@@ -1266,13 +1421,16 @@ export const bloggers = [
         url: "https://delian.io/lessons-3"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Paras Chopra",
-    image: "", // Add your image link here
+    image: "",
     bio: "I'm Paras Chopra. These days I'm running Turing's Dream, an AI research lab focused on creativity and reasoning.",
     website: "https://invertedpassion.com/",
     twitter: "paraschopra",
@@ -1290,13 +1448,16 @@ export const bloggers = [
         url: "https://invertedpassion.com/people-dont-like-using-technology/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Amanda Askell",
-    image: "", // Add your image link here
+    image: "",
     bio: "I'm a philosopher working on finetuning and AI alignment at Anthropic.",
     website: "https://askell.io/",
     twitter: "AmandaAskell",
@@ -1314,13 +1475,16 @@ export const bloggers = [
         url: "https://rauchg.com/2021/making-the-web-faster"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Paul Christiano",
-    image: "", // Add your image link here
+    image: "",
     bio: "Paul Christiano is head of AI safety for the U.S. Artificial Intelligence Safety Institute.",
     website: "https://sideways-view.com/",
     essays: [
@@ -1337,13 +1501,16 @@ export const bloggers = [
         url: "https://sideways-view.com/2018/02/24/takeoff-speeds/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Fin Moorhouse",
-    image: "", // Add your image link here
+    image: "",
     bio: "Currently I'm a researcher at Longview Philanthropy. Before that, I was a Research Scholar and assistant to Toby Ord at Oxford University's Future of Humanity Institute.",
     website: "https://finmoorhouse.com/",
     twitter: "finmoorhouse",
@@ -1361,13 +1528,16 @@ export const bloggers = [
         url: "https://finmoorhouse.com/writing/news/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Maraoz",
-    image: "", // Add your image link here
+    image: "",
     bio: "I cofounded and was formerly CTO at OpenZeppelin. I created Proof of Existence, one of the first non-financial bitcoin apps. I also helped create Decentraland.",
     website: "https://maraoz.com/",
     twitter: "maraoz",
@@ -1385,13 +1555,16 @@ export const bloggers = [
         url: "https://maraoz.com/2026/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
   {
     name: "Jordi Enric",
-    image: "", // Add your image link here
+    image: "",
     bio: "I am a frontend developer from Mallorca, Spain 🏝️, passionate about creating beautiful and fast web applications.",
     website: "https://www.jordienric.com/",
     twitter: "jordienr",
@@ -1409,11 +1582,14 @@ export const bloggers = [
         url: "https://jordi.zenblog.com/building-zenblog"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
   },
-  {
+ {
     name: "Boris Tane",
     image: "", // Add your image link here
     bio: "I build observability at Cloudflare. I hangout on twitter - hit me up, my dms are open!",
@@ -1429,6 +1605,9 @@ export const bloggers = [
         url: "https://boristane.com/blog/observability-wide-events-101/"
       }
     ],
+     influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1453,6 +1632,9 @@ export const bloggers = [
         url: "https://stevekrouse.github.io/small.html"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1477,6 +1659,9 @@ export const bloggers = [
         url: "https://tynan.com/variance/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1501,6 +1686,9 @@ export const bloggers = [
         url: "https://aashay.substack.com/p/observer-effect?triedRedirect=true"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1525,6 +1713,9 @@ export const bloggers = [
         url: "https://www.varunsrinivasan.com/2024/04/28/the-goldilocks-consensus-problem"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1548,7 +1739,11 @@ export const bloggers = [
         title: "Raise Less Money",
         url: "https://blog.aaronkharris.com/raise-less-money"
       }
+      
     ],
+    influence: {
+      tier: 'bulb'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1573,6 +1768,9 @@ export const bloggers = [
         url: "https://blog.hariraghavan.com/p/pmf"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1597,6 +1795,9 @@ export const bloggers = [
         url: "https://eriktorenberg.substack.com/p/faith-over-logic"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1621,6 +1822,9 @@ export const bloggers = [
         url: "https://andrewchen.com/how-to-be-a-growth-hacker-an-airbnbcraigslist-case-study/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1645,6 +1849,9 @@ export const bloggers = [
         url: "https://avc.com/2019/12/what-happened-in-the-2010s/"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1669,6 +1876,9 @@ export const bloggers = [
         url: "https://www.rvivek.com/2024/02/23/Leadership.html"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1693,6 +1903,9 @@ export const bloggers = [
         url: "https://jackealtman.com/your-best-option-is-to-be-the-best"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1717,6 +1930,9 @@ export const bloggers = [
         url: "https://www.deepsouthventures.com/build-a-side-business/"
       }
     ],
+    influence: {
+      tier: 'emerging'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1741,6 +1957,9 @@ export const bloggers = [
         url: "https://ludwigabap.bearblog.dev/reflections-on-150-dms-on-xcom-in-48hrs/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1765,6 +1984,9 @@ export const bloggers = [
         url: "https://karpathy.ai/blog/foundingfathers.html"
       }
     ],
+    influence: {
+      tier: 'legendary'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
@@ -1789,6 +2011,9 @@ export const bloggers = [
         url: "https://danluu.com/learn-what/"
       }
     ],
+    influence: {
+      tier: 'renowned'
+    },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"

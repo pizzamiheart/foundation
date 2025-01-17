@@ -8,13 +8,14 @@ import LibrariansPick from './LibrariansPick';
 import LibraryStats from './LibraryStats';
 import Footer from './Footer';
 import AboutModal from './AboutModal';
-import HorizontalMenu from './HorizontalMenu';
+import HorizontalMenu from './/HorizontalMenu';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import UserMenu from './UserMenu';
 import SharedLibraryCard from './SharedLibraryCard';
 import { bloggers } from './data/bloggers';
 import { useAuth } from './contexts/AuthContext';
+import type { Author } from './lib/types';
 
 function HeaderContent() {
   const location = useLocation();
@@ -35,7 +36,9 @@ function HeaderContent() {
           </Link>
           <div className="flex items-center gap-4">
             <HorizontalMenu onOpenAbout={() => setIsAboutOpen(true)} />
-            {!isPublicLibraryPage && !isSuggestionPage && user && <LibrariansPick bloggers={bloggers} />}
+            {!isPublicLibraryPage && !isSuggestionPage && user && (
+              <LibrariansPick bloggers={bloggers} />
+            )}
             {user ? (
               <UserMenu />
             ) : (
@@ -63,9 +66,17 @@ function HomePage() {
       <div className="py-8 bg-gradient-to-b from-black/5 dark:from-black/20 to-transparent">
         <LibraryStats />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-        {displayedBloggers.map((blogger, index) => (
-          <BloggerCard key={index} {...blogger} />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+        {displayedBloggers.map((blogger: Author, index: number) => (
+          <BloggerCard
+            key={index}
+            name={blogger.name}
+            bio={blogger.bio}
+            website={blogger.website}
+            twitter={blogger.twitter || ''}
+            essays={blogger.essays}
+            influence={blogger.influence}
+          />
         ))}
       </div>
       {(!user || !isVerified) && (

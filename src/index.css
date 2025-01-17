@@ -59,9 +59,13 @@
 
 .highlighted-card {
   position: relative;
+  transition: outline 0.3s ease-in-out, outline-offset 0.3s ease-in-out;
+  outline: 0px solid transparent;
+  outline-offset: 0px;
 }
 
 .highlighted-card.active {
-  box-shadow: 6px 6px 0px rgba(229, 58, 70, 0.3) !important;
-  border-color: #E53A46 !important;
+  outline: 3px solid #E53A46;
+  outline-offset: -3px;
+  border-radius: 0.75rem;
 }
