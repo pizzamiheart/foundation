@@ -1752,20 +1752,20 @@ export const bloggers = [
     name: "Hari Raghavan",
     image: "", // Add your image link here
     bio: "Hi! I'm Hari Raghavan. I love moving atoms and pennies with bits. I'm a loyalist to some people, some causes, and all dogs.",
-    website: "https://hariraghavan.com/",
+    website: "https://hari.ooo/",
     twitter: "haridigresses",
     essays: [
       {
         title: "How to Be An Elite Startup Employee",
-        url: "https://blog.hariraghavan.com/p/startup-social-contract"
+        url: "https://blog.hari.ooo/p/startup-social-contract"
       },
       {
         title: "Are you a Nice Person, or Seem Like a Nice Person?",
-       url: "https://blog.hariraghavan.com/p/are-you-a-nice-person-or-seem-like"
+       url: "https://blog.hari.ooo/p/are-you-a-nice-person-or-seem-like"
       },
       {
         title: "Why Product Doesn't Matter for Product Market Fit",
-        url: "https://blog.hariraghavan.com/p/pmf"
+        url: "https://blog.hari.ooo/p/pmf"
       }
     ],
     influence: {
