@@ -147,20 +147,23 @@ export default function BloggerCard({
             </h3>
             <ul className="space-y-0.5">
               {essays.map((essay, index) => (
-                <li key={index} className="flex items-center gap-1 group/essay relative pr-16">
+                <li key={index} className="flex items-center gap-1 group/essay">
                   <ExternalLink className="w-3 h-3 flex-shrink-0 text-black/60 dark:text-white/60 group-hover/essay:text-red-500" />
-                  <button
-                    onClick={(e) => handleEssayClick(essay, e)}
-                    className="essay-link text-left text-xs font-medium text-black/80 dark:text-white/80 hover:text-red-500 hover:underline transition-colors line-clamp-1"
-                  >
-                    {essay.title}
-                  </button>
-                  <button
-                    onClick={(e) => handleEssayClick(essay, e)}
-                    className="borrow-button text-[10px] font-typewriter px-1.5 py-0.5 border border-red-500/70 dark:border-red-500 text-black/80 dark:text-white/80 hover:text-red-500 hover:border-red-500 transition-colors absolute right-0"
-                  >
-                    Borrow
-                  </button>
+                  <div className="flex-1 flex items-center justify-between">
+                    <a
+                      href={essay.url}
+                      onClick={(e) => handleEssayClick(essay, e)}
+                      className="essay-link text-left text-xs font-medium text-black/80 dark:text-white/80 hover:text-red-500 hover:underline transition-colors line-clamp-1 flex-1 min-w-0 touch-manipulation"
+                    >
+                      {essay.title}
+                    </a>
+                    <button
+                      onClick={(e) => handleEssayClick(essay, e)}
+                      className="borrow-button text-[10px] font-typewriter px-1.5 py-0.5 border border-red-500/70 dark:border-red-500 text-black/80 dark:text-white/80 hover:text-red-500 hover:border-red-500 transition-colors ml-2 opacity-0 group-hover/essay:opacity-100"
+                    >
+                      Borrow
+                    </button>
+                  </div>
                 </li>
               ))}
             </ul>
