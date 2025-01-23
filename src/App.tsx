@@ -8,13 +8,14 @@ import LibrariansPick from './LibrariansPick';
 import LibraryStats from './LibraryStats';
 import Footer from './Footer';
 import AboutModal from './AboutModal';
-import HorizontalMenu from './/HorizontalMenu';
+import HorizontalMenu from './HorizontalMenu';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import UserMenu from './UserMenu';
 import SharedLibraryCard from './SharedLibraryCard';
-import { bloggers } from './data/bloggers';
+import TierFilter from './TierFilter';
 import { useAuth } from './contexts/AuthContext';
+import { bloggers } from './data/bloggers';
 import type { Author } from './lib/types';
 
 function HeaderContent() {
@@ -59,21 +60,30 @@ function HeaderContent() {
 
 function HomePage() {
   const { user, isVerified } = useAuth();
-  const displayedBloggers = user && isVerified ? bloggers : bloggers.slice(0, 9);
+  const [selectedTier, setSelectedTier] = useState<Author['influence']['tier'] | 'all'>('all');
+
+  const filteredBloggers = bloggers.filter(blogger => 
+    selectedTier === 'all' || blogger.influence.tier === selectedTier
+  );
+
+  const displayedBloggers = user && isVerified ? filteredBloggers : filteredBloggers.slice(0, 9);
 
   return (
     <>
       <div className="py-8 bg-gradient-to-b from-black/5 dark:from-black/20 to-transparent">
         <LibraryStats />
       </div>
+      <div className="mb-6 flex justify-end">
+        <TierFilter selectedTier={selectedTier} onChange={setSelectedTier} />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-        {displayedBloggers.map((blogger: Author, index: number) => (
-          <BloggerCard
+        {displayedBloggers.map((blogger, index) => (
+          <BloggerCard 
             key={index}
             name={blogger.name}
             bio={blogger.bio}
             website={blogger.website}
-            twitter={blogger.twitter || ''}
+            twitter={blogger.twitter}
             essays={blogger.essays}
             influence={blogger.influence}
           />

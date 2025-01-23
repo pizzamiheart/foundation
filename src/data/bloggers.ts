@@ -47,7 +47,7 @@ export const bloggers = [
       }
     ],
     influence: {
-      tier: 'renowned'
+      tier: 'legendary'
     },
     bgColor: "bg-blue-900/30",
     textColor: "text-blue-100",
@@ -694,7 +694,7 @@ export const bloggers = [
       }
     ],
     influence: {
-      tier: 'renowned'
+      tier: 'legendary'
     },
     bgColor: "bg-slate-900/30",
     textColor: "text-slate-100",
@@ -1098,7 +1098,7 @@ export const bloggers = [
       }
     ],
     influence: {
-      tier: 'emerging'
+      tier: 'renowned'
     },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
@@ -1206,7 +1206,7 @@ export const bloggers = [
       }
     ],
     influence: {
-      tier: 'emerging'
+      tier: 'renowned'
     },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
@@ -1233,7 +1233,7 @@ export const bloggers = [
       }
     ],
     influence: {
-      tier: 'emerging'
+      tier: 'renowned'
     },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
@@ -1449,7 +1449,7 @@ export const bloggers = [
       }
     ],
     influence: {
-      tier: 'emerging'
+      tier: 'renowned'
     },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
@@ -2013,6 +2013,33 @@ export const bloggers = [
     ],
     influence: {
       tier: 'renowned'
+    },
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "JT",
+    image: "", // Add your image link here
+    bio: "I work as a data engineer for a US federal government agency. You know, the good stuff... data warehouses, long walks on the beach, something about pipelines?",
+    website: "https://jiratickets.com/",
+    twitter: "jiratickets",
+    essays: [
+      {
+        title: "Well, how did I get here?",
+        url: "https://jiratickets.com/well-how-did-i-get-here/"
+      },
+      {
+        title: "AWS Tidbits and Whatnot",
+        url: "https://jiratickets.com/aws-tidbits-and-whatnot/"
+      },
+      {
+        title: "2500 Miles in 10 Days",
+        url: "https://jiratickets.com/2500-miles-10-days/"
+      }
+    ],
+    influence: {
+      tier: 'emerging'
     },
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
