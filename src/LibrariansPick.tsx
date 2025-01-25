@@ -1,22 +1,13 @@
 import React from 'react';
 import { BookOpen } from 'lucide-react';
-
-interface Essay {
-  title: string;
-  url: string;
-}
-
-interface Blogger {
-  name: string;
-  essays: Essay[];
-  [key: string]: any;
-}
+import type { Author } from './lib/types';
 
 interface LibrariansPickProps {
-  bloggers: Blogger[];
+  bloggers: Author[];
+  selectedTier: Author['influence']['tier'] | 'all';
 }
 
-export default function LibrariansPick({ bloggers }: LibrariansPickProps) {
+export default function LibrariansPick({ bloggers, selectedTier }: LibrariansPickProps) {
   const pickRandomEssay = () => {
     // Remove previous highlights
     document.querySelectorAll('.highlighted-card').forEach(card => {
@@ -26,8 +17,13 @@ export default function LibrariansPick({ bloggers }: LibrariansPickProps) {
       link.classList.remove('slide-out');
     });
 
-    // Get random blogger and essay
-    const randomBlogger = bloggers[Math.floor(Math.random() * bloggers.length)];
+    // Filter bloggers by selected tier
+    const filteredBloggers = selectedTier === 'all' 
+      ? bloggers 
+      : bloggers.filter(blogger => blogger.influence.tier === selectedTier);
+
+    // Get random blogger and essay from filtered list
+    const randomBlogger = filteredBloggers[Math.floor(Math.random() * filteredBloggers.length)];
     const randomEssayIndex = Math.floor(Math.random() * randomBlogger.essays.length);
     const cardId = randomBlogger.name.toLowerCase().replace(/\s+/g, '-');
 

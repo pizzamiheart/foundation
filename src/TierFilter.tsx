@@ -11,9 +11,9 @@ interface TierFilterProps {
 
 const tiers: { value: Tier; label: string; icon: React.ReactNode }[] = [
   { value: 'all', label: 'All Writers', icon: null },
-  { value: 'legendary', label: 'Pioneers', icon: <Gem className="w-4 h-4" /> },
-  { value: 'renowned', label: 'Established', icon: <Lightbulb className="w-4 h-4" /> },
-  { value: 'emerging', label: 'Budding', icon: <Sprout className="w-4 h-4" /> },
+  { value: 'legendary', label: 'Legendary', icon: <Gem className="w-4 h-4" /> },
+  { value: 'renowned', label: 'Renowned', icon: <Lightbulb className="w-4 h-4" /> },
+  { value: 'emerging', label: 'Emerging', icon: <Sprout className="w-4 h-4" /> },
 ];
 
 export default function TierFilter({ selectedTier, onChange }: TierFilterProps) {

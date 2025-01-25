@@ -11,17 +11,17 @@ interface TierInfo {
 const tiers: TierInfo[] = [
   {
     icon: <Gem className="w-5 h-5" />,
-    description: "Pioneers: their writing and their work are widely recognized and distributed.",
+    description: "Legendary: their writing and their work are widely recognized and distributed.",
     color: "from-red-500/20 to-transparent"
   },
   {
     icon: <Lightbulb className="w-5 h-5" />,
-    description: "Established: the things they've built, where they work, and maybe even some of their writing will be recognizable.",
+    description: "Renowned: the things they've built, where they work, and maybe even some of their writing will be recognizable.",
     color: "from-yellow-500/20 to-transparent"
   },
   {
     icon: <Sprout className="w-5 h-5" />,
-    description: "Budding: their ideas and the things they're working on/tinkering with are worth discovering.",
+    description: "Emerging: their ideas and the things they're working on/tinkering with are worth discovering.",
     color: "from-green-500/20 to-transparent"
   }
 ];

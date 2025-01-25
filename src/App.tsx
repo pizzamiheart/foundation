@@ -11,7 +11,7 @@ import AboutModal from './AboutModal';
 import HorizontalMenu from './HorizontalMenu';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import UserMenu from './UserMenu';
+import UserMenu from './/UserMenu';
 import SharedLibraryCard from './SharedLibraryCard';
 import TierFilter from './TierFilter';
 import { useAuth } from './contexts/AuthContext';
@@ -37,9 +37,6 @@ function HeaderContent() {
           </Link>
           <div className="flex items-center gap-4">
             <HorizontalMenu onOpenAbout={() => setIsAboutOpen(true)} />
-            {!isPublicLibraryPage && !isSuggestionPage && user && (
-              <LibrariansPick bloggers={bloggers} />
-            )}
             {user ? (
               <UserMenu />
             ) : (
@@ -62,10 +59,12 @@ function HomePage() {
   const { user, isVerified } = useAuth();
   const [selectedTier, setSelectedTier] = useState<Author['influence']['tier'] | 'all'>('all');
 
-  const filteredBloggers = bloggers.filter(blogger => 
-    selectedTier === 'all' || blogger.influence.tier === selectedTier
-  );
+  // Only filter by tier if user is signed in and verified
+  const filteredBloggers = user && isVerified
+    ? bloggers.filter(blogger => selectedTier === 'all' || blogger.influence.tier === selectedTier)
+    : bloggers;
 
+  // Always limit for non-signed-in or non-verified users
   const displayedBloggers = user && isVerified ? filteredBloggers : filteredBloggers.slice(0, 9);
 
   return (
@@ -73,9 +72,17 @@ function HomePage() {
       <div className="py-8 bg-gradient-to-b from-black/5 dark:from-black/20 to-transparent">
         <LibraryStats />
       </div>
-      <div className="mb-6 flex justify-end">
-        <TierFilter selectedTier={selectedTier} onChange={setSelectedTier} />
-      </div>
+      
+      {/* Only show controls if user is signed in and verified */}
+      {user && isVerified && (
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <LibrariansPick bloggers={filteredBloggers} selectedTier={selectedTier} />
+          </div>
+          <TierFilter selectedTier={selectedTier} onChange={setSelectedTier} />
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
         {displayedBloggers.map((blogger, index) => (
           <BloggerCard 
@@ -89,6 +96,7 @@ function HomePage() {
           />
         ))}
       </div>
+      
       {(!user || !isVerified) && (
         <div className="text-center py-12 px-4">
           <div className="max-w-xl mx-auto bg-[#ffffe8] dark:bg-black rounded-lg border-2 border-black/20 dark:border-white/20 p-6">
