@@ -22,9 +22,7 @@ export default function SearchResults({
 }: SearchResultsProps) {
   const { user } = useAuth();
 
-  const handleEssayClick = async (e: React.MouseEvent, result: SearchResult) => {
-    e.preventDefault();
-    
+  const handleEssayClick = async (result: SearchResult) => {
     if (user) {
       try {
         await incrementEssaysBorrowed(user.uid);
@@ -72,16 +70,13 @@ export default function SearchResults({
         <div className="divide-y divide-black/10 dark:divide-white/10">
           <AnimatePresence>
             {results.map((result, index) => (
-              <motion.a
+              <motion.button
                 key={`${result.authorName}-${result.essayTitle}-${index}`}
-                href={result.essayUrl}
-                onClick={(e) => handleEssayClick(e, result)}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={() => handleEssayClick(result)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="block p-4 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                className="block w-full p-4 hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div>
@@ -94,7 +89,7 @@ export default function SearchResults({
                   </div>
                   <ExternalLink className="w-4 h-4 text-black/40 dark:text-white/40 flex-shrink-0 transform group-hover:rotate-45 transition-transform" />
                 </div>
-              </motion.a>
+              </motion.button>
             ))}
           </AnimatePresence>
         </div>
