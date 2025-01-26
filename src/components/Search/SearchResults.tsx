@@ -22,10 +22,7 @@ export default function SearchResults({
 }: SearchResultsProps) {
   const { user } = useAuth();
 
-  const handleEssayClick = async (result: SearchResult, e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent any default behavior
-    e.stopPropagation(); // Stop event bubbling
-    
+  const handleEssayClick = async (result: SearchResult) => {
     if (user) {
       try {
         await incrementEssaysBorrowed(user.uid);
@@ -34,14 +31,8 @@ export default function SearchResults({
       }
     }
     
-    // Create and trigger a link for better mobile compatibility
-    const link = document.createElement('a');
-    link.href = result.essayUrl;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open in new tab
+    window.open(result.essayUrl, '_blank', 'noopener,noreferrer');
   };
 
   if (isLoading) {
@@ -80,12 +71,9 @@ export default function SearchResults({
         <div className="divide-y divide-black/10 dark:divide-white/10">
           <AnimatePresence>
             {results.map((result, index) => (
-              <motion.a
+              <motion.button
                 key={`${result.authorName}-${result.essayTitle}-${index}`}
-                href={result.essayUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => handleEssayClick(result, e)}
+                onClick={() => handleEssayClick(result)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
@@ -102,7 +90,7 @@ export default function SearchResults({
                   </div>
                   <ExternalLink className="w-4 h-4 text-black/40 dark:text-white/40 flex-shrink-0 transform group-hover:rotate-45 transition-transform" />
                 </div>
-              </motion.a>
+              </motion.button>
             ))}
           </AnimatePresence>
         </div>
