@@ -2044,5 +2044,139 @@ export const bloggers = [
     bgColor: "bg-green-900/30",
     textColor: "text-green-100",
     borderColor: "border-green-700/50"
+  },
+  {
+    name: "Lee Robinson",
+    image: "", // Add your image link here
+    bio: "I'm a frontend developer, optimist, and community builder. I work at Vercel, where I teach the Next.js community, an open-source web framework built with React.",
+    website: "https://leerob.com/",
+    twitter: "leeerob",
+    essays: [
+      {
+        title: "On Developer Marketing",
+        url: "https://leerob.com/n/developer-marketing"
+      },
+      {
+        title: "Understanding AI",
+        url: "https://leerob.com/n/ai"
+      },
+      {
+        title: "On Community Moderation",
+        url: "https://leerob.com/n/moderation"
+      }
+    ],
+    influence: {
+      tier: 'renowned'
+    },
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Rohit Krishnan",
+    image: "", // Add your image link here
+    bio: "I am, therefore I think. But since arguments from authority still work, I'm an engineer and an economist, ran a hedge fund, worked in 4 continents, was a venture capitalist, built startups, built products, advised companies, and occasionally a government or two, and now building AI platforms that don't suck.",
+    website: "https://substack.com/@strangeloopcanon",
+    twitter: "krishnanrohit",
+    essays: [
+      {
+        title: "What Would a World With AGI Look Like?",
+        url: "https://www.strangeloopcanon.com/p/what-would-a-world-with-agi-look"
+      },
+      {
+        title: "On Thinkers and Doers",
+        url: "https://www.strangeloopcanon.com/p/on-thinkers-and-doers"
+      },
+      {
+        title: "On Medici and Thiel",
+        url: "https://www.strangeloopcanon.com/p/on-medici-and-thiel"
+      }
+    ],
+    influence: {
+      tier: 'renowned'
+    },
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Jacob Kaplan-Moss",
+    image: "", // Add your image link here
+    bio: "I’m a software developer, co-creator of Django, and engineering leader.",
+    website: "https://jacobian.org/",
+    essays: [
+      {
+        title: "So You've Been Reorg'd",
+        url: "https://jacobian.org/2024/mar/12/reorg/"
+      },
+      {
+        title: "I Refuse to Tolerate Assholes",
+        url: "https://jacobian.org/2011/may/19/assholes/"
+      },
+      {
+        title: "How to Gather Consensus Before a Big Decision",
+        url: "https://jacobian.org/2021/jan/18/consensus-before-a-decision/"
+      }
+    ],
+    influence: {
+      tier: 'renowned'
+    },
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Will Larson",
+    image: "", // Add your image link here
+    bio: "I’m a software engineering leader and writer, currently serving as Carta’s CTO. I’ve worked at Calm, Stripe, Uber, Digg, a few other places, and cofounded a defunct iOS gaming startup with Luke Hatcher, Monocle Studios.",
+    website: "https://lethain.com/",
+    twitter: "Lethain",
+    essays: [
+      {
+        title: "How to Create Software Quality",
+        url: "https://lethain.com/quality/"
+      },
+      {
+        title: "Writers Who Operate",
+        url: "https://lethain.com/writers-who-operate/"
+      },
+      {
+        title: "Navigating Ambiguity",
+        url: "https://lethain.com/navigating-ambiguity/"
+      }
+    ],
+    influence: {
+      tier: 'renowned'
+    },
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
+  },
+  {
+    name: "Curtis Yarvin/Mencius Moldbug",
+    image: "", // Add your image link here
+    bio: "Mencius Moldbug is widely credited with founding neoreaction (NRx), a political philosophy and intellectual movement dedicated to providing secure, responsible, and effective government.",
+    website: "https://www.unqualified-reservations.org/",
+    twitter: "curtis_yarvin",
+    essays: [
+      {
+        title: "A Formalist Manifesto",
+        url: "https://www.unqualified-reservations.org/2007/04/formalist-manifesto-originally-posted/"
+      },
+      {
+        title: "Technology, Communism, and the Brown Scare",
+        url: "https://www.unqualified-reservations.org/2013/09/technology-communism-and-brown-scare/"
+      },
+      {
+        title: "Sam Altman is Not a Blithering Idiot",
+        url: "https://www.unqualified-reservations.org/2013/03/sam-altman-is-not-blithering-idiot/"
+      }
+    ],
+    influence: {
+      tier: 'legendary'
+    },
+    bgColor: "bg-green-900/30",
+    textColor: "text-green-100",
+    borderColor: "border-green-700/50"
   }
 ];
