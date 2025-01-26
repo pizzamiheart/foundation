@@ -22,7 +22,8 @@ export default function SearchResults({
 }: SearchResultsProps) {
   const { user } = useAuth();
 
-  const handleEssayClick = async (result: SearchResult) => {
+  const handleEssayClick = async (e: React.MouseEvent, result: SearchResult) => {
+    // Don't prevent default - let the link work naturally
     if (user) {
       try {
         await incrementEssaysBorrowed(user.uid);
@@ -30,9 +31,6 @@ export default function SearchResults({
         console.error('Error tracking essay click:', error);
       }
     }
-    
-    // Open in new tab
-    window.open(result.essayUrl, '_blank', 'noopener,noreferrer');
   };
 
   if (isLoading) {
@@ -71,26 +69,33 @@ export default function SearchResults({
         <div className="divide-y divide-black/10 dark:divide-white/10">
           <AnimatePresence>
             {results.map((result, index) => (
-              <motion.button
+              <motion.div
                 key={`${result.authorName}-${result.essayTitle}-${index}`}
-                onClick={() => handleEssayClick(result)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                className="block w-full p-4 hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left cursor-pointer"
+                className="block w-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-sm font-medium text-black dark:text-white mb-1">
-                      {result.essayTitle}
-                    </h3>
-                    <p className="text-xs text-black/60 dark:text-white/60">
-                      by {result.authorName}
-                    </p>
+                <a
+                  href={result.essayUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => handleEssayClick(e, result)}
+                  className="block w-full p-4 text-left cursor-pointer"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-sm font-medium text-black dark:text-white mb-1">
+                        {result.essayTitle}
+                      </h3>
+                      <p className="text-xs text-black/60 dark:text-white/60">
+                        by {result.authorName}
+                      </p>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-black/40 dark:text-white/40 flex-shrink-0 transform group-hover:rotate-45 transition-transform" />
                   </div>
-                  <ExternalLink className="w-4 h-4 text-black/40 dark:text-white/40 flex-shrink-0 transform group-hover:rotate-45 transition-transform" />
-                </div>
-              </motion.button>
+                </a>
+              </motion.div>
             ))}
           </AnimatePresence>
         </div>
