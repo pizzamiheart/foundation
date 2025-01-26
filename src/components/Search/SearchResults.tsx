@@ -22,9 +22,7 @@ export default function SearchResults({
 }: SearchResultsProps) {
   const { user } = useAuth();
 
-  const handleEssayClick = async (result: SearchResult, e: React.MouseEvent) => {
-    e.preventDefault(); // Prevent any default behavior
-    
+  const handleEssayClick = async (result: SearchResult) => {
     if (user) {
       try {
         await incrementEssaysBorrowed(user.uid);
@@ -33,9 +31,8 @@ export default function SearchResults({
       }
     }
     
-    // Force open in new tab
-    const win = window.open(result.essayUrl, '_blank');
-    if (win) win.focus();
+    // Open in new tab instead of redirecting
+    window.open(result.essayUrl, '_blank', 'noopener,noreferrer');
   };
 
   if (isLoading) {
@@ -74,12 +71,12 @@ export default function SearchResults({
         <div className="divide-y divide-black/10 dark:divide-white/10">
           <AnimatePresence>
             {results.map((result, index) => (
-              <motion.div
+              <motion.button
                 key={`${result.authorName}-${result.essayTitle}-${index}`}
+                onClick={() => handleEssayClick(result)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
-                onClick={(e) => handleEssayClick(result, e)}
                 className="block w-full p-4 hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left cursor-pointer"
               >
                 <div className="flex items-start justify-between gap-4">
@@ -93,14 +90,14 @@ export default function SearchResults({
                   </div>
                   <ExternalLink className="w-4 h-4 text-black/40 dark:text-white/40 flex-shrink-0 transform group-hover:rotate-45 transition-transform" />
                 </div>
-              </motion.div>
+              </motion.button>
             ))}
           </AnimatePresence>
         </div>
       </div>
 
       {hasMore && (
-        <motion.div
+        <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           onClick={onLoadMore}
@@ -108,7 +105,7 @@ export default function SearchResults({
         >
           <span>Show more results</span>
           <ChevronDown className="w-4 h-4" />
-        </motion.div>
+        </motion.button>
       )}
     </div>
   );
