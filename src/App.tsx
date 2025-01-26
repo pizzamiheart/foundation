@@ -11,30 +11,48 @@ import AboutModal from './AboutModal';
 import HorizontalMenu from './HorizontalMenu';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import UserMenu from './/UserMenu';
+import UserMenu from './UserMenu';
 import SharedLibraryCard from './SharedLibraryCard';
 import TierFilter from './TierFilter';
+import SearchBar from './components/Search/SearchBar';
 import { useAuth } from './contexts/AuthContext';
 import { bloggers } from './data/bloggers';
 import type { Author } from './lib/types';
 
 function HeaderContent() {
   const location = useLocation();
-  const { user } = useAuth();
+  const { user, isVerified } = useAuth();
   const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
   const isPublicLibraryPage = location.pathname.startsWith('/library/');
   const isSuggestionPage = location.pathname === '/suggest';
+
+  const handleSearch = async (query: string) => {
+    setIsSearching(true);
+    // TODO: Implement search
+    setIsSearching(false);
+  };
 
   return (
     <header className="bg-cream dark:bg-black border-b border-black/10 dark:border-white/10 sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.svg" alt="Foundation Logo" className="w-6 h-6" />
-            <h1 className="text-xl sm:text-2xl font-medieval text-black dark:text-white">
-              Foundation
-            </h1>
-          </Link>
+        <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 flex-1">
+            <Link to="/" className="flex items-center gap-3">
+              <img src="/logo.svg" alt="Foundation Logo" className="w-6 h-6" />
+              <h1 className="text-xl sm:text-2xl font-medieval text-black dark:text-white">
+                Foundation
+              </h1>
+            </Link>
+
+            {/* Search Bar */}
+            {user && isVerified && !isPublicLibraryPage && !isSuggestionPage && (
+              <div className="hidden md:block flex-1 max-w-md">
+                <SearchBar onSearch={handleSearch} isLoading={isSearching} />
+              </div>
+            )}
+          </div>
+
           <div className="flex items-center gap-4">
             <HorizontalMenu onOpenAbout={() => setIsAboutOpen(true)} />
             {user ? (
@@ -49,6 +67,13 @@ function HeaderContent() {
             )}
           </div>
         </div>
+
+        {/* Mobile Search Bar */}
+        {user && isVerified && !isPublicLibraryPage && !isSuggestionPage && (
+          <div className="md:hidden mt-4">
+            <SearchBar onSearch={handleSearch} isLoading={isSearching} />
+          </div>
+        )}
       </div>
       <AboutModal isOpen={isAboutOpen} onClose={() => setIsAboutOpen(false)} />
     </header>

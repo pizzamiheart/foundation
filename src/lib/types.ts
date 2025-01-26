@@ -28,3 +28,10 @@ export interface UserData {
   email: string;
   twitter?: string;
 }
+
+export interface SearchResult {
+  essayTitle: string;
+  essayUrl: string;
+  authorName: string;
+  relevanceScore: number;
+}
